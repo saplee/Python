@@ -14,7 +14,7 @@ some_color = input("Enter some color")
 noun = input("Enter some plural noun")
 verb = input("Enter some verb")
 print(f"""Roses are {some_color},
-{noun} are blue, i love to {verb},
+{noun} are blue, I love to {verb},
 And so will you!""")
 
 
