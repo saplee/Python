@@ -7,7 +7,7 @@ num1 = int(input(f"Hello, {name}! Enter a random number:"))
 num2 = int(input("Great! Now enter a second random number:"))
 sum = num1+num2
 # print out sum
-print(f"{num1}+{num2} is {sum}")
+print(f"{num1} + {num2} is {sum}")
 
 
 some_color = input("Enter some color")
