@@ -5,9 +5,9 @@ name = input("What is your name?")
 num1 = int(input(f"Hello, {name}! Enter a random number:"))
 # ask for second random number
 num2 = int(input("Great! Now enter a second random number:"))
-sum = num1+num2
+sum1 = num1+num2
 # print out sum
-print(f"{num1} + {num2} is {sum}")
+print(f"{num1} + {num2} is {sum1}")
 
 #ask 
 some_color = input("Enter some color")
@@ -18,10 +18,11 @@ print(f"""Roses are {some_color},
 And so will you!""")
 
 
-str = input("Enter a greeting: ")
+str1 = input("Enter a greeting: ")
 greeting = input("Enter a recipient: ")
 num = int(input("How many times to repeat:"))
-print((str+" "+greeting+"! ")*num)
+print((str1+" "+greeting+"! ")*num)
+
 
 
 
