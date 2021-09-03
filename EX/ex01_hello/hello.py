@@ -9,7 +9,7 @@ sum = num1+num2
 # print out sum
 print(f"{num1} + {num2} is {sum}")
 
-
+#ask 
 some_color = input("Enter some color")
 noun = input("Enter some plural noun")
 verb = input("Enter some verb")
