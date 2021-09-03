@@ -9,6 +9,6 @@ coin4 = jaak3 // 5
 jaak4 = jaak3 % 5
 coin5 = jaak4 // 1
 jaak5 = jaak4 % 1
-coins = (coin1+coin2+coin3+coin4+coin5)
+coins = (coin1 + coin2 + coin3 + coin4 + coin5)
 
 print(f"Amount of coins needed: {coins}")
