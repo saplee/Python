@@ -1,3 +1,4 @@
+"""EX01 hello."""
 # ask for a name.
 name = input("What is your name?")
 # ask for first random number.
