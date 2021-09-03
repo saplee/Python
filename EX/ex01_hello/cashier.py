@@ -1,3 +1,4 @@
+"""Cha-ching!"""
 amount = int(input("Enter a sum:"))
 coin1 = amount // 50
 jaak = amount % 50
