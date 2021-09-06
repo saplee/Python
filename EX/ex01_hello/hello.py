@@ -19,6 +19,7 @@ verb = input("Enter some verb")
 print(f"""Roses are {some_color},
 {noun} are blue, I love to {verb},
 And so will you!""")
+
 """Greeting"""
 # asks greeting word.
 str1 = input("Enter a greeting: ")
