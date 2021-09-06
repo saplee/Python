@@ -9,10 +9,13 @@ sum1 = num1 + num2
 # print out sum.
 print(f"{num1} + {num2} is {sum1}")
 
-
+# asks some color.
 some_color = input("Enter some color")
+# asks some plural noun.
 noun = input("Enter some plural noun")
+# asks some verb.
 verb = input("Enter some verb")
+# print out poem.
 print(f"""Roses are {some_color},
 {noun} are blue, I love to {verb},
 And so will you!""")
