@@ -1,10 +1,10 @@
 def ects(eap, weeks):
     hours = eap * 26
     if weeks == 0:
-        return "Impossible"
+        return "Impossible!"
     hours_per_week = hours / weeks
     if hours_per_week > 168:
-        return "Impossible"
+        return "Impossible!"
     else:
         return hours_per_week
 
