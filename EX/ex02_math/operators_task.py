@@ -49,9 +49,9 @@ def x_is_y(x, y):
 
 def x_is_not_y(x, y):
     if x != y:
-        return True
-    else:
         return False
+    else:
+        return True
 
 
 def if_else(a, b, c, d):
