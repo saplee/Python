@@ -20,8 +20,11 @@ print(f"""Roses are {some_color},
 {noun} are blue, I love to {verb},
 And so will you!""")
 
-
+# asks greeting word.
 str1 = input("Enter a greeting: ")
+# asks a recipient.
 greeting = input("Enter a recipient: ")
+# asks how many times to repeat.
 num = int(input("How many times to repeat:"))
+# print out greeting + recipient many times you wrote
 print((str1 + " " + greeting + "! ") * num)
