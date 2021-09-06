@@ -59,8 +59,6 @@ def if_else(a, b, c, d):
     sum2 = c / d
     if sum1 == sum2:
         return 0
-    else:
-        return
 
 
 def surface(a, b):
