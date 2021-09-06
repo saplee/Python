@@ -1,5 +1,7 @@
-def ects(ects, weeks):
-    hours = ects * 26
+def ects(eap, weeks):
+    hours = eap * 26
+    if weeks == 0:
+        return "Impossible"
     hours_per_week = hours / weeks
     if hours_per_week > 168:
         return "Impossible"
