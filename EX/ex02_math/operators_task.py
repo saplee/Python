@@ -34,7 +34,7 @@ def first_greater_or_equal(x, y):
 
 
 def second_less_or_equal(x, y):
-    if x <= y:
+    if x >= y:
         return True
     else:
         return False
@@ -84,4 +84,4 @@ print(if_else(1, 3, 5, 99))
 print(if_else(2, 1, 10, 5))
 print(surface(1, 2))
 print(volume(5, 5, 5))
-# hh.
+
