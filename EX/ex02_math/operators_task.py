@@ -29,21 +29,29 @@ def exponent(x, y):
 def first_greater_or_equal(x, y):
     if x >= y:
         return True
+    else:
+        return False
 
 
 def second_less_or_equal(x, y):
     if x <= y:
         return True
+    else:
+        return False
 
 
 def x_is_y(x, y):
     if x == y:
         return True
+    else:
+        return False
 
 
 def x_is_not_y(x, y):
     if x != y:
         return True
+    else:
+        return False
 
 
 def if_else(a, b, c, d):
