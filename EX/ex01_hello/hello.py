@@ -8,7 +8,7 @@ num2 = int(input("Great! Now enter a second random number:"))
 sum1 = num1 + num2
 # print out sum.
 print(f"{num1} + {num2} is {sum1}")
-
+"""Poem"""
 # asks some color.
 some_color = input("Enter some color")
 # asks some plural noun.
@@ -19,7 +19,7 @@ verb = input("Enter some verb")
 print(f"""Roses are {some_color},
 {noun} are blue, I love to {verb},
 And so will you!""")
-
+"""Greeting"""
 # asks greeting word.
 str1 = input("Enter a greeting: ")
 # asks a recipient.
