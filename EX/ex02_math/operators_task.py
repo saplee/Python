@@ -57,8 +57,12 @@ def x_is_not_y(x, y):
 def if_else(a, b, c, d):
     sum1 = a * b
     sum2 = c / d
+    if sum1 > sum2:
+        return sum1
     if sum1 == sum2:
         return 0
+    if sum1 < sum2:
+        return sum2
 
 
 def surface(a, b):
