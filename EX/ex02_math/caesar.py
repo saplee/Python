@@ -1,12 +1,6 @@
-def encode(shift):
-    alphabet = "abcdefghijkmnopqrstuvwxyz"
-    shifted_alphabet1 = alphabet[shift:]
-    shifted_alphabet2 = alphabet[0:shift]
-    shifted_alphabet = shifted_alphabet1 + shifted_alphabet2
-    return shifted_alphabet
-def alpha():
-    alphabet="abcdefghijkmnopqrstuvwxyz"
-    return alphabet
+def encode(word, shift):
+    numbers = ([ord(c) + shift for c in word])
+    return ([chr(i) for i in (numbers)])
 
-print(alpha())
-print(encode(2))
+
+print(encode("abc",1))
