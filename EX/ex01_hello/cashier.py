@@ -1,27 +1,26 @@
 """cashier."""
 # asks amount of coins
 amount = int(input("Enter a sum:"))
+coins = 0
 # calculates how many coins fits to amount
-coin1 = amount // 50
+coins += amount // 50
 # calculates amount residue
-jaak = amount % 50
-# calculates how many coins fits to jaak
-coin2 = jaak // 20
+residue = amount % 50
+# calculates how many coins fits to residue
+coins += residue // 20
 # calculates amount residue
-jaak2 = jaak % 20
-# calculates how many coins fits to jaak2
-coin3 = jaak2 // 10
+second_residue = residue % 20
+# calculates how many coins fits to residue
+coins += second_residue // 10
 # calculates amount residue
-jaak3 = jaak2 % 10
-# calculates how many coins fits to jaak3
-coin4 = jaak3 // 5
+third_residue = second_residue % 10
+# calculates how many coins fits to residue
+coins += third_residue // 5
 # calculates amount residue
-jaak4 = jaak3 % 5
-# calculates how many coins fits to jaak4
-coin5 = jaak4 // 1
+fourth_residue = third_residue % 5
+# calculates how many coins fits to residue
+coins += fourth_residue // 1
 # calculates amount residue
-jaak5 = jaak4 % 1
-# calculates coins
-coins = (coin1 + coin2 + coin3 + coin4 + coin5)
+fifth_residue = fourth_residue % 1
 # prints amount of coins needed
 print(f"Amount of coins needed: {coins}")

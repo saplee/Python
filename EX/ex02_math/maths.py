@@ -25,11 +25,11 @@ print(average(5, 0, 5, 1))
 
 
 def clock(d, h, m, s, ):
-    day_minute = 24 * d * 60
-    hours_minute = 60 * h
-    sekund_minute = s / 60
-    sum1 = day_minute + hours_minute + m + sekund_minute
-    return sum1
+    days_to_minute = 24 * d * 60
+    hours_to_minute = 60 * h
+    second_to_minute = s / 60
+    hours = days_to_minute + hours_to_minute + m + second_to_minute
+    return hours
 
 
 print(clock(1, 24, 60, 60))
