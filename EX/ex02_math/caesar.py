@@ -7,8 +7,8 @@ def encode(word, shift):
     result = ""
     for letter in word:
         if letter.isalpha():
-            numbers = (string.index(letter))
-            new_number = (numbers + shift) % 26
+            number = (string.index(letter))
+            new_number = (number + shift) % 26
             result += string[new_number]
         else:
             result += letter
@@ -16,8 +16,8 @@ def encode(word, shift):
     return result
 
 
-print(encode("i like turtles", 6))  # -> o roqk zaxzrky
-print(encode("o roqk zaxzrky", 20))  # -> i like turtles
-print(encode("example", 1))  # -> fybnqmf
-print(encode("don't change", 0))  # -> don't change
+print(encode("i like turtles", 6))
+print(encode("o roqk zaxzrky", 20))
+print(encode("example", 1))
+print(encode("don't change", 0))
 print(encode('the quick brown fox jumps over the lazy dog.', 7))
