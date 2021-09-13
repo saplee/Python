@@ -16,6 +16,8 @@ print(ects(1, 0))
 
 
 def average(x, y, z, c):
+    """Implement a function that has 4 numeric parameters. Each parameter must be multiplied by number of its position
+        in the function (x, y, z = 1, 2, 3). Calculate and return the average."""
     sum1 = (x * 1 + y * 2 + z * 3 + c * 4) / 4
     return sum1
 
@@ -26,6 +28,8 @@ print(average(5, 0, 5, 1))
 
 
 def clock(d, h, m, s, ):
+    """Implement a function that has 4 numeric parameters. The values are: days, hours, minutes, seconds. Calculate how many
+        minutes are in total and return the value."""
     days_to_minute = 24 * d * 60
     hours_to_minute = 60 * h
     second_to_minute = s / 60
