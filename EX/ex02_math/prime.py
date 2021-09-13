@@ -1,3 +1,6 @@
+"""Primes identifier."""
+
+
 def is_prime_number(number):
     for num in range(2, number):
         if number % num == 0:

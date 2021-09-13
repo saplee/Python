@@ -1,3 +1,6 @@
+"""Caesar cipher."""
+
+
 def encode(word, shift):
     string = "abcdefghijklmnopqrstuvwxyz"
     result = ""
