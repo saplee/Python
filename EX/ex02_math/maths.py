@@ -1,4 +1,6 @@
 """Math."""
+
+
 def ects(eap, weeks):
     """Implement a function to know how many hours are needed per week if each ECTS is 26 hours. If it's not possible in time then return a string "Impossible."""
     hours = eap * 26
