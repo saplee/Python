@@ -2,8 +2,7 @@
 
 
 def is_prime_number(number):
-    """Check if the parameter number is a prime number.
-Conditions:
+    """Check if the parameter number is a prime number.Conditions:
     1. If number is a prime number then return boolean True
     2. If number is not a prime number then return boolean False
     :param number: the number for check.
