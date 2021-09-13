@@ -2,8 +2,7 @@
 
 
 def encode(word, shift):
-    """
-    Encode a message using a Caesar cipher.
+    """Encode a message using a Caesar cipher.
     Presume the message is already lowercase.
     For each letter of the message, shift it forward in the alphabet by shift amount.
     If the character isn't a letter, keep it the same.
