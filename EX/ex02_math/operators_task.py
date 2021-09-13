@@ -5,9 +5,11 @@ def add(x, y):
     """Add x to y."""
     return x + y
 
+
 def sub(x, y):
     """Subtract y from x."""
     return x - y
+
 
 def multiply(x, y):
     """Multiply x by y."""
