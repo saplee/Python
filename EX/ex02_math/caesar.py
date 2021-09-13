@@ -1,6 +1,19 @@
 def encode(word, shift):
-    numbers = ([ord(c) + shift for c in word])
-    return ([chr(i) for i in (numbers)])
+    string = "abcdefghijklmnopqrstuvwxyz"
+    result = ""
+    for letter in word:
+        if letter.isalpha():
+            numbers = (string.index(letter))
+            new_number = (numbers + shift) % 26
+            result += string[new_number]
+        else:
+            result += letter
+
+    return result
 
 
-print(encode("abc",1))
+print(encode("i like turtles", 6))  # -> o roqk zaxzrky
+print(encode("o roqk zaxzrky", 20))  # -> i like turtles
+print(encode("example", 1))  # -> fybnqmf
+print(encode("don't change", 0))  # -> don't change
+print(encode('the quick brown fox jumps over the lazy dog.', 7))
