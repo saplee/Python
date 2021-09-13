@@ -22,12 +22,12 @@ def div(x, y):
 
 
 def modulus(x, y):
-    """Divide x by y and return remainder. Use an arithmetic operator!"""
+    """Divide x by y and return remainder. Use an arithmetic operator."""
     return x % y
 
 
 def floor_div(x, y):
-    """Divide x by y and floor the value. Use an arithmetic operator!"""
+    """Divide x by y and floor the value. Use an arithmetic operator."""
     return x // y
 
 
