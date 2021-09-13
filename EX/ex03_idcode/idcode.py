@@ -16,3 +16,31 @@ print(find_id_code("123456789123456789"))
 print(find_id_code("ID code is: 49403136526"))
 print(find_id_code("efs4  9   #4aw0h 3r 1a36g5j2!!6-"))
 
+
+def is_valid_gender_number(year_number: int):
+    """
+    Check if given value is correct for year number in ID code.
+
+    :param year_number: int
+    :return: boolean
+    """
+    if year_number > 6 or year_number <= 0:
+        return False
+    else:
+        return True
+
+
+def get_gender(number: int):
+    if number == 2 or number == 4 or number == 6:
+        return "Female"
+    if number == 1 or number == 3 or number == 5:
+        return "Male"
+
+print("\nGender number:")
+for i in range(9):
+    print(f"{is_valid_gender_number(i)}")
+
+print("\nGet gender:")
+print(get_gender(2))
+print(get_gender(5))
+
