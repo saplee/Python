@@ -26,9 +26,9 @@ def is_valid_gender_number(year_number: int):
 
 def get_gender(number: int):
     if number == 2 or number == 4 or number == 6:
-        return "Female"
+        return "female"
     if number == 1 or number == 3 or number == 5:
-        return "Male"
+        return "male"
 
 
 def is_valid_year_number(year_number: int):
