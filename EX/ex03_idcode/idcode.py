@@ -32,7 +32,7 @@ def get_gender(number: int):
 
 
 def is_valid_year_number(year_number: int):
-    if year_number<0 or year_number>=100:
+    if year_number < 0 or year_number >= 100:
         return False
     else:
         return True
@@ -50,6 +50,31 @@ def is_valid_birth_number(birth_number: int):
         return False
     else:
         return True
+
+
+def is_leap_year(year: int):
+    if year % 400 == 0:
+        return True
+    if year % 100 == 0:
+        return False
+    if year % 4 == 0:
+        return True
+
+
+def get_full_year(gender_number: int, year_number: int):
+    first_numbers = ""
+    if gender_number == 1 or gender_number == 2:
+        first_numbers += "18"
+    if gender_number == 3 or gender_number == 4:
+        first_numbers += "19"
+    if gender_number == 5 or gender_number == 6:
+        first_numbers += "20"
+    if year_number < 10:
+        x = "0"
+        second_numbers = x + str(year_number)
+    else:
+        second_numbers = str(year_number)
+    return int(first_numbers + second_numbers)
 
 
 print("\nFind ID code:")
@@ -79,3 +104,11 @@ print("\nBorn order number:")
 print(is_valid_birth_number(0))  # -> False
 print(is_valid_birth_number(1))  # -> True
 print(is_valid_birth_number(850))  # -> True
+
+print("\nLeap year:")
+print(is_leap_year(1804))  # -> True
+print(is_leap_year(1800))  # -> False
+print("\nGet full year:")
+print(get_full_year(1, 28))  # -> 1828
+print(get_full_year(4, 85))  # -> 1985
+print(get_full_year(5, 1))  # -> 2001
