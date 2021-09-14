@@ -62,19 +62,35 @@ def is_leap_year(year: int):
 
 
 def get_full_year(gender_number: int, year_number: int):
-    first_numbers = ""
     if gender_number == 1 or gender_number == 2:
-        first_numbers += "18"
+        first_numbers = "18"
     if gender_number == 3 or gender_number == 4:
-        first_numbers += "19"
+        first_numbers = "19"
     if gender_number == 5 or gender_number == 6:
-        first_numbers += "20"
+        first_numbers = "20"
     if year_number < 10:
         x = "0"
         second_numbers = x + str(year_number)
     else:
         second_numbers = str(year_number)
     return int(first_numbers + second_numbers)
+
+
+def get_birth_place(birth_number: int):
+    if 0 < birth_number <= 10:
+        return "Kuressaare"
+    if (10 < birth_number <= 20) or (271 <= birth_number <= 370):
+        return "Tartu"
+    if (21 <= birth_number <= 220) or (471 <= birth_number <= 710):
+        return "Tallinn"
+    if 371 <= birth_number <= 420:
+        return "Narva"
+    if 421 <= birth_number <= 470:
+        return "Pärnu"
+    if 221 <= birth_number <= 270:
+        return "Kohtla-Järve"
+    if 771 <= birth_number <= 999:
+        return "undefined"
 
 
 print("\nFind ID code:")
@@ -112,3 +128,8 @@ print("\nGet full year:")
 print(get_full_year(1, 28))  # -> 1828
 print(get_full_year(4, 85))  # -> 1985
 print(get_full_year(5, 1))  # -> 2001
+print("\nChecking where the person was born")
+print(get_birth_place(0))  # -> "Wrong input!"
+print(get_birth_place(1))  # -> "Kuressaare"
+print(get_birth_place(273))  # -> "Tartu"
+print(get_birth_place(220))  # -> "Tallinn"
