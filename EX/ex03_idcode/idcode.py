@@ -77,6 +77,8 @@ def get_full_year(gender_number: int, year_number: int):
 
 
 def get_birth_place(birth_number: int):
+    if birth_number <= 0 or birth_number > 999:
+        return "Wrong input!"
     if 0 < birth_number <= 10:
         return "Kuressaare"
     if (10 < birth_number <= 20) or (271 <= birth_number <= 370):
