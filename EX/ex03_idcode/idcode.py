@@ -11,12 +11,6 @@ def find_id_code(string):
         return id_code
 
 
-print(find_id_code(""))
-print(find_id_code("123456789123456789"))
-print(find_id_code("ID code is: 49403136526"))
-print(find_id_code("efs4  9   #4aw0h 3r 1a36g5j2!!6-"))
-
-
 def is_valid_gender_number(year_number: int):
     """
     Check if given value is correct for year number in ID code.
@@ -36,11 +30,10 @@ def get_gender(number: int):
     if number == 1 or number == 3 or number == 5:
         return "Male"
 
-print("\nGender number:")
-for i in range(9):
-    print(f"{is_valid_gender_number(i)}")
 
-print("\nGet gender:")
-print(get_gender(2))
-print(get_gender(5))
-
+def is_valid_year_number(year_number: int):
+    new_numbres=str(year_number)
+    if len(new_numbres)>=3:
+        return False
+    else:
+        return True
