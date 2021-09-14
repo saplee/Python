@@ -32,7 +32,7 @@ def get_gender(number: int):
 
 
 def is_valid_year_number(year_number: int):
-    if year_number<=0 or year_number>=100:
+    if year_number<0 or year_number>=100:
         return False
     else:
         return True
