@@ -59,6 +59,8 @@ def is_leap_year(year: int):
         return False
     if year % 4 == 0:
         return True
+    else:
+        return False
 
 
 def get_full_year(gender_number: int, year_number: int):
