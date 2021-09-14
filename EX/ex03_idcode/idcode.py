@@ -32,36 +32,24 @@ def get_gender(number: int):
 
 
 def is_valid_year_number(year_number: int):
-    new_numbres=str(year_number)
-    if len(new_numbres)>=3:
+    if year_number<=0 or year_number>=100:
         return False
     else:
         return True
+
 
 def is_valid_month_number(month_number: int):
-    if month_number>12 or month_number<=0:
+    if month_number > 12 or month_number <= 0:
         return False
     else:
         return True
+
 
 def is_valid_birth_number(birth_number: int):
-    if birth_number<=0 or birth_number>=1000:
+    if birth_number <= 0 or birth_number >= 1000:
         return False
     else:
         return True
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 print("\nFind ID code:")
@@ -73,9 +61,9 @@ print(find_id_code("efs4  9   #4aw0h 3r 1a36g5j2!!6-"))  # -> "49403136526"
 print("\nGender number:")
 for i in range(9):
     print(f"{i} {is_valid_gender_number(i)}")
-        # 0 -> False
-        # 1...6 -> True
-        # 7...8 -> False
+    # 0 -> False
+    # 1...6 -> True
+    # 7...8 -> False
 
 print("\nGet gender:")
 print(get_gender(2))  # -> "female"
