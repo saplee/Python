@@ -37,6 +37,33 @@ def is_valid_year_number(year_number: int):
         return False
     else:
         return True
+
+def is_valid_month_number(month_number: int):
+    if month_number>12 or month_number<=0:
+        return False
+    else:
+        return True
+
+def is_valid_birth_number(birth_number: int):
+    if birth_number<=0 or birth_number>=1000:
+        return False
+    else:
+        return True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 print("\nFind ID code:")
 print(find_id_code(""))  # -> "Not enough numbers!"
 print(find_id_code("123456789123456789"))  # -> "Too many numbers!"
@@ -56,3 +83,11 @@ print(get_gender(5))  # -> "male"
 print("\nYear number:")
 print(is_valid_year_number(100))  # -> False
 print(is_valid_year_number(50))  # -> true
+print("\nMonth number:")
+print(is_valid_month_number(2))  # -> True
+print(is_valid_month_number(15))  # -> False
+
+print("\nBorn order number:")
+print(is_valid_birth_number(0))  # -> False
+print(is_valid_birth_number(1))  # -> True
+print(is_valid_birth_number(850))  # -> True
