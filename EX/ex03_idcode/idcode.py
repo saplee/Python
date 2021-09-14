@@ -37,3 +37,22 @@ def is_valid_year_number(year_number: int):
         return False
     else:
         return True
+print("\nFind ID code:")
+print(find_id_code(""))  # -> "Not enough numbers!"
+print(find_id_code("123456789123456789"))  # -> "Too many numbers!"
+print(find_id_code("ID code is: 49403136526"))  # -> "49403136526"
+print(find_id_code("efs4  9   #4aw0h 3r 1a36g5j2!!6-"))  # -> "49403136526"
+
+print("\nGender number:")
+for i in range(9):
+    print(f"{i} {is_valid_gender_number(i)}")
+        # 0 -> False
+        # 1...6 -> True
+        # 7...8 -> False
+
+print("\nGet gender:")
+print(get_gender(2))  # -> "female"
+print(get_gender(5))  # -> "male"
+print("\nYear number:")
+print(is_valid_year_number(100))  # -> False
+print(is_valid_year_number(50))  # -> true
