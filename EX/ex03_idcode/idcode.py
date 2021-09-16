@@ -168,15 +168,17 @@ def is_id_valid(id_code: str):
     is_valid_gender_number(gender_number)
     if is_valid_gender_number(gender_number) == False:
         return False
-    year_number = int(id_code[1:3])
-    if year_number > 99:
+    year_number = (id_code[1:3])
+    new_year_number= int(year_number)
+    if new_year_number > 99:
         return False
     month_number =(id_code[3:5])
     new_month_number=int(month_number)
     if new_month_number > 12:
         return False
-    day_number = int(id_code[5:7])
-    if is_valid_day_number(gender_number, year_number, month_number, day_number) == False:
+    day_number = (id_code[5:7])
+    new_day_number=int(day_number)
+    if is_valid_day_number(gender_number, new_year_number, new_month_number, new_day_number) == False:
         return False
     if is_valid_control_number(id_code) == False:
         return False
