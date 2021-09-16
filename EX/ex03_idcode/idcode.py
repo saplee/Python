@@ -109,8 +109,9 @@ def is_valid_control_number(id_code: str):
     ninth_number = int(id_code[8])
     tenth_number = int(id_code[9])
     last_number = int(id_code[10])
-    sum = 1 * first_number + 2 * second_number + 3 * third_number + 4 * fourth_number + 5 * fifth_number + 6 * sixth_number + 7 * seventh_number + 8 * eight_number + 9 * ninth_number + 1 * tenth_number
-    if sum % 11 == last_number:
+    sum1 = 1 * first_number + 2 * second_number + 3 * third_number + 4 * fourth_number + 5 * fifth_number + 6 * sixth_number + 7 * seventh_number + 8 * eight_number + 9 * ninth_number + 1 * tenth_number
+    sum2 = 3 * first_number + 4 * second_number + 5 * third_number + 6 * fourth_number + 7 * fifth_number + 8 * sixth_number + 9 * seventh_number + 1 * eight_number + 2 * ninth_number + 3 * tenth_number
+    if sum1 % 11 == last_number or sum2 % 11 == last_number or sum2 // 11 == 10:
         return True
     else:
         return False
@@ -150,7 +151,7 @@ def is_valid_day_number(gender_number: int, year_number: int, month_number: int,
         return False
     if month_number == 2 and full_year % 4 == 0 and full_year % 100 != 0 and day_number > 29:
         return False
-    if month_number == 2 and full_year % 100 == 0 and full_year % 4 != 0 and day_number > 28:
+    if month_number == 2 and full_year % 100 == 0 and full_year % 400 != 0 and day_number > 28:
         return False
     if month_number == 2 and full_year % 100 != 0 and full_year % 4 != 0 and day_number > 28:
         return False
