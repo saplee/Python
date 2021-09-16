@@ -111,7 +111,11 @@ def is_valid_control_number(id_code: str):
     last_number = int(id_code[10])
     sum1 = 1 * first_number + 2 * second_number + 3 * third_number + 4 * fourth_number + 5 * fifth_number + 6 * sixth_number + 7 * seventh_number + 8 * eight_number + 9 * ninth_number + 1 * tenth_number
     sum2 = 3 * first_number + 4 * second_number + 5 * third_number + 6 * fourth_number + 7 * fifth_number + 8 * sixth_number + 9 * seventh_number + 1 * eight_number + 2 * ninth_number + 3 * tenth_number
-    if sum1 % 11 == last_number or sum2 % 11 == last_number or sum2 // 11 == 10:
+    if sum1 % 11 == last_number:
+        return True
+    if sum2 % 11 == last_number:
+        return True
+    if sum2 // 11 >= 10 and last_number == 0:
         return True
     else:
         return False
