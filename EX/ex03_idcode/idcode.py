@@ -164,6 +164,9 @@ def is_valid_day_number(gender_number: int, year_number: int, month_number: int,
 
 
 def is_id_valid(id_code: str):
+    find_id_code(id_code)
+    if find_id_code(id_code)== "Not enough numbers!" or  find_id_code(id_code)=="Too many numbers!":
+        return False
     gender_number = int(id_code[0])
     is_valid_gender_number(gender_number)
     if is_valid_gender_number(gender_number) == False:
