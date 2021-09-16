@@ -171,9 +171,8 @@ def is_id_valid(id_code: str):
     year_number = int(id_code[1:3])
     if year_number > 99:
         return False
-    month_number = (id_code[3:5])
-    new_month_number = int(month_number)
-    if new_month_number > 12:
+    month_number = int(id_code[3:5])
+    if month_number > 12:
         return False
     day_number = int(id_code[5:7])
     if is_valid_day_number(gender_number, year_number, month_number, day_number) == False:
