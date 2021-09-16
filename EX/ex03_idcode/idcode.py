@@ -86,7 +86,7 @@ def is_valid_birth_number(birth_number: int):
 
 
 def is_leap_year(year: int):
-    """"Controlls is year leap year or not."""
+    """"Controll is year leap year or not."""
     if year % 400 == 0:
         return True
     if year % 100 == 0:
