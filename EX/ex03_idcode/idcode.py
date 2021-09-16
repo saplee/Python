@@ -39,7 +39,7 @@ def is_valid_gender_number(gender_number: int):
 
 
 def get_gender(gender_number: int):
-    """"Return gender"""
+    """"Return gender."""
     if gender_number == 2 or gender_number == 4 or gender_number == 6:
         return "female"
     if gender_number == 1 or gender_number == 3 or gender_number == 5:
@@ -86,7 +86,7 @@ def is_valid_birth_number(birth_number: int):
 
 
 def is_leap_year(year: int):
-    """"Controlls is year leap year or not"""
+    """"Controlls is year leap year or not."""
     if year % 400 == 0:
         return True
     if year % 100 == 0:
