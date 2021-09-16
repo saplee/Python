@@ -111,11 +111,11 @@ def is_valid_control_number(id_code: str):
     last_number = int(id_code[10])
     sum1 = 1 * first_number + 2 * second_number + 3 * third_number + 4 * fourth_number + 5 * fifth_number + 6 * sixth_number + 7 * seventh_number + 8 * eight_number + 9 * ninth_number + 1 * tenth_number
     sum2 = 3 * first_number + 4 * second_number + 5 * third_number + 6 * fourth_number + 7 * fifth_number + 8 * sixth_number + 9 * seventh_number + 1 * eight_number + 2 * ninth_number + 3 * tenth_number
-    if sum1%11==last_number:
+    if sum1 % 11 == last_number:
         return True
-    if sum2%11 == last_number and sum1%11>=10:
+    if sum2 % 11 == last_number and sum1 % 11 >= 10:
         return True
-    if sum2%11>=10 and last_number==0:
+    if sum2 % 11 >= 10 and last_number == 0:
         return True
     else:
         return False
@@ -165,31 +165,31 @@ def is_valid_day_number(gender_number: int, year_number: int, month_number: int,
 
 def is_id_valid(id_code: str):
     find_id_code(id_code)
-    if find_id_code(id_code)== "Not enough numbers!" or  find_id_code(id_code)=="Too many numbers!":
+    if find_id_code(id_code) == "Not enough numbers!" or find_id_code(id_code) == "Too many numbers!":
         return False
     gender_number = int(id_code[0])
     is_valid_gender_number(gender_number)
     if is_valid_gender_number(gender_number) == False:
         return False
     year_number = (id_code[1:3])
-    new_year_number= int(year_number)
+    new_year_number = int(year_number)
     if new_year_number > 99:
         return False
-    month_number =(id_code[3:5])
-    new_month_number=int(month_number)
+    month_number = (id_code[3:5])
+    new_month_number = int(month_number)
     if new_month_number > 12:
         return False
     day_number = (id_code[5:7])
-    new_day_number=int(day_number)
+    new_day_number = int(day_number)
     if is_valid_day_number(gender_number, new_year_number, new_month_number, new_day_number) == False:
         return False
     if is_valid_control_number(id_code) == False:
         return False
     if len(id_code) > 11 or len(id_code) < 11:
         return False
-    birth_number=id_code[7:10]
-    new_birth_number=int(birth_number)
-    if new_birth_number>999 or new_birth_number<1:
+    birth_number = id_code[7:10]
+    new_birth_number = int(birth_number)
+    if new_birth_number > 999 or new_birth_number < 1:
         return False
     else:
         return True
@@ -201,7 +201,7 @@ def get_data_from_id(id_code: str):
     day_number = id_code[5:7]
     month_number = id_code[3:5]
     birth_number = id_code[7:10]
-    new_birth_number= (int(birth_number))
+    new_birth_number = (int(birth_number))
     birth_place = get_birth_place(new_birth_number)
     if is_id_valid(id_code) == False:
         return "Given invalid ID code!"
