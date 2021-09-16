@@ -1,4 +1,18 @@
+"""ID code."""
+
+
 def find_id_code(string):
+    """
+    Find ID-code from given text.
+
+    Given string may include any number of numbers, characters and other symbols mixed together.
+    The numbers of ID-code may be between other symbols - they must be found and concatenated.
+    ID-code contains of exactly 11 numbers. If there are not enough numbers, return 'Not enough numbers!',
+    if there are too many numbers, return 'Too many numbers!' If ID-code can be found, return that code.
+
+    :param text: string
+    :return: string
+    """
     id_code = ""
     for number in string:
         if number.isdigit():
@@ -25,6 +39,7 @@ def is_valid_gender_number(gender_number: int):
 
 
 def get_gender(gender_number: int):
+    """"Return gender"""
     if gender_number == 2 or gender_number == 4 or gender_number == 6:
         return "female"
     if gender_number == 1 or gender_number == 3 or gender_number == 5:
@@ -32,6 +47,12 @@ def get_gender(gender_number: int):
 
 
 def is_valid_year_number(year_number: int):
+    """
+    Check if given value is correct for year number in ID code.
+
+    :param year_number: int
+    :return: boolean
+    """
     if year_number < 0 or year_number >= 100:
         return False
     else:
@@ -39,6 +60,12 @@ def is_valid_year_number(year_number: int):
 
 
 def is_valid_month_number(month_number: int):
+    """
+    Check if given value is correct for month number in ID code.
+
+    :param month_number: int
+    :return: boolean
+    """
     if month_number > 12 or month_number <= 0:
         return False
     else:
@@ -46,6 +73,12 @@ def is_valid_month_number(month_number: int):
 
 
 def is_valid_birth_number(birth_number: int):
+    """
+    Check if given value is correct for birth number in ID code.
+
+    :param birth_number: int
+    :return: boolean
+    """
     if birth_number <= 0 or birth_number >= 1000:
         return False
     else:
@@ -53,6 +86,7 @@ def is_valid_birth_number(birth_number: int):
 
 
 def is_leap_year(year: int):
+    """"Controlls is year leap year or not"""
     if year % 400 == 0:
         return True
     if year % 100 == 0:
@@ -64,6 +98,16 @@ def is_leap_year(year: int):
 
 
 def get_full_year(gender_number: int, year_number: int):
+    """
+    Define the 4-digit year when given person was born.
+
+    Person gender and year numbers from ID code must help.
+    Given year has only two last digits.
+
+    :param gender_number: int
+    :param year_number: int
+    :return: int
+    """
     if gender_number == 1 or gender_number == 2:
         first_numbers = "18"
     if gender_number == 3 or gender_number == 4:
@@ -79,6 +123,15 @@ def get_full_year(gender_number: int, year_number: int):
 
 
 def get_birth_place(birth_number: int):
+    """
+    Find the place where the person was born.
+
+    Possible locations are following: Kuressaare, Tartu, Tallinn, Kohtla-Järve, Narva, Pärnu,
+    and undefined. Lastly if the number is incorrect the function must return
+    the following 'Wrong input!'
+    :param birth_number: int
+    :return: str
+    """
     if birth_number <= 0 or birth_number > 999:
         return "Wrong input!"
     if 0 < birth_number <= 10:
@@ -98,6 +151,14 @@ def get_birth_place(birth_number: int):
 
 
 def is_valid_control_number(id_code: str):
+    """
+    Check if given value is correct for control number in ID code.
+
+    Use algorithm made for creating this number.
+
+    :param id_code: string
+    :return: boolean
+    """
     first_number = int(id_code[0])
     second_number = int(id_code[1])
     third_number = int(id_code[2])
@@ -122,6 +183,17 @@ def is_valid_control_number(id_code: str):
 
 
 def is_valid_day_number(gender_number: int, year_number: int, month_number: int, day_number: int):
+    """
+    Check if given value is correct for day number in ID code.
+
+    Also, consider leap year and which month has 30 or 31 days.
+
+    :param gender_number: int
+    :param year_number: int
+    :param month_number: int
+    :param day_number: int
+    :return: boolean
+    """
     for month in range(1, 8, 2):
         if month == month_number and day_number > 31:
             return False
@@ -164,6 +236,14 @@ def is_valid_day_number(gender_number: int, year_number: int, month_number: int,
 
 
 def is_id_valid(id_code: str):
+    """
+    Check if given ID code is valid and return the result (True or False).
+
+    Complete other functions before starting to code this one.
+    You should use the functions you wrote before in this function.
+    :param id_code: str
+    :return: boolean
+    """
     find_id_code(id_code)
     if find_id_code(id_code) == "Not enough numbers!" or find_id_code(id_code) == "Too many numbers!":
         return False
@@ -196,6 +276,14 @@ def is_id_valid(id_code: str):
 
 
 def get_data_from_id(id_code: str):
+    """
+    Get possible information about the person.
+
+    Use given ID code and return a short message.
+    Follow the template - This is a <gender> born on <DD.MM.YYYY> in <location>.
+    :param id_code: str
+    :return: str
+    """
     gender_number = int(id_code[0])
     year_number = int(id_code[1:3])
     day_number = id_code[5:7]
