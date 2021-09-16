@@ -190,8 +190,9 @@ def get_data_from_id(id_code: str):
     year_number = int(id_code[1:3])
     day_number = id_code[5:7]
     month_number = id_code[3:5]
-    birth_number = int(id_code[7:10])
-    birth_place = get_birth_place(birth_number)
+    birth_number = (id_code[7:10])
+    new_birth_number= (int(birth_number))
+    birth_place = get_birth_place(new_birth_number)
     if is_id_valid(id_code) == False:
         return "Given invalid ID code!"
     else:
