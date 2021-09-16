@@ -249,7 +249,7 @@ def is_id_valid(id_code: str):
         return False
     gender_number = int(id_code[0])
     is_valid_gender_number(gender_number)
-    if is_valid_gender_number(gender_number) == False:
+    if not is_valid_gender_number(gender_number):
         return False
     year_number = (id_code[1:3])
     new_year_number = int(year_number)
@@ -261,9 +261,9 @@ def is_id_valid(id_code: str):
         return False
     day_number = (id_code[5:7])
     new_day_number = int(day_number)
-    if is_valid_day_number(gender_number, new_year_number, new_month_number, new_day_number) == False:
+    if not is_valid_day_number(gender_number, new_year_number, new_month_number, new_day_number):
         return False
-    if is_valid_control_number(id_code) == False:
+    if not is_valid_control_number(id_code):
         return False
     if len(id_code) > 11 or len(id_code) < 11:
         return False
@@ -291,7 +291,7 @@ def get_data_from_id(id_code: str):
     birth_number = id_code[7:10]
     new_birth_number = (int(birth_number))
     birth_place = get_birth_place(new_birth_number)
-    if is_id_valid(id_code) == False:
+    if not is_id_valid(id_code):
         return "Given invalid ID code!"
     else:
         return f"This is a {get_gender(gender_number)} born on {day_number}.{month_number}.{str(get_full_year(gender_number, year_number))} in {birth_place}."
