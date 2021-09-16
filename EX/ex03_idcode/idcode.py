@@ -115,6 +115,8 @@ def is_valid_control_number(id_code: str):
         return True
     if sum2%11 == last_number and sum1%11>=10:
         return True
+    if sum2%11>=10:
+        return True
     else:
         return False
 
