@@ -177,7 +177,7 @@ def is_id_valid(id_code: str):
         return False
     month_number = (id_code[3:5])
     new_month_number = int(month_number)
-    if new_month_number > 12:
+    if new_month_number > 12 or new_month_number < 1:
         return False
     day_number = (id_code[5:7])
     new_day_number = int(day_number)
