@@ -187,6 +187,10 @@ def is_id_valid(id_code: str):
         return False
     if len(id_code) > 11 or len(id_code) < 11:
         return False
+    birth_number=id_code[7:10]
+    new_birth_number=int(birth_number)
+    if new_birth_number>999 or new_birth_number<1:
+        return False
     else:
         return True
 
