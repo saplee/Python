@@ -29,7 +29,7 @@ def is_valid_gender_number(gender_number: int):
     """
     Check if given value is correct for year number in ID code.
 
-    :param year_number: int
+    :param year number: int
     :return: boolean
     """
     if gender_number > 6 or gender_number <= 0:
@@ -204,7 +204,7 @@ def is_valid_day_number(gender_number: int, year_number: int, month_number: int,
         if month == month_number and day_number > 30:
             return False
     get_full_year(gender_number, year_number)
-    if is_leap_year(get_full_year(gender_number, year_number)) == True and month_number == 2 and day_number > 29:
+    if is_leap_year(get_full_year(gender_number, year_number)) is True and month_number == 2 and day_number > 29:
         return False
     if not is_leap_year(get_full_year(gender_number, year_number)) and month_number == 2 and day_number > 28:
         return False
