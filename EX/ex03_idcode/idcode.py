@@ -206,7 +206,7 @@ def is_valid_day_number(gender_number: int, year_number: int, month_number: int,
     get_full_year(gender_number, year_number)
     if is_leap_year(get_full_year(gender_number, year_number)) == True and month_number == 2 and day_number > 29:
         return False
-    if is_leap_year(get_full_year(gender_number, year_number)) == False and month_number == 2 and day_number > 28:
+    if not is_leap_year(get_full_year(gender_number, year_number)) and month_number == 2 and day_number > 28:
         return False
     else:
         return True
