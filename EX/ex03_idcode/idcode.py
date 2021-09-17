@@ -195,19 +195,14 @@ def is_valid_day_number(gender_number: int, year_number: int, month_number: int,
     :param day_number: int
     :return: boolean
     """
-    for month in range(1, 8, 2):
+    month_numbers = [1, 3, 5, 7, 8, 10, 12]
+    second_month_numbers = [4, 6, 9, 11]
+    for month in month_numbers:
         if month == month_number and day_number > 31:
             return False
-    for pair_month in range(4, 7, 2):
-        if pair_month == month_number and day_number > 30:
+    for month in second_month_numbers:
+        if month == month_number and day_number > 30:
             return False
-    for month in range(8, 11, 2):
-        if month == month_number and day_number > 31:
-            return False
-    if month_number == 9 and day_number > 30:
-        return False
-    if month_number == 11 and day_number > 30:
-        return False
     get_full_year(gender_number, year_number)
     if is_leap_year(get_full_year(gender_number, year_number)) == True and month_number == 2 and day_number > 29:
         return False
