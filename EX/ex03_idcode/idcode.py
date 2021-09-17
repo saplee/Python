@@ -119,7 +119,8 @@ def get_full_year(gender_number: int, year_number: int):
         second_numbers = x + str(year_number)
     else:
         second_numbers = str(year_number)
-    return int(first_numbers + second_numbers)
+    full_year = int(first_numbers + second_numbers)
+    return full_year
 
 
 def get_birth_place(birth_number: int):
@@ -200,36 +201,17 @@ def is_valid_day_number(gender_number: int, year_number: int, month_number: int,
     for pair_month in range(4, 7, 2):
         if pair_month == month_number and day_number > 30:
             return False
-    if month_number == 8 and day_number > 31:
-        return False
+    for month in range(8, 11, 2):
+        if month == month_number and day_number > 31:
+            return False
     if month_number == 9 and day_number > 30:
-        return False
-    if month_number == 10 and day_number > 31:
         return False
     if month_number == 11 and day_number > 30:
         return False
-    if month_number == 12 and day_number > 31:
+    get_full_year(gender_number, year_number)
+    if is_leap_year(get_full_year(gender_number, year_number)) == True and month_number == 2 and day_number > 29:
         return False
-    if gender_number == 1 or gender_number == 2:
-        first_numbers = "18"
-    if gender_number == 3 or gender_number == 4:
-        first_numbers = "19"
-    if gender_number == 5 or gender_number == 6:
-        first_numbers = "20"
-    if year_number < 10:
-        x = "0"
-        second_numbers = x + str(year_number)
-    else:
-        second_numbers = str(year_number)
-
-    full_year = int(first_numbers + second_numbers)
-    if month_number == 2 and full_year % 400 == 0 and day_number > 29:
-        return False
-    if month_number == 2 and full_year % 4 == 0 and full_year % 100 != 0 and day_number > 29:
-        return False
-    if month_number == 2 and full_year % 100 == 0 and full_year % 400 != 0 and day_number > 28:
-        return False
-    if month_number == 2 and full_year % 100 != 0 and full_year % 4 != 0 and day_number > 28:
+    if is_leap_year(get_full_year(gender_number, year_number)) == False and month_number == 2 and day_number > 28:
         return False
     else:
         return True
