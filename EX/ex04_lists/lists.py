@@ -11,9 +11,9 @@ def generate_list(amount: int, data_type: str) -> list:
     if data_type == "float":
         return [3.14] * amount
     if data_type == "dict":
-        return [{1}]
+        return [{}]*amount
     if data_type == "tuple":
-        return [(1)]
+        return [()]*amount
 # Part 1
 print(generate_list(2, 'set'))  # [set(), set()]
 print(generate_list(3, 'string'))  # ["a", "kass", "a"]
