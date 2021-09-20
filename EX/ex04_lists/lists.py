@@ -1,14 +1,14 @@
 def generate_list(amount: int, data_type: str) -> list:
     """Write a function that returns a list with amount elements of type data_type."""
 
-    if data_type=="int":
-        return [3]*amount
-    if data_type=="string":
-        return ["kass"]*amount
-    if data_type=="set":
-        return [set()]*amount
-    if data_type=="list":
-        return [1,2,3]*amount
+    if data_type == "int":
+        return [1] * amount
+    if data_type == "string":
+        return ["kass"] * amount
+    if data_type == "set":
+        return [set()] * amount
+    if data_type == "list":
+        return [1, 2, 3] * amount
 
 
 if __name__ == '__main__':
@@ -19,4 +19,3 @@ if __name__ == '__main__':
     print(generate_list(3, 'string'))  # ["a", "kass", "a"]
     print(generate_list(1, 'list'))  # [[]]
     print(generate_list(5, 'int'))  # [1, 2, 3, 3, 3]
-    print()
