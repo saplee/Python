@@ -9,19 +9,14 @@ def generate_list(amount: int, data_type: str) -> list:
     if data_type == "list":
         return [[]] * amount
     if data_type == "float":
-        return [3.14]*amount
-    if data_type== "dict":
+        return [3.14] * amount
+    if data_type == "dict":
         return [{}]
-    if data_type== "tuple":
+    if data_type == "tuple":
         return [()]
 
-
-
-if __name__ == '__main__':
-    # The given outputs are only some of possible outputs, for example for (3, 'string') in the first part an output of ["kass", "koer", "kana"] would also work.
-
-    # Part 1
-    print(generate_list(2, 'set'))  # [set(), set()]
-    print(generate_list(3, 'string'))  # ["a", "kass", "a"]
-    print(generate_list(4, 'list'))  # [[]]
-    print(generate_list(5, 'int'))  # [1, 2, 3, 3, 3]
+# Part 1
+print(generate_list(2, 'set'))  # [set(), set()]
+print(generate_list(3, 'string'))  # ["a", "kass", "a"]
+print(generate_list(4, 'list'))  # [[]]
+print(generate_list(5, 'int'))  # [1, 2, 3, 3, 3]
