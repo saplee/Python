@@ -21,8 +21,7 @@ def generate_combined_list(inputs: list) -> list:
         data_type = element[1]
         if book[data_type] < amount:
             book[data_type] = amount
-    for data_type in data_list.keys():
-        result += [data_list[data_type]] * book[data_type]
+            result += [data_list[data_type]] * book[data_type]
     return result
 
 
