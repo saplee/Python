@@ -13,7 +13,7 @@ def generate_combined_list(inputs: list) -> list:
     Every element of 'inputs' is a tuple (int amount, string data_type).
     For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
     """
-    d = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
+    data_list = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
     book = {"string": 0, "int": 0, "set": 0, "list": 0, "dict": 0, "float": 0}
     result = []
     for element in inputs:
@@ -21,8 +21,8 @@ def generate_combined_list(inputs: list) -> list:
         data_type = element[1]
         if book[data_type] < amount:
             book[data_type] = amount
-    for data_type in d.keys():
-        result += [d[data_type]] * book[data_type]
+    for data_type in data_list.keys():
+        result += [data_list[data_type]] * book[data_type]
     return result
 
 
@@ -35,17 +35,27 @@ def generate_combined_list_unique(inputs: list) -> list:
     Data types used in this function are 'int', 'float' and 'str' (string).
     The returned list can contain only unique elements.
     """
-    d = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": ()}
-    book = {"string": 0, "int": 0, "set": 0, "list": 0, "dict": 0, "float": 0}
+    import random
+    book = {"string": 0, "int": 0, "float": 0}
+    word=["a", "b", "c", "d", "f", "g", "h"]
     result = []
     for element in inputs:
         amount = element[0]
         data_type = element[1]
         if book[data_type] < amount:
             book[data_type] = amount
-    for data_type in d.keys():
-        result += [d[data_type]] * book[data_type]
+    for i in range(0, book["int"]):
+            int_number = random.randint(1, 1000)
+            result += [int_number]
+            for i in range(0, book["float"]):
+                float_number = random.uniform(1, 100)
+                result += [float_number]
+            for i in range(0,book["string"]):
+                random_string=random.choice(word)
+                result+=[random_string]
     return result
+
+
 
 
 if __name__ == '__main__':
@@ -64,4 +74,8 @@ if __name__ == '__main__':
     print(generate_combined_list([(3, 'int'), (5, 'int'), (4, 'int')]))  # [100, 80, 60, 40, 20]
     print(generate_combined_list([(2, 'list'), (3, 'string')]))  # ["a", [], "a", [], "a"]
     print(generate_combined_list([(2, 'float'), (3, 'dict')]))  # [{}, {}, {}, 3.14, 3.15]
+    print()
+    # Part 3
+    print(generate_combined_list_unique([(3, 'int'), (5, 'int')]))  # [1, 2, 3, 4, 5]
+    print(generate_combined_list_unique([(2, 'int'), (2, 'float'), (1, 'int')]))  # [43, 93, 4.3, 2.1]
     print()
