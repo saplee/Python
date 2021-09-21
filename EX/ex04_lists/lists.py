@@ -14,6 +14,16 @@ def generate_combined_list(inputs: list) -> list:
     For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
     """
     d = {"int": 0, "float": 3.14, "sting": "kass", "list": [], "dict": {}, "set": ()}
+    result=[]
+    for element in inputs:
+        amount = element[0]
+        data_type = element[1]
+        for keys in d.keys():
+            if keys == data_type:
+                result += [d[data_type]]*amount
+    return result
+
+
 
 
 if __name__ == '__main__':
