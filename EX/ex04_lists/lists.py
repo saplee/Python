@@ -22,7 +22,7 @@ def generate_combined_list(inputs: list) -> list:
         if book.get(data_type) < amount:
             book[data_type] = amount
     for data_type in d.keys():
-        result += [d[data_type]] * book[data_type]
+        result += [d.get(data_type)] * book.get(data_type)
     return result
 
 
