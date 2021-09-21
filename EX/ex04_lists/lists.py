@@ -13,17 +13,17 @@ def generate_combined_list(inputs: list) -> list:
     Every element of 'inputs' is a tuple (int amount, string data_type).
     For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
     """
-    d = {"int": 0, "float": 3.14, "sting": "kass", "list": [], "dict": {}, "set": ()}
-    result=[]
+    d = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": ()}
+    book = {"string": 0, "int": 0, "set": 0, "list": 0, "dict": 0, "float": 0}
+    result = []
     for element in inputs:
         amount = element[0]
         data_type = element[1]
-        for keys in d.keys():
-            if keys == data_type:
-                result += [d[data_type]]*amount
+        if book.get(data_type) < amount:
+            book[data_type] = amount
+    for data_type in d.keys():
+        result += [d[data_type]] * book[data_type]
     return result
-
-
 
 
 if __name__ == '__main__':
