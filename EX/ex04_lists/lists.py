@@ -1,8 +1,8 @@
 def generate_list(amount: int, data_type: str) -> list:
     """Write a function that returns a list with amount elements of type data_type."""
     d = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
-    for keys in d.keys():
-        if keys == data_type:
+    for key in d.keys():
+        if key == data_type:
             return [d[data_type]] * amount
 
 
@@ -13,16 +13,38 @@ def generate_combined_list(inputs: list) -> list:
     Every element of 'inputs' is a tuple (int amount, string data_type).
     For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
     """
+    d = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
+    book = {"string": 0, "int": 0, "set": 0, "list": 0, "dict": 0, "float": 0}
+    result = []
+    for element in inputs:
+        amount = element[0]
+        data_type = element[1]
+        if book[data_type] < amount:
+            book[data_type] = amount
+    for data_type in d.keys():
+        result += [d[data_type]] * book[data_type]
+    return result
+
+
+def generate_combined_list_unique(inputs: list) -> list:
+    """
+    Write a function that returns a list with the minimal possible length, that still satisfies the criteria below.
+
+    Every element of 'inputs' is a tuple (int amount, string data_type).
+    For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
+    Data types used in this function are 'int', 'float' and 'str' (string).
+    The returned list can contain only unique elements.
+    """
     d = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": ()}
     book = {"string": 0, "int": 0, "set": 0, "list": 0, "dict": 0, "float": 0}
     result = []
     for element in inputs:
         amount = element[0]
         data_type = element[1]
-        if book.get(data_type) < amount:
+        if book[data_type] < amount:
             book[data_type] = amount
     for data_type in d.keys():
-        result += [d.get(data_type)] * book.get(data_type)
+        result += [d[data_type]] * book[data_type]
     return result
 
 
