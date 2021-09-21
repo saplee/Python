@@ -5,6 +5,7 @@ def generate_list(amount: int, data_type: str) -> list:
         if keys == data_type:
             return [d[data_type]] * amount
 
+
 def generate_combined_list(inputs: list) -> list:
     """
     Write a function that returns a list with the minimal possible length, that still satisfies the criteria below.
@@ -13,15 +14,6 @@ def generate_combined_list(inputs: list) -> list:
     For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
     """
     d = {"int": 0, "float": 3.14, "sting": "kass", "list": [], "dict": {}, "set": ()}
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
