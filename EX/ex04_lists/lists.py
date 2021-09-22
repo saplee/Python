@@ -1,3 +1,6 @@
+""""Lists."""
+
+
 def generate_list(amount: int, data_type: str) -> list:
     """Write a function that returns a list with amount elements of type data_type."""
     d = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
