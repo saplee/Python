@@ -75,26 +75,26 @@ def generate_combined_list_unique_advanced(inputs: list) -> list:
         data_type = element[1]
         if book[data_type] < amount:
             book[data_type] = amount
-    for i in range(0, book["int"]):
+    for number in range(0, book["int"]):
         int_number = random.randint(0, 1000000000)
         result += [int_number]
-    for i in range(0, book["float"]):
+    for number in range(0, book["float"]):
         float_number = random.uniform(0, 100000000)
         result += [float_number]
-    for i in range(0, book["string"]):
+    for number in range(0, book["string"]):
         random_number = random.randint(0, 100000000)
         random_string = str(random_number)
         result += [random_string]
-    for l in range(0, book["list"]):
+    for number in range(0, book["list"]):
         random_numbers = random.randint(0, 100000000)
         random_list = [random_numbers]
         result += [random_list]
-    for m in range(0, book["set"]):
+    for number in range(0, book["set"]):
         random_number = random.randint(0, 100000000)
         random_set = {random_number}
         result += [random_set]
-    for i in range(book["dict"]):
-        random_dict = {"key" + str(i): random.randint(0, 1000000)}
+    for number in range(book["dict"]):
+        random_dict = {"key" + str(number): random.randint(0, 1000000)}
         result += [random_dict]
     return result
 
