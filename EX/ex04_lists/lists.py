@@ -14,7 +14,6 @@ def generate_combined_list(inputs: list) -> list:
     """
     Write a function that returns a list with the minimal possible length, that still satisfies the criteria below.
     Every element of 'inputs' is a tuple (int amount, string data_type).
-    For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
     """
     data_list = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
     book = {"string": 0, "int": 0, "set": 0, "list": 0, "dict": 0, "float": 0}
