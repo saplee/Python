@@ -84,7 +84,17 @@ def generate_combined_list_unique_advanced(inputs: list) -> list:
         random_number = random.randint(0, 100000000)
         random_string = str(random_number)
         result += [random_string]
+    for l in range(0, book["list"]):
+        random_numbers = random.randint(0, 100000000)
+        random_list = [random_numbers]
+        result += [random_list]
+    for m in range(0, book["set"]):
+        random_number = random.randint(0, 100000000)
+        random_set = {random_number}
+        result += [random_set]
     return result
+
+
 
 
 if __name__ == '__main__':
