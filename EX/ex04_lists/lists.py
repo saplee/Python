@@ -16,6 +16,7 @@ def generate_combined_list(inputs: list) -> list:
     Every element of 'inputs' is a tuple (int amount, string data_type).
     For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
     """
+
     data_list = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
     book = {"string": 0, "int": 0, "set": 0, "list": 0, "dict": 0, "float": 0}
     result = []
@@ -92,6 +93,9 @@ def generate_combined_list_unique_advanced(inputs: list) -> list:
         random_number = random.randint(0, 100000000)
         random_set = {random_number}
         result += [random_set]
+    for i in range(book["dict"]):
+        random_dict = {"key" + str(i): random.randint(0, 1000000)}
+        result += [random_dict]
     return result
 
 
@@ -119,5 +123,6 @@ if __name__ == '__main__':
     # Part 4
     print(generate_combined_list_unique_advanced([(3, 'int'), (5, 'int')]))  # [1, 2, 3, 4, 5]
     print(generate_combined_list_unique_advanced([(2, 'list'), (3, 'string')]))  # ["a", [2], "asd", [], "abc"]
-    print(generate_combined_list_unique_advanced([(2, 'float'), (3, 'dict')]))  # [{3: "abd"}, {"a": "a"}, {}, 3.14, 3.15]
+    print(
+        generate_combined_list_unique_advanced([(2, 'float'), (3, 'dict')]))  # [{3: "abd"}, {"a": "a"}, {}, 3.14, 3.15]
     print()
