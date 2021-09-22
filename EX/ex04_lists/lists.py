@@ -13,6 +13,7 @@ def generate_list(amount: int, data_type: str) -> list:
 def generate_combined_list(inputs: list) -> list:
     """
     Write a function that returns a list with the minimal possible length, that still satisfies the criteria below.
+
     Every element of 'inputs' is a tuple (int amount, string data_type).
     """
     data_list = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
@@ -60,6 +61,7 @@ def generate_combined_list_unique(inputs: list) -> list:
 def generate_combined_list_unique_advanced(inputs: list) -> list:
     """
     Write a function that returns a list with the minimal possible length, that still satisfies the criteria below.
+
     Every element of 'inputs' is a tuple (int amount, string data_type).
     For each element of 'inputs', it must be true that the returned list contains at least 'amount' of elements of type 'data_type'.
     All the data types from the first function are used here.
