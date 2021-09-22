@@ -18,9 +18,9 @@ def generate_combined_list(inputs: list) -> list:
     result = []
     for element in inputs:
         amount = element[0]
-        data_type = element[1]
-        if book[data_type] < amount:
-            book[data_type] = amount
+        data_types = element[1]
+        if book[data_types] < amount:
+            book[data_types] = amount
     for data_type in data_list.keys():
         result += [data_list[data_type]] * book[data_type]
     return result
@@ -37,7 +37,6 @@ def generate_combined_list_unique(inputs: list) -> list:
     """
     import random
     book = {"string": 0, "int": 0, "float": 0}
-    word = ["a", "b", "c", "d", "f", "g", "h"]
     result = []
     for element in inputs:
         amount = element[0]
@@ -47,12 +46,13 @@ def generate_combined_list_unique(inputs: list) -> list:
     for i in range(0, book["int"]):
         int_number = random.randint(0, 1000000)
         result += [int_number]
-        for i in range(0, book["float"]):
-            float_number = random.uniform(0, 100000)
-            result += [float_number]
-        for i in range(0, book["string"]):
-            random_string = random.choice(word)
-            result += [random_string]
+    for i in range(0, book["float"]):
+        float_number = random.uniform(0, 100000)
+        result += [float_number]
+    for i in range(0, book["string"]):
+        random_number = random.randint(0, 1000000)
+        random_string = str(random_number)
+        result += [random_string]
     return result
 
 
