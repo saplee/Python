@@ -44,10 +44,10 @@ def generate_combined_list_unique(inputs: list) -> list:
         if book[data_type] < amount:
             book[data_type] = amount
     for i in range(0, book["int"]):
-        int_number = random.randint(0, 1000000)
+        int_number = random.randint(0, 10000000)
         result += [int_number]
     for i in range(0, book["float"]):
-        float_number = random.uniform(0, 100000)
+        float_number = random.uniform(0, 1000000)
         result += [float_number]
     for i in range(0, book["string"]):
         random_number = random.randint(0, 1000000)
