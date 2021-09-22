@@ -4,10 +4,10 @@ import random
 
 def generate_list(amount: int, data_type: str) -> list:
     """Write a function that returns a list with amount elements of type data_type."""
-    d = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
-    for key in d.keys():
+    data = {"int": 0, "float": 3.14, "string": "kass", "list": [], "dict": {}, "set": set()}
+    for key in data.keys():
         if key == data_type:
-            return [d[data_type]] * amount
+            return [data[data_type]] * amount
 
 
 def generate_combined_list(inputs: list) -> list:
@@ -45,13 +45,13 @@ def generate_combined_list_unique(inputs: list) -> list:
         data_type = element[1]
         if book[data_type] < amount:
             book[data_type] = amount
-    for i in range(0, book["int"]):
+    for number in range(0, book["int"]):
         int_number = random.randint(0, 100000000)
         result += [int_number]
-    for i in range(0, book["float"]):
+    for number in range(0, book["float"]):
         float_number = random.uniform(0, 10000000)
         result += [float_number]
-    for i in range(0, book["string"]):
+    for number in range(0, book["string"]):
         random_number = random.randint(0, 10000000)
         random_string = str(random_number)
         result += [random_string]
