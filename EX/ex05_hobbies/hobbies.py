@@ -1,5 +1,6 @@
 """Hobbies."""
 
+
 def sort_dictionary(dic: dict) -> dict:
     """
     Sort dictionary values alphabetically.
@@ -54,9 +55,9 @@ def create_dictionary_with_hobbies(data: str) -> dict:
         name = new_list[0]
         hobby = new_list[1].split(",")
         if hobby[0] not in my_dict:
-            my_dict[hobby[0]] = name
+            my_dict[hobby[0]] = [name]
         if name not in my_dict[hobby[0]]:
-            my_dict[hobby[0]] = my_dict[hobby[0]] + name
+            my_dict[hobby[0]] = my_dict[hobby[0]] + [name]
     return my_dict
 
 
@@ -139,7 +140,8 @@ if __name__ == '__main__':
     assert len(sort_result) == 10
     assert sort_result[0][0] == 'Alfred'
     assert len(sort_result[0][1]) == 7
-    assert sort_result[-1] == ('Wendy', ('fishing', 'fitness', 'football', 'gaming', 'photography', 'puzzles', 'shopping', 'sport', 'theatre'))
+    assert sort_result[-1] == (
+    'Wendy', ('fishing', 'fitness', 'football', 'gaming', 'photography', 'puzzles', 'shopping', 'sport', 'theatre'))
     # if you see this line below, then everything seems to be ok!
     print("sorting works!")
 
