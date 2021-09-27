@@ -31,10 +31,7 @@ def create_dictionary_with_hobbies(data: str) -> dict:
         new_list = list.split(":")
         name = new_list[0]
         hobby = new_list[1].split(",")
-        if name not in my_dict:
-            my_dict[name] = hobby
-        else:
-            my_dict[name] = my_dict[name] + hobby
+        my_dict[name] = hobby
     return my_dict
 
 
