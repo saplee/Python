@@ -1,6 +1,5 @@
 """Hobbies."""
 
-
 def sort_dictionary(dic: dict) -> dict:
     """
     Sort dictionary values alphabetically.
@@ -16,9 +15,32 @@ def sort_dictionary(dic: dict) -> dict:
     :param dic: dictionary to sort
     :return: sorted dictionary
     """
+    pass
 
 
 def create_dictionary(data: str) -> dict:
+    """
+    Create dictionary about people and their hobbies ie. {name1: [hobby1, hobby2, ...], name2: [...]}.
+
+    There should be no duplicate hobbies on 1 person.
+
+    :param data: given string from database
+    :return: dictionary where keys are people and values are lists of hobbies
+    """
+    my_dict = {}
+    splited_word = data.split("\n")
+    for list in splited_word:
+        new_list = list.split(":")
+        name = new_list[0]
+        hobby = new_list[1].split(",")
+        if name not in my_dict:
+            my_dict[name] = hobby
+        if hobby[0] not in my_dict[name]:
+            my_dict[name] = my_dict[name] + hobby
+    return my_dict
+
+
+def create_dictionary_with_hobbies(data: str) -> dict:
     """
     Create dictionary about hobbies and their hobbyists ie. {hobby1: [name1, name2, ...], hobby2: [...]}.
 
@@ -117,8 +139,7 @@ if __name__ == '__main__':
     assert len(sort_result) == 10
     assert sort_result[0][0] == 'Alfred'
     assert len(sort_result[0][1]) == 7
-    assert sort_result[-1] == (
-        'Wendy', ('fishing', 'fitness', 'football', 'gaming', 'photography', 'puzzles', 'shopping', 'sport', 'theatre'))
+    assert sort_result[-1] == ('Wendy', ('fishing', 'fitness', 'football', 'gaming', 'photography', 'puzzles', 'shopping', 'sport', 'theatre'))
     # if you see this line below, then everything seems to be ok!
     print("sorting works!")
 
