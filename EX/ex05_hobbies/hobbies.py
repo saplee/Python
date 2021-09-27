@@ -30,8 +30,8 @@ def create_dictionary_with_hobbies(data: str) -> dict:
     for list in splited_word:
         new_list = list.split(":")
         name = new_list[0]
-        hobby = new_list[1]
-        my_dict[name] = [hobby]
+        hobby = new_list[1].split(",")
+        my_dict[name] = hobby
     return my_dict
 
 
