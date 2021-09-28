@@ -68,7 +68,17 @@ def find_people_with_most_hobbies(data: str) -> list:
     :param data: given string from database
     :return: list of people with most hobbies. Sorted alphabetically.
     """
-    pass
+    my_dict = {}
+    splited_word = data.split("\n")
+    for list in splited_word:
+        new_list = list.split(":")
+        name = new_list[0]
+        hobby = new_list[1].split(",")
+        if name not in my_dict:
+            my_dict[name] = hobby
+        if hobby[0] not in my_dict[name]:
+            my_dict[name] = my_dict[name] + hobby
+    return my_dict
 
 
 def find_people_with_least_hobbies(data: str) -> list:
@@ -78,7 +88,17 @@ def find_people_with_least_hobbies(data: str) -> list:
     :param data: given string from database
     :return: list of people with least hobbies. Sorted alphabetically.
     """
-    pass
+    my_dict = {}
+    splited_word = data.split("\n")
+    for list in splited_word:
+        new_list = list.split(":")
+        name = new_list[0]
+        hobby = new_list[1].split(",")
+        if name not in my_dict:
+            my_dict[name] = hobby
+        if hobby[0] not in my_dict[name]:
+            my_dict[name] = my_dict[name] + hobby
+    return my_dict
 
 
 def find_most_popular_hobbies(data: str) -> list:
