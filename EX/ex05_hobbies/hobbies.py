@@ -58,7 +58,7 @@ def create_dictionary_with_hobbies(data: str) -> dict:
             my_dict[hobby[0]] = [name]
         if name not in my_dict[hobby[0]]:
             my_dict[hobby[0]] = my_dict[hobby[0]] + [name]
-    return my_dict
+    return sort_dictionary(my_dict)
 
 
 def find_people_with_most_hobbies(data: str) -> list:
