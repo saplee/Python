@@ -12,7 +12,7 @@ def rotate_left3(nums):
     :param nums: List of integers of length 3.
     :return: Rotated list.
     """
-    new_list = [nums[2], nums[1], nums[0]]
+    new_list = [nums[1], nums[2], nums[0]]
     return new_list
 
 
