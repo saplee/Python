@@ -68,6 +68,7 @@ def find_people_with_most_hobbies(data: str) -> list:
     :return: list of people with most hobbies. Sorted alphabetically.
     """
     my_dict = {}
+    new_dict = {}
     splited_word = data.split("\n")
     for list in splited_word:
         new_list = list.split(":")
@@ -77,6 +78,10 @@ def find_people_with_most_hobbies(data: str) -> list:
             my_dict[name] = hobby
         if hobby[0] not in my_dict[name]:
             my_dict[name] = sorted(my_dict[name] + hobby)
+    for names in my_dict.keys()
+        if names not in new_dict:
+            new_dict[names] = len(my_dict[names])
+    return new_dict
 
 
 def find_people_with_least_hobbies(data: str) -> list:
@@ -95,26 +100,20 @@ def find_most_popular_hobbies(data: str) -> list:
     :param data: given string from database
     :return: list of most popular hobbies. Sorted alphabetically.
     """
-    hobby_list = []
-    hobby_dict = {}
     my_dict = {}
+    new_dict = {}
     splited_word = data.split("\n")
     for list in splited_word:
         new_list = list.split(":")
         name = new_list[0]
         hobby = new_list[1].split(",")
-        if name not in my_dict:
-            my_dict[name] = hobby
-        if hobby[0] not in my_dict[name]:
-            my_dict[name] = sorted(my_dict[name] + hobby)
-    for hobby in my_dict.values():
-        hobby_list += hobby
-    new_hobby_list = sorted(hobby_list)
-    for hobbies in new_hobby_list:
-        if hobbies not in hobby_dict:
-            hobby_dict[hobbies] = 1
-        else:
-            hobby_dict[hobbies] += 1
+        if hobby[0] not in my_dict:
+            my_dict[hobby[0]] = [name]
+        if name not in my_dict[hobby[0]]:
+            my_dict[hobby[0]] = sorted(my_dict[hobby[0]] + [name])
+    for hobbies in my_dict.keys():
+        if hobbies not in new_dict:
+            new_dict[hobbies] = len(my_dict[hobbies])
 
 
 def find_least_popular_hobbies(data: str) -> list:
@@ -124,7 +123,20 @@ def find_least_popular_hobbies(data: str) -> list:
     :param data: given string from database
     :return: list of least popular hobbies. Sorted alphabetically.
     """
-    pass
+    my_dict = {}
+    new_dict = {}
+    splited_word = data.split("\n")
+    for list in splited_word:
+        new_list = list.split(":")
+        name = new_list[0]
+        hobby = new_list[1].split(",")
+        if hobby[0] not in my_dict:
+            my_dict[hobby[0]] = [name]
+        if name not in my_dict[hobby[0]]:
+            my_dict[hobby[0]] = sorted(my_dict[hobby[0]] + [name])
+    for hobbies in my_dict.keys():
+        if hobbies not in new_dict:
+            new_dict[hobbies] = len(my_dict[hobbies])
 
 
 def sort_names_and_hobbies(data: str) -> tuple:
