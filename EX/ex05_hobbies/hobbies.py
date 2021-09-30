@@ -78,7 +78,7 @@ def find_people_with_most_hobbies(data: str) -> list:
             my_dict[name] = hobby
         if hobby[0] not in my_dict[name]:
             my_dict[name] = sorted(my_dict[name] + hobby)
-    for names in my_dict.keys()
+    for names in my_dict.keys():
         if names not in new_dict:
             new_dict[names] = len(my_dict[names])
     return new_dict
