@@ -86,7 +86,7 @@ def min_index_value(nums: list) -> int:
     if first_number >= len(nums) or second_number >= len(nums):
         return -1
     else:
-        return min[nums[first_number], nums[second_number]]
+        return min([nums[first_number], nums[second_number]])
 
 
 def count_clumps(nums: list) -> int:
