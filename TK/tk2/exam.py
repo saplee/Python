@@ -102,4 +102,5 @@ def count_clumps(nums: list) -> int:
     :param nums: List of integers.
     :return: Number of clumps.
     """
-    pass
+
+
