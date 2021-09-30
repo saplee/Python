@@ -36,17 +36,17 @@ def caught_speeding(speed, is_birthday):
     :param is_birthday: Whether it is your birthday (boolean).
     :return: Which category speeding ticket you would get (0, 1, 2).
     """
-    if speed <= 60 and is_birthday == False:
+    if speed <= 60 and is_birthday is False:
         return 0
-    if 61 <= speed <= 80 and is_birthday == False:
+    if 61 <= speed <= 80 and is_birthday is False:
         return 1
-    if speed > 80 and is_birthday == False:
+    if speed > 80 and is_birthday is False:
         return 2
-    if speed <= 65 and is_birthday == True:
+    if speed <= 65 and is_birthday is True:
         return 0
-    if 66 <= speed <= 85 and is_birthday == True:
+    if 66 <= speed <= 85 and is_birthday is True:
         return 1
-    if speed > 85 and is_birthday == True:
+    if speed > 85 and is_birthday is True:
         return 2
 
 
