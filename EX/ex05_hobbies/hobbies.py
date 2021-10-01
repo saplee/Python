@@ -85,8 +85,8 @@ def find_people_with_most_hobbies(data: str) -> list:
     x = max(my_dict.values(), key=len)
     for names, hobbies in my_dict.items():
         if len(hobbies) == len(x):
-            result += sorted([names])
-    return result
+            result += [names]
+    return sorted(result)
 
 
 def find_people_with_least_hobbies(data: str) -> list:
@@ -110,8 +110,8 @@ def find_people_with_least_hobbies(data: str) -> list:
     x = min(my_dict.values(), key=len)
     for names, hobbies in my_dict.items():
         if len(hobbies) == len(x):
-            result += sorted([names])
-    return result
+            result += [names]
+    return sorted(result)
 
 
 def find_most_popular_hobbies(data: str) -> list:
@@ -135,8 +135,8 @@ def find_most_popular_hobbies(data: str) -> list:
     x = max(my_dict.values(), key=len)
     for hobbies, names in my_dict.items():
         if len(names) == len(x):
-            result += sorted([hobbies])
-    return result
+            result += [hobbies]
+    return sorted(result)
 
 
 def find_least_popular_hobbies(data: str) -> list:
@@ -160,8 +160,8 @@ def find_least_popular_hobbies(data: str) -> list:
     x = min(my_dict.values(), key=len)
     for hobbies, names in my_dict.items():
         if len(names) == len(x):
-            result += sorted([hobbies])
-    return result
+            result += [hobbies]
+    return sorted(result)
 
 
 def sort_names_and_hobbies(data: str) -> tuple:
