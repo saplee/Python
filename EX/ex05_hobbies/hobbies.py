@@ -98,6 +98,7 @@ def find_people_with_least_hobbies(data: str) -> list:
     """
     result = []
     my_dict = {}
+    new_dict = {}
     splited_word = data.split("\n")
     for list in splited_word:
         new_list = list.split(":")
@@ -107,9 +108,12 @@ def find_people_with_least_hobbies(data: str) -> list:
             my_dict[name] = hobby
         if hobby[0] not in my_dict[name]:
             my_dict[name] = sorted(my_dict[name] + hobby)
-    x = min(my_dict.values(), key=len)
-    for names, hobbies in my_dict.items():
-        if len(hobbies) == len(x):
+    for key in my_dict.keys():
+        if key not in new_dict:
+            new_dict[key] = len(my_dict[key])
+    x = min(new_dict.values())
+    for names, hobbies in new_dict:
+        if hobbies == x:
             result += [names]
     return sorted(result)
 
