@@ -78,14 +78,14 @@ def find_people_with_most_hobbies(data: str) -> list:
         new_list = list.split(":")
         name = new_list[0]
         hobby = new_list[1].split(",")
-        if hobby[0] not in my_dict:
-            my_dict[hobby[0]] = [name]
-        if name not in my_dict[hobby[0]]:
-            my_dict[hobby[0]] = sorted(my_dict[hobby[0]] + [name])
+        if name not in my_dict:
+            my_dict[name] = hobby
+        if hobby[0] not in my_dict[name]:
+            my_dict[name] = sorted(my_dict[name] + hobby)
     x = max(my_dict.values(), key=len)
     for names, hobbies in my_dict.items():
         if len(hobbies) == len(x):
-            result += [names]
+            result += sorted([names])
     return result
 
 
@@ -96,24 +96,22 @@ def find_people_with_least_hobbies(data: str) -> list:
     :param data: given string from database
     :return: list of people with least hobbies. Sorted alphabetically.
     """
-    my_dict = {}
     result = []
+    my_dict = {}
     splited_word = data.split("\n")
     for list in splited_word:
         new_list = list.split(":")
         name = new_list[0]
         hobby = new_list[1].split(",")
-        if hobby[0] not in my_dict:
-            my_dict[hobby[0]] = [name]
-        if name not in my_dict[hobby[0]]:
-            my_dict[hobby[0]] = sorted(my_dict[hobby[0]] + [name])
+        if name not in my_dict:
+            my_dict[name] = hobby
+        if hobby[0] not in my_dict[name]:
+            my_dict[name] = sorted(my_dict[name] + hobby)
     x = min(my_dict.values(), key=len)
     for names, hobbies in my_dict.items():
         if len(hobbies) == len(x):
-            result += [names]
+            result += sorted([names])
     return result
-
-print(find_people_with_least_hobbies("""Jack:crafting\nPeter:hiking\nWendy:gaming\nMonica:tennis\nChris:origami\nSophie:sport\nMonica:design\nCarmen:sport\nChris:sport\nMonica:skateboarding\nCarmen:cooking\nWendy:photography\nMonica:tennis\nCooper:yoga\nWendy:sport\nCooper:movies\nMonica:theatre\nCooper:yoga\nChris:gaming\nMolly:fishing\nJack:skateboarding\nWendy:fishing\nJack:drawing\nMonica:baking\nSophie:baking\nAlfred:driving\nAlfred:shopping\nAlfred:crafting\nJack:drawing\nCarmen:shopping\nCarmen:driving\nPeter:drawing\nCarmen:shopping\nWendy:fitness\nAlfred:travel\nJack:origami\nSophie:design\nJack:pets\nCarmen:dance\nAlfred:baking\nSophie:sport\nPeter:gaming\nJack:skateboarding\nCooper:football\nAlfred:sport\nCooper:fitness\nChris:yoga\nWendy:football\nMolly:design\nJack:hiking\nMonica:pets\nCarmen:photography\nJack:baking\nPeter:driving\nChris:driving\nCarmen:driving\nPeter:theatre\nMolly:hiking\nWendy:puzzles\nJack:crafting\nPeter:photography\nCarmen:theatre\nSophie:crafting\nCarmen:cooking\nAlfred:gaming\nPeter:theatre\nCooper:hiking\nChris:football\nChris:pets\nJack:football\nMonica:skateboarding\nChris:driving\nCarmen:pets\nCooper:gaming\nChris:hiking\nJack:cooking\nPeter:fishing\nJack:gaming\nPeter:origami\nCarmen:movies\nSophie:driving\nJack:sport\nCarmen:theatre\nWendy:shopping\nCarmen:pets\nWendy:gaming\nSophie:football\nWendy:theatre\nCarmen:football\nMolly:theatre\nPeter:theatre\nMonica:flowers\nMolly:skateboarding\nPeter:driving\nSophie:travel\nMonica:photography\nCooper:cooking\nJack:fitness\nPeter:cooking\nChris:gaming"""))
 
 
 def find_most_popular_hobbies(data: str) -> list:
@@ -137,7 +135,7 @@ def find_most_popular_hobbies(data: str) -> list:
     x = max(my_dict.values(), key=len)
     for hobbies, names in my_dict.items():
         if len(names) == len(x):
-            result += [hobbies]
+            result += sorted([hobbies])
     return result
 
 
@@ -162,7 +160,7 @@ def find_least_popular_hobbies(data: str) -> list:
     x = min(my_dict.values(), key=len)
     for hobbies, names in my_dict.items():
         if len(names) == len(x):
-            result += [hobbies]
+            result += sorted([hobbies])
     return result
 
 
