@@ -98,7 +98,12 @@ def find_words_from_sentences_only(text: str) -> list:
     :param text: given string to find words from
     :return: list of words found in sentences from given string
     """
-    pass
+    word_list = []
+    pattern = r'[\w]+'
+    match = re.findall(pattern, text)
+    for word in match:
+        word_list.append(word)
+    return word_list
 
 
 def find_years(text: str) -> list:
