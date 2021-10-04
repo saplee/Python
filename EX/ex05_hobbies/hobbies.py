@@ -82,9 +82,9 @@ def find_people_with_most_hobbies(data: str) -> list:
             my_dict[name] = hobby
         if hobby[0] not in my_dict[name]:
             my_dict[name] = sorted(my_dict[name] + hobby)
-    x = max(my_dict.values(), key=len)
+    max_len = max(my_dict.values(), key=len)
     for names, hobbies in my_dict.items():
-        if len(hobbies) == len(x):
+        if len(hobbies) == len(max_len):
             result += [names]
     return sorted(result)
 
@@ -107,9 +107,9 @@ def find_people_with_least_hobbies(data: str) -> list:
             my_dict[name] = hobby
         if hobby[0] not in my_dict[name]:
             my_dict[name] = sorted(my_dict[name] + hobby)
-    x = min(my_dict.values(), key=len)
+    min_len = min(my_dict.values(), key=len)
     for names, hobbies in my_dict.items():
-        if len(hobbies) == len(x):
+        if len(hobbies) == len(min_len):
             result += [names]
     return sorted(result)
 
@@ -132,9 +132,9 @@ def find_most_popular_hobbies(data: str) -> list:
             my_dict[hobby[0]] = [name]
         if name not in my_dict[hobby[0]]:
             my_dict[hobby[0]] = sorted(my_dict[hobby[0]] + [name])
-    x = max(my_dict.values(), key=len)
+    max_len = max(my_dict.values(), key=len)
     for hobbies, names in my_dict.items():
-        if len(names) == len(x):
+        if len(names) == len(max_len):
             result += [hobbies]
     return sorted(result)
 
@@ -157,9 +157,9 @@ def find_least_popular_hobbies(data: str) -> list:
             my_dict[hobby[0]] = [name]
         if name not in my_dict[hobby[0]]:
             my_dict[hobby[0]] = sorted(my_dict[hobby[0]] + [name])
-    x = min(my_dict.values(), key=len)
+    min_len = min(my_dict.values(), key=len)
     for hobbies, names in my_dict.items():
-        if len(names) == len(x):
+        if len(names) == len(min_len):
             result += [hobbies]
     return sorted(result)
 
