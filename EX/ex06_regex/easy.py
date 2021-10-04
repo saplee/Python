@@ -122,6 +122,16 @@ def find_years(text: str) -> list:
     :param text: given string to find years from
     :return: list of years (integers) found in given string
     """
+    first_list = []
+    number_list = []
+    pattern = r'[\d]+'
+    match = re.findall(pattern, text)
+    for number in match:
+        first_list.append(number)
+    for numbers in first_list:
+        if len(numbers) == 4:
+            number_list.append(numbers)
+    return number_list
 
 
 def find_phone_numbers(text: str) -> dict:
@@ -142,7 +152,6 @@ def find_phone_numbers(text: str) -> dict:
     :param text: given string to find phone numbers from
     :return: dict containing the numbers
     """
-    pass
 
 
 if __name__ == '__main__':
