@@ -130,7 +130,7 @@ def find_years(text: str) -> list:
         first_list.append(number)
     for numbers in first_list:
         if len(numbers) == 4:
-            number_list.append(numbers)
+            number_list.append(int(numbers))
     return number_list
 
 
