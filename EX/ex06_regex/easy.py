@@ -153,7 +153,7 @@ def find_phone_numbers(text: str) -> dict:
     :return: dict containing the numbers
     """
     my_dict = {}
-    pattern = r'(\+\d\d\d)?\s?(\d\d\d\d\d\d\d\d)'
+    pattern = r'(\+\d\d\d)?\s?(\d\d\d\d\d\d\d+)'
     match = re.findall(pattern, text)
     for word in match:
         if word[0] not in my_dict:
