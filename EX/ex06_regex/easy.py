@@ -156,7 +156,10 @@ def find_phone_numbers(text: str) -> dict:
     pattern = r'(\+\d\d\d)?\s?(\d\d\d\d\d\d\d\d)'
     match = re.findall(pattern, text)
     for word in match:
-        my_dict[word[0]] = [word[1]]
+        if word[0] not in my_dict:
+            my_dict[word[0]] = [word[1]]
+        if word[1] not in my_dict[word[0]]:
+            my_dict[word[0]] = (my_dict[word[0]] + word[1])
     return my_dict
 
 
