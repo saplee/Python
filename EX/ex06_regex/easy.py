@@ -158,7 +158,7 @@ def find_phone_numbers(text: str) -> dict:
     for word in match:
         if word[0] not in my_dict:
             my_dict[word[0]] = [word[1]]
-        if word[1] not in my_dict[word[0]]:
+        else:
             my_dict[word[0]] = (my_dict[word[0]] + [word[1]])
     return my_dict
 
@@ -173,5 +173,4 @@ if __name__ == '__main__':
     print(find_words_from_sentences_only(
         'See on esimene - ä lause. See, on teine: lause! see ei ole lause. Aga kas see on? jah, oli.'))  # ['See', 'on', 'esimene', 'ä', 'lause', 'See', 'on', 'teine', 'lause', 'Aga', 'kas', 'see', 'on']
     print(find_years("1998sef672387fh3f87fh83777f777f7777f73wfj893w8938434343"))  # [1998, 7777]
-    print(find_phone_numbers(
-        "+372 56887364  +37256887364  +33359835647  56887364"))  # {'+372': ['56887364', '56887364'], '+333': ['59835647'], '': ['56887364']}
+    print(find_phone_numbers("+372 56887364  +37256887364  +33359835647  56887364"))  # {'+372': ['56887364', '56887364'], '+333': ['59835647'], '': ['56887364']}
