@@ -152,6 +152,12 @@ def find_phone_numbers(text: str) -> dict:
     :param text: given string to find phone numbers from
     :return: dict containing the numbers
     """
+    my_dict = {}
+    pattern = r'\+?(\d\d\d)?\s?(\d\d\d\d\d\d\d\d)'
+    match = re.findall(pattern, text)
+    for word in match:
+        my_dict[word[0]] = word[1]
+    return my_dict
 
 
 if __name__ == '__main__':
