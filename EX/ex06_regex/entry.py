@@ -52,7 +52,7 @@ def parse(row: str) -> Entry:
     :param row: String representation of the data.
     :return: Entry object with filled values
     """
-    date = re.search("(\d\d)[-](\d\d)-(\d\d\d\d)", row)
+    date = re.search('(\d\d)[-](\d\d)-(\d\d\d\d)', row)
     if date is None:
         day = "None"
         month = "None"
@@ -63,24 +63,24 @@ def parse(row: str) -> Entry:
         month = date.group(2)
         year = date.group(3)
         format_date = f"Day: {day}, Month: {month}, Year: {year}"
-    id = re.search("(\d){11}", row)
+    id = re.search('(\d){11}', row)
     if id is None:
         id_code = "None"
     else:
         id_code = id.group()
-    word = re.search("([A-ZÕÜÄÖ][a-zõüäö]+)([A-ZÕÜÄÖ][a-zõüäö]+)", row)
+    word = re.search('([A-ZÕÜÄÖ][a-zõüäö]+)([A-ZÕÜÄÖ][a-zõüäö]+)', row)
     if word is None:
         first_name = "None"
         last_name = "None"
     else:
         first_name = word.group(1)
         last_name = word.group(2)
-    phone = re.search("\+\d\d\d\s?\d+", row)
+    phone = re.search('\+\d\d\d\s?\d+', row)
     if phone is None:
         phone_number = "None"
     else:
         phone_number = phone.group()
-    adre = re.search("[A-ZÕÜÄÖ][a-zõüäö]+\s[\w\-,A-ZÕÜÄÖa-zõüäö]+", row)
+    adre = re.search('[A-ZÕÜÄÖ][a-zõüäö]+\s[\w\-,A-ZÕÜÄÖa-zõüäö]+', row)
     if adre is None:
         address = "None"
     else:
