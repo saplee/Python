@@ -85,11 +85,7 @@ def parse(row: str) -> Entry:
         address = "None"
     else:
         address = adre.group()
-    return f"Name: {str(first_name)} {last_name}\n" \
-           f"ID code: {id_code}\n" \
-           f"Phone number: {phone_number}\n" \
-           f"Date of birth: {format_date}\n" \
-           f"Address: {address}"
+    return Entry(first_name, last_name, id_code, phone_number, format_date, address)
 
 
 if __name__ == '__main__':
