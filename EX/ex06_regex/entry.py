@@ -54,9 +54,9 @@ def parse(row: str) -> Entry:
     """
     date = re.search(r'(\d\d)[-](\d\d)-(\d\d\d\d)', row)
     if date is None:
-        day = "None"
-        month = "None"
-        year = "None"
+        day = None
+        month = None
+        year = None
         format_date = f"Day: {day}, Month: {month}, Year: {year}"
     else:
         day = date.group(1)
@@ -65,24 +65,24 @@ def parse(row: str) -> Entry:
         format_date = f"Day: {day}, Month: {month}, Year: {year}"
     id = re.search(r'(\d){11}', row)
     if id is None:
-        id_code = "None"
+        id_code = None
     else:
         id_code = id.group()
     word = re.search(r'([A-ZÕÜÄÖ][a-zõüäö]+)([A-ZÕÜÄÖ][a-zõüäö]+)', row)
     if word is None:
-        first_name = "None"
-        last_name = "None"
+        first_name = None
+        last_name = None
     else:
         first_name = word.group(1)
         last_name = word.group(2)
     phone = re.search(r'\+\d\d\d\s?\d{7,8}', row)
     if phone is None:
-        phone_number = "None"
+        phone_number = None
     else:
         phone_number = phone.group()
     adre = re.search(r'[A-ZÕÜÄÖa-zõüäö]+\s[\w\-,A-ZÕÜÄÖa-zõüäö\s]+', row)
     if adre is None:
-        address = "None"
+        address = None
     else:
         address = adre.group()
     return Entry(first_name, last_name, id_code, phone_number, format_date, address)
