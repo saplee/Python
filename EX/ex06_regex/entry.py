@@ -54,12 +54,12 @@ def parse(row: str) -> Entry:
     """
     date = re.search(r'(\d\d)[-](\d\d)-(\d\d\d\d)', row)
     if date is None:
-        format_date = f"Day: {None}, Month: {None}, Year: {None}"
+        format_date = None
     else:
         day = date.group(1)
         month = date.group(2)
         year = date.group(3)
-        format_date = f"Day: {day}, Month: {month}, Year: {year}"
+        format_date = f"{day}-{month}-{year}"
     id = re.search(r'(\d){11}', row)
     if id is None:
         id_code = None
