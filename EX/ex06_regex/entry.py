@@ -54,10 +54,7 @@ def parse(row: str) -> Entry:
     """
     date = re.search(r'(\d\d)[-](\d\d)-(\d\d\d\d)', row)
     if date is None:
-        day = None
-        month = None
-        year = None
-        format_date = f"Day: {day}, Month: {month}, Year: {year}"
+        format_date = f"Day: {None}, Month: {None}, Year: {None}"
     else:
         day = date.group(1)
         month = date.group(2)
