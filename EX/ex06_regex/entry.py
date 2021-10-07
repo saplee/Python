@@ -76,7 +76,7 @@ def parse(row: str) -> Entry:
     if phone is None:
         phone_number = None
     else:
-        phone_number = phone.group()
+        phone_number = phone.group(0)
     adre = re.search(r'[A-ZÕÜÄÖa-zõüäö]+\s[\w\-,A-ZÕÜÄÖa-zõüäö\s]+', row)
     if adre is None:
         address = None
