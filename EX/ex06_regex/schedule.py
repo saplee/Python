@@ -123,5 +123,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("wat 11:00 t 11:0 ja 10:00 p "))
+    print(create_schedule_string("wat 11:0 t 11:0 ja 10:00 p "))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
