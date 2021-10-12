@@ -79,19 +79,24 @@ def create_table(my_dict):
         if num_b > 0:
             for key, value in my_dict.items():
                 word_list.append(key + value)
-            x = len((max(word_list, key=len))) + 7
-            table += "-" * x
+            x = max(word_list, key=len)
+            m = re.search(r'\d{1,2}:\d{1,2}', x)
+            if len(m.group()) == 4:
+                f = len(x) + 8
+            else:
+                f = len(x) + 7
+            table += "-" * f
             for value in my_dict.values():
                 other_list.append(value)
             y = len(max(other_list, key=len))
             table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
-            table += "-" * x
+            table += "-" * f
             for key, value in my_dict.items():
                 if len(str(key)) == 7:
                     table += f"\n|  {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
                 else:
                     table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
-            table += f"\n{'-' * x}\n"
+            table += f"\n{'-' * f}\n"
     return table
 
 
@@ -113,5 +118,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("1:22 dshadha 08:2 hfbadsbhdshdashkhf 4:22 hfhfhhhhhhh"))
+    print(create_schedule_string("12:22 dshdfsfdsfsdfsdfadha 08:2 hfbadsbhdshdashkhf 4:22 hfhfhhhhhhh"))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
