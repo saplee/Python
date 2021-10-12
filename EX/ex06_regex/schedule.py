@@ -7,15 +7,17 @@ def create_dictionary(input_string: str):
     pattern = r'([\d]{1,2})[:.!,\w](\d{1,2})[\s]+(\w+)'
     match = re.findall(pattern, input_string)
     for word in match:
-        hour = int(word[0])
+        hour = word[0]
         minutes = word[1]
         activity = word[2]
-        if 0 > hour or hour > 24 or int(minutes) > 60 or int(minutes) < 0:
+        if 0 > int(hour) or int(hour) > 24 or int(minutes) > 60 or int(minutes) < 0:
             activity is None
             time is None
         else:
             if int(minutes) < 10 and len(minutes) == 1:
                 minutes = "0" + str(minutes)
+            if int(hour) < 10:
+                hour = "0" + hour
             time = f"{hour}:{minutes}"
             if time not in my_dict:
                 my_dict[time] = activity
@@ -47,12 +49,18 @@ def new_clock_dict(tup_list):
 
 def create_table(my_dict):
     """Create table."""
+    table = ""
     word_list = []
     other_list = []
+    if my_dict.items() is None:
+        table += "-" * (len("No items found") + 4)
+        table += f"\n| time | items |\n"
+        table += "-" * (len("No items found") + 4)
+        table += "| No items found |"
+        table += "-" * (len("No items found") + 4)
     for key, value in my_dict.items():
         word_list.append(key + value)
     x = len((max(word_list, key=len))) + 7
-    table = ""
     table += "-" * x
     for value in my_dict.values():
         other_list.append(value)
@@ -62,7 +70,7 @@ def create_table(my_dict):
     for key, value in my_dict.items():
         c = len(key + value) + 7
         if len(str(key)) == 7:
-            table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c - 1)} |\n"
+            table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c)}|"
         else:
             table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |"
     table += "-" * x
@@ -71,7 +79,14 @@ def create_table(my_dict):
 
 def create_schedule_file(input_filename: str, output_filename: str) -> None:
     """Create schedule file from the given input file."""
-    pass
+    with open(input_filename) as f:
+        file = f.read()
+        f.close()
+        print(f.closed)
+
+    with open(output_filename, "w") as f:
+        f.write(create_schedule_string(file))
+        print(f.closed)
 
 
 def create_schedule_string(input_string: str) -> str:
@@ -80,5 +95,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("wat 11:00 teine tekst 20:0 jah ei 10:00 pikktekst "))
+    print(create_schedule_string("wat 11:00 teine tekst 7:08 jah ei 10:00 pikktekst "))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
