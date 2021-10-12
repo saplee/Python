@@ -73,7 +73,7 @@ def create_table(my_dict):
             table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c)}|"
         else:
             table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |"
-    table += "-" * x
+    table += f"\n{'-' * x}\n"
     return table
 
 
