@@ -46,6 +46,33 @@ def new_clock_dict(tup_list):
     return new_dict
 
 
+def table_2(my_dict):
+    table = ""
+    word_list = []
+    other_list = []
+    for key, value in my_dict.items():
+        word_list.append(key + value)
+        x = max(word_list, key=len)
+    m = re.search(r'\d{1,2}:\d{1,2}', x)
+    if len(m.group()) == 4:
+        f = len(x) + 8
+    else:
+        f = len(x) + 7
+    table += "-" * f
+    for value in my_dict.values():
+        other_list.append(value)
+    y = len(max(other_list, key=len))
+    table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
+    table += "-" * f
+    for key, value in my_dict.items():
+        if len(str(key)) == 7:
+            table += f"\n|  {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
+        else:
+            table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
+    table += f"\n{'-' * f}\n"
+    return table
+
+
 def my_table(my_dict):
     """Create table."""
     num_a = 0
@@ -70,29 +97,9 @@ def my_table(my_dict):
         table += "-" * x
         for key, value in my_dict.items():
             table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
-        table += f"\n{'-' * x}\n"
-    if num_b > 0:
-        for key, value in my_dict.items():
-            word_list.append(key + value)
-        x = max(word_list, key=len)
-        m = re.search(r'\d{1,2}:\d{1,2}', x)
-        if len(m.group()) == 4:
-            f = len(x) + 8
-        else:
-            f = len(x) + 7
-        table += "-" * f
-        for value in my_dict.values():
-            other_list.append(value)
-        y = len(max(other_list, key=len))
-        table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
-        table += "-" * f
-        for key, value in my_dict.items():
-            if len(str(key)) == 7:
-                table += f"\n|  {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
-            else:
-                table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
-        table += f"\n{'-' * f}\n"
-    return table
+        return table
+    else:
+        return table_2(my_dict)
 
 
 def create_table(my_dict):
@@ -127,5 +134,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("tere 1:1 f 13:14 gfdgdgdg"))
+    print(create_schedule_string("tere 1:1 f 12:14 jhkjkjhgfdgdgdg"))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
