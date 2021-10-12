@@ -10,7 +10,7 @@ def create_dictionary(input_string: str):
         hour = word[0]
         minutes = word[1]
         activity = word[2]
-        if (0 <= int(hour) < 24 and 0 <= int(minutes) < 60) or (int(hour) == 24 and int(minutes) == 0):
+        if 0 <= int(hour) < 24 and 0 <= int(minutes) < 60:
             if int(minutes) < 10 and len(minutes) == 1:
                 minutes = "0" + str(minutes)
             if len(hour) == 1:
@@ -34,7 +34,7 @@ def new_clock_dict(tup_list):
         minutes = match.group(2)
         if int(hour) == 12:
             time = f"{hour}:{minutes} PM"
-        if 12 < int(hour) <= 24:
+        if 12 < int(hour) < 24:
             time = f"{hour - 12}:{minutes} PM"
         if 0 < int(hour) < 12:
             time = f"{hour}:{minutes} AM"
