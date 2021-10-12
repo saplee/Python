@@ -46,8 +46,6 @@ def new_clock_dict(tup_list):
 
 def create_table(my_dict):
     """Create table."""
-    a = len("itmes")
-    my_list = []
     num_a = 0
     num_b = 0
     table = ""
@@ -68,19 +66,16 @@ def create_table(my_dict):
         if num_b == 0:
             for key, value in my_dict.items():
                 word_list.append(key + value)
-                my_list.append(value)
             x = len((max(word_list, key=len))) + 7
-            z = len(max(my_list))
-            if z < a:
-                table += "-" * (x + a - z)
+            table += "-" * x 
             for value in my_dict.values():
                 other_list.append(value)
             y = len(max(other_list, key=len))
             table += f"\n|    time | items {' ' * (y - len('items'))}|\n"
-            table += "-" * (x + a - z)
+            table += "-" * x
             for key, value in my_dict.items():
-                table += f"\n| {str(key)} | {str(value.lower())}{' ' * (a - len(value))} |"
-            table += f"\n{'-' * (x + a - z)}\n"
+                table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
+            table += f"\n{'-' * x}\n"
         if num_b > 0:
             for key, value in my_dict.items():
                 word_list.append(key + value)
@@ -123,5 +118,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("tere 1:1 f"))
+    print(create_schedule_string("tere 1:1 f 13:14 gfdgdgdg"))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
