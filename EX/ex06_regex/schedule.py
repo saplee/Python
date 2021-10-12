@@ -30,9 +30,9 @@ def new_clock_dict(tup_list):
         value = word[1]
         patter = r'(\d+):(\d+)'
         match = re.search(patter, clock)
-        hour = match.group(1)
+        hour = int(match.group(1))
         minutes = match.group(2)
-        if hour == 12:
+        if int(hour) == 12:
             time = f"{hour}:{minutes} PM"
         if 12 < int(hour) <= 24:
             time = f"{int(hour) - 12}:{minutes} PM"
@@ -40,7 +40,8 @@ def new_clock_dict(tup_list):
             time = f"{hour}:{minutes} AM"
         if hour == 0:
             time = f"{int(hour) + 12}:{minutes} AM"
-        new_dict[time] = value
+        new_time=str(time)
+        new_dict[new_time] = value
     return new_dict
 
 
@@ -92,5 +93,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string(""))
+    print(create_schedule_string("13:22 dshadha 08:2 hfhf 12:22 hfhf"))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
