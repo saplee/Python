@@ -61,7 +61,10 @@ def create_table(my_dict):
     table += "-" * x
     for key, value in my_dict.items():
         c = len(key + value) + 7
-        table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |\n"
+        if len(str(key)) == 7:
+            table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c - 1)} |\n"
+        else:
+            table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |\n"
     table += "-" * x
     return table
 
@@ -77,5 +80,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("wat 11:00 teine tekst 11:0 jah ei 10:00 pikktekst "))
+    print(create_schedule_string("wat 11:00 teine tekst 20:0 jah ei 10:00 pikktekst "))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
