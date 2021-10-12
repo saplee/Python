@@ -63,11 +63,11 @@ def create_table(my_dict):
         for value in my_dict.values():
             other_list.append(value)
         y = len(max(other_list, key=len))
-        table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
+        table += f"\n|    time | items {' ' * (y - len('items'))}|\n"
         table += "-" * x
         for key, value in my_dict.items():
             if len(str(key)) == 7:
-                table += f"\n|  {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
+                table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
             else:
                 table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
         table += f"\n{'-' * x}\n"
