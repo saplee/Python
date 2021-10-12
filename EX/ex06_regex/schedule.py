@@ -55,7 +55,7 @@ def create_table(my_dict):
     other_list = []
     if my_dict == {}:
         table += "-" * (len("No items found") + 4)
-        table += f"\n|  time | items  |\n"
+        table += "\n|  time | items  |\n"
         table += "-" * (len("No items found") + 4)
         table += "\n| No items found |\n"
         table += "-" * (len("No items found") + 4)
