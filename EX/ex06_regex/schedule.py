@@ -48,17 +48,20 @@ def new_clock_dict(tup_list):
 def create_table(my_dict):
     """Create table."""
     word_list = []
+    other_list = []
     for key, value in my_dict.items():
         word_list.append(key + value)
     x = len((max(word_list, key=len))) + 7
     table = ""
     table += "-" * x
-    y = x - len("| time | items") - 1
-    table += f"\n| time | items{' ' * y}|\n"
+    for value in my_dict.values():
+        other_list.append(value)
+    y = len(max(other_list, key=len))
+    table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
     table += "-" * x
     for key, value in my_dict.items():
         c = len(key + value) + 7
-        table += f"\n| {key} | {value}{' ' * (x - c)} |\n"
+        table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |\n"
     table += "-" * x
     return table
 
