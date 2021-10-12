@@ -71,7 +71,7 @@ def create_table(my_dict):
             for value in my_dict.values():
                 other_list.append(value)
             y = len(max(other_list, key=len))
-            table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
+            table += f"\n|    time | items {' ' * (y - len('items'))}|\n"
             table += "-" * x
             for key, value in my_dict.items():
                 table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
@@ -113,5 +113,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("13:22 dshadha 08:2 hfbadsbhdshdashkhf 12:22 hfhfhhhhhhh"))
+    print(create_schedule_string("1:22 dshadha 08:2 hfbadsbhdshdashkhf 4:22 hfhfhhhhhhh"))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
