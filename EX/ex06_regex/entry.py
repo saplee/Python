@@ -40,8 +40,8 @@ class Entry:
 
         This method is perfect. Don't touch it.
         """
-        return self.first_name == other.first_name and self.last_name == other.last_name and \
-               self.id_code == other.id_code and self.phone_number == other.phone_number and \
+        return self.first_name == other.first_name and self.last_name == other.last_name and\
+               self.id_code == other.id_code and self.phone_number == other.phone_number and\
                self.date_of_birth == other.date_of_birth and self.address == other.address
 
 
