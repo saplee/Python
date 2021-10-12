@@ -57,9 +57,9 @@ def create_table(my_dict):
     other_list = []
     if my_dict == {}:
         table += "-" * (len("No items found") + 4)
-        table += f"\n| time | items |\n"
+        table += f"\n| time | items   |\n"
         table += "-" * (len("No items found") + 4)
-        table += "| No items found |"
+        table += "\n| No items found |\n"
         table += "-" * (len("No items found") + 4)
     else:
         for key, value in my_dict.items():
@@ -99,5 +99,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("wat 11:00 teine tekst 11:0 jah ei 10:00 pikktekst"))
+    print(create_schedule_string(""))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
