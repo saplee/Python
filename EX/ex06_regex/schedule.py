@@ -4,7 +4,7 @@ import re
 
 def create_dictionary(input_string: str):
     my_dict = {}
-    pattern = r'\s([0-9]{1,2})[\-\:.!,\sA-ZÕÜÄÖa-zõüäö](\d{1,2})[\s]+([A-ZÕÜÄÖa-zõüäö]+)'
+    pattern = r'\s([0-9]{1,2})[/\-\:.!,\sA-ZÕÜÄÖa-zõüäö](\d{1,2})[\s]+([A-ZÕÜÄÖa-zõüäö]+)'
     match = re.findall(pattern, input_string.lower())
     for word in match:
         hour = word[0]
