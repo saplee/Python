@@ -68,8 +68,8 @@ def create_table(my_dict):
         table += "-" * x
         for value in my_dict.values():
             other_list.append(value)
-        y = len(max(other_list, key=len))-1
-        table += f"\n|     time | items {' ' * (y - len('items'))} |\n"
+        y = len(max(other_list, key=len))
+        table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
         table += "-" * x
         for key, value in my_dict.items():
             c = len(key + value) + 7
