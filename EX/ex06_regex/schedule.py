@@ -3,6 +3,7 @@ import re
 
 
 def create_dictionary(input_string: str):
+    """making dict."""
     my_dict = {}
     pattern = r'\s([0-9]{1,2})[^0-9](\d{1,2})[\s]+([A-Za-z]+)'
     match = re.findall(pattern, input_string.lower())
@@ -24,6 +25,7 @@ def create_dictionary(input_string: str):
 
 
 def new_clock_dict(tup_list):
+    """making new dict."""
     new_dict = {}
     for word in tup_list:
         clock = word[0]
