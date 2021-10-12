@@ -74,9 +74,9 @@ def create_table(my_dict):
         for key, value in my_dict.items():
             c = len(key + value) + 7
             if len(str(key)) == 7:
-                table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c)}|"
+                table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c)} |"
             else:
-                table += f"\n| {str(key)} | {str(value)}{' ' * (x - c+1)}|"
+                table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |"
         table += f"\n{'-' * x}\n"
     return table
 
