@@ -69,7 +69,7 @@ def create_table(my_dict):
             for key, value in my_dict.items():
                 word_list.append(key + value)
             x = len((max(word_list, key=len))) + 7
-            table += "-" * x 
+            table += "-" * x
             for value in my_dict.values():
                 other_list.append(value)
             y = len(max(other_list, key=len))
