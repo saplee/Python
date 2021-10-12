@@ -30,16 +30,16 @@ def new_clock_dict(tup_list):
         value = word[1]
         patter = r'(\d+):(\d+)'
         match = re.search(patter, clock)
-        hour = int(match.group(1))
+        hour = match.group(1)
         minutes = match.group(2)
         if hour == 12:
             time = f"{hour}:{minutes} PM"
-        if 12 < hour <= 24:
-            time = f"{hour - 12}:{minutes} PM"
-        if 0 < hour < 12:
+        if 12 < int(hour) <= 24:
+            time = f"{int(hour) - 12}:{minutes} PM"
+        if 0 < int(hour) < 12:
             time = f"{hour}:{minutes} AM"
         if hour == 0:
-            time = f"{hour + 12}:{minutes} AM"
+            time = f"{int(hour) + 12}:{minutes} AM"
         new_dict[time] = value
     return new_dict
 
@@ -51,7 +51,7 @@ def create_table(my_dict):
     other_list = []
     if my_dict == {}:
         table += "-" * (len("No items found") + 4)
-        table += f"\n| time | items   |\n"
+        table += f"\n|  time | items  |\n"
         table += "-" * (len("No items found") + 4)
         table += "\n| No items found |\n"
         table += "-" * (len("No items found") + 4)
@@ -66,7 +66,6 @@ def create_table(my_dict):
         table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
         table += "-" * x
         for key, value in my_dict.items():
-            c = len(key + value) + 7
             if len(str(key)) == 7:
                 table += f"\n|  {str(key)} | {str(value)}{' ' * (y - len(value))} |"
             else:
