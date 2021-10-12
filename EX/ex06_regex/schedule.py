@@ -16,7 +16,7 @@ def create_dictionary(input_string: str):
                 minutes = "0" + str(minutes)
             if len(hour) == 1:
                 hour = "0" + hour
-            time = f"{hour}:{minutes}"
+            time = f'{hour}:{minutes}'
             if time not in my_dict:
                 my_dict[time] = activity
             if activity not in my_dict[time]:
