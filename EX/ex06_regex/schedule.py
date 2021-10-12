@@ -4,8 +4,8 @@ import re
 
 def create_dictionary(input_string: str):
     my_dict = {}
-    pattern = r'\s([0-9]{1,2})[\-\:.!,\s](\d{1,2})[\s]+([A-ZÕÜÄÖa-zõüäö]+)'
-    match = re.findall(pattern, input_string)
+    pattern = r'\s([0-9]{1,2})[\-\:.!,\sA-ZÕÜÄÖa-zõüäö](\d{1,2})[\s]+([A-ZÕÜÄÖa-zõüäö]+)'
+    match = re.findall(pattern, input_string.lower())
     for word in match:
         hour = word[0]
         minutes = word[1]
@@ -118,5 +118,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("12:22 dshdfsfdsfsdfsdfadha 08:2 hfbadsbhdshdashkhf 4:22 hfhfhhhhhhh"))
+    print(create_schedule_string(" 12:22 ds 08:2 hfbadsbhdshdashkhf 12:22 ds"))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
