@@ -47,6 +47,7 @@ def new_clock_dict(tup_list):
 
 
 def table_2(my_dict):
+    """making table two."""
     table = ""
     word_list = []
     other_list = []
@@ -97,6 +98,7 @@ def my_table(my_dict):
         table += "-" * x
         for key, value in my_dict.items():
             table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
+        table += f"\n{'-' * x}\n"
         return table
     else:
         return table_2(my_dict)
