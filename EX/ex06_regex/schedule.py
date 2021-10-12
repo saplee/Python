@@ -4,22 +4,16 @@ import re
 
 def create_dictionary(input_string: str):
     my_dict = {}
-    pattern = r'([\d]{1,2})[:.!,\w\s](\d{1,2})[\s]+(\w+)'
+    pattern = r'([0-9]{1,2})[\-\:.!,\w\s](\d{1,2})[\s]+(\w+)'
     match = re.findall(pattern, input_string)
     for word in match:
         hour = word[0]
         minutes = word[1]
         activity = word[2]
-        if 0 > int(hour) or int(hour) > 24 or int(minutes) > 60 or int(minutes) < 0:
-            activity is None
-            time is None
-        if int(hour) > 23 and int(minutes) > 0:
-            activity is None
-            time is None
-        else:
+        if (0 <= int(hour) < 24 and 0 <= int(minutes) < 60) or (int(hour) == 24 and int(minutes) == 0):
             if int(minutes) < 10 and len(minutes) == 1:
                 minutes = "0" + str(minutes)
-            if int(hour) < 10:
+            if len(hour) == 1:
                 hour = "0" + hour
             time = f"{hour}:{minutes}"
             if time not in my_dict:
@@ -74,9 +68,9 @@ def create_table(my_dict):
         for key, value in my_dict.items():
             c = len(key + value) + 7
             if len(str(key)) == 7:
-                table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c)} |"
+                table += f"\n|  {str(key)} | {str(value)}{' ' * (y - len(value))} |"
             else:
-                table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |"
+                table += f"\n| {str(key)} | {str(value)}{' ' * (y - len(value))} |"
         table += f"\n{'-' * x}\n"
     return table
 
