@@ -4,13 +4,16 @@ import re
 
 def create_dictionary(input_string: str):
     my_dict = {}
-    pattern = r'([\d]{1,2})[:.!,\w](\d{1,2})[\s]+(\w+)'
+    pattern = r'([\d]{1,2})[:.!,\w\s](\d{1,2})[\s]+(\w+)'
     match = re.findall(pattern, input_string)
     for word in match:
         hour = word[0]
         minutes = word[1]
         activity = word[2]
         if 0 > int(hour) or int(hour) > 24 or int(minutes) > 60 or int(minutes) < 0:
+            activity is None
+            time is None
+        if int(hour) > 23 and int(minutes) > 0:
             activity is None
             time is None
         else:
@@ -52,28 +55,29 @@ def create_table(my_dict):
     table = ""
     word_list = []
     other_list = []
-    if my_dict.items() is None:
+    if my_dict == {}:
         table += "-" * (len("No items found") + 4)
         table += f"\n| time | items |\n"
         table += "-" * (len("No items found") + 4)
         table += "| No items found |"
         table += "-" * (len("No items found") + 4)
-    for key, value in my_dict.items():
-        word_list.append(key + value)
-    x = len((max(word_list, key=len))) + 7
-    table += "-" * x
-    for value in my_dict.values():
-        other_list.append(value)
-    y = len(max(other_list, key=len))
-    table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
-    table += "-" * x
-    for key, value in my_dict.items():
-        c = len(key + value) + 7
-        if len(str(key)) == 7:
-            table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c)}|"
-        else:
-            table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |"
-    table += f"\n{'-' * x}\n"
+    else:
+        for key, value in my_dict.items():
+            word_list.append(key + value)
+        x = len((max(word_list, key=len))) + 7
+        table += "-" * x
+        for value in my_dict.values():
+            other_list.append(value)
+        y = len(max(other_list, key=len))-1
+        table += f"\n|     time | items {' ' * (y - len('items'))} |\n"
+        table += "-" * x
+        for key, value in my_dict.items():
+            c = len(key + value) + 7
+            if len(str(key)) == 7:
+                table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c)}|"
+            else:
+                table += f"\n| {str(key)} | {str(value)}{' ' * (x - c+1)}|"
+        table += f"\n{'-' * x}\n"
     return table
 
 
@@ -95,5 +99,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("wat 11:00 teine tekst 7:08 jah ei 10:00 pikktekst "))
+    print(create_schedule_string("wat 11:00 teine tekst 11:0 jah ei 10:00 pikktekst"))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
