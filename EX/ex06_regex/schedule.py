@@ -35,13 +35,12 @@ def new_clock_dict(tup_list):
         if int(hour) == 12:
             time = f"{hour}:{minutes} PM"
         if 12 < int(hour) <= 24:
-            time = f"{int(hour) - 12}:{minutes} PM"
+            time = f"{hour - 12}:{minutes} PM"
         if 0 < int(hour) < 12:
             time = f"{hour}:{minutes} AM"
         if hour == 0:
             time = f"{int(hour) + 12}:{minutes} AM"
-        new_time=str(time)
-        new_dict[new_time] = value
+        new_dict[time] = value
     return new_dict
 
 
@@ -68,9 +67,9 @@ def create_table(my_dict):
         table += "-" * x
         for key, value in my_dict.items():
             if len(str(key)) == 7:
-                table += f"\n|  {str(key)} | {str(value)}{' ' * (y - len(value))} |"
+                table += f"\n|  {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
             else:
-                table += f"\n| {str(key)} | {str(value)}{' ' * (y - len(value))} |"
+                table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
         table += f"\n{'-' * x}\n"
     return table
 
@@ -93,5 +92,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string("13:22 dshadha 08:2 hfhf 12:22 hfhf"))
+    print(create_schedule_string("13:22 dshadha 08:2 hfhf 12:22 hfhfhhhhhhh"))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
