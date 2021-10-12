@@ -46,60 +46,67 @@ def new_clock_dict(tup_list):
     return new_dict
 
 
-def create_table(my_dict):
+def my_table(my_dict):
     """Create table."""
     num_a = 0
     num_b = 0
     table = ""
     word_list = []
     other_list = []
+    for key in my_dict.keys():
+        if len(key) == 7:
+            num_a += 1
+        if len(key) == 8:
+            num_b += 1
+    if num_b == 0:
+        for key, value in my_dict.items():
+            word_list.append(key + value)
+        x = len((max(word_list, key=len))) + 7
+        table += "-" * x
+        for value in my_dict.values():
+            other_list.append(value)
+        y = len(max(other_list, key=len))
+        table += f"\n|    time | items {' ' * (y - len('items'))}|\n"
+        table += "-" * x
+        for key, value in my_dict.items():
+            table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
+        table += f"\n{'-' * x}\n"
+    if num_b > 0:
+        for key, value in my_dict.items():
+            word_list.append(key + value)
+        x = max(word_list, key=len)
+        m = re.search(r'\d{1,2}:\d{1,2}', x)
+        if len(m.group()) == 4:
+            f = len(x) + 8
+        else:
+            f = len(x) + 7
+        table += "-" * f
+        for value in my_dict.values():
+            other_list.append(value)
+        y = len(max(other_list, key=len))
+        table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
+        table += "-" * f
+        for key, value in my_dict.items():
+            if len(str(key)) == 7:
+                table += f"\n|  {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
+            else:
+                table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
+        table += f"\n{'-' * f}\n"
+    return table
+
+
+def create_table(my_dict):
+    """Create table."""
+    table = ""
     if my_dict == {}:
         table += "-" * (len("No items found") + 4)
         table += "\n|  time | items  |\n"
         table += "-" * (len("No items found") + 4)
         table += "\n| No items found |\n"
         table += "-" * (len("No items found") + 4)
+        return table
     else:
-        for key in my_dict.keys():
-            if len(key) == 7:
-                num_a += 1
-            if len(key) == 8:
-                num_b += 1
-        if num_b == 0:
-            for key, value in my_dict.items():
-                word_list.append(key + value)
-            x = len((max(word_list, key=len))) + 7
-            table += "-" * x
-            for value in my_dict.values():
-                other_list.append(value)
-            y = len(max(other_list, key=len))
-            table += f"\n|    time | items {' ' * (y - len('items'))}|\n"
-            table += "-" * x
-            for key, value in my_dict.items():
-                table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
-            table += f"\n{'-' * x}\n"
-        if num_b > 0:
-            for key, value in my_dict.items():
-                word_list.append(key + value)
-            x = max(word_list, key=len)
-            m = re.search(r'\d{1,2}:\d{1,2}', x)
-            if len(m.group()) == 4:
-                f = len(x) + 8
-            else:
-                f = len(x) + 7
-            table += "-" * f
-            for value in my_dict.values():
-                other_list.append(value)
-            y = len(max(other_list, key=len))
-            table += f"\n|     time | items {' ' * (y - len('items'))}|\n"
-            table += "-" * f
-            for key, value in my_dict.items():
-                if len(str(key)) == 7:
-                    table += f"\n|  {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
-                else:
-                    table += f"\n| {str(key)} | {str(value.lower())}{' ' * (y - len(value))} |"
-            table += f"\n{'-' * f}\n"
-    return table
+        return my_table(my_dict)
 
 
 def create_schedule_file(input_filename: str, output_filename: str) -> None:
@@ -116,7 +123,7 @@ def create_schedule_file(input_filename: str, output_filename: str) -> None:
 
 def create_schedule_string(input_string: str) -> str:
     """Create schedule string from the given input string."""
-    return create_table(new_clock_dict(create_dictionary(input_string)))
+    return create_table((new_clock_dict(create_dictionary(input_string))))
 
 
 if __name__ == '__main__':
