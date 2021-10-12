@@ -46,6 +46,8 @@ def new_clock_dict(tup_list):
 
 def create_table(my_dict):
     """Create table."""
+    a = len("itmes")
+    my_list = []
     num_a = 0
     num_b = 0
     table = ""
@@ -66,8 +68,11 @@ def create_table(my_dict):
         if num_b == 0:
             for key, value in my_dict.items():
                 word_list.append(key + value)
+                my_list.append(value)
             x = len((max(word_list, key=len))) + 7
-            table += "-" * x
+            z = len(max(my_list))
+            if z < a:
+                table += "-" * (x + a - z)
             for value in my_dict.values():
                 other_list.append(value)
             y = len(max(other_list, key=len))
@@ -118,5 +123,5 @@ def create_schedule_string(input_string: str) -> str:
 
 
 if __name__ == '__main__':
-    print(create_schedule_string(" 12:22 ds 08:2 hfbadsbhdshdashkhf 12:22 ds"))
+    print(create_schedule_string("wat 11:00 t 11:0 ja 10:00 p "))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
