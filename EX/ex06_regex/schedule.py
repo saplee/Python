@@ -64,7 +64,7 @@ def create_table(my_dict):
         if len(str(key)) == 7:
             table += f"\n|  {str(key)} | {str(value)}{' ' * (x - c - 1)} |\n"
         else:
-            table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |\n"
+            table += f"\n| {str(key)} | {str(value)}{' ' * (x - c)} |"
     table += "-" * x
     return table
 
