@@ -57,7 +57,8 @@ def create_table(my_dict):
     table += f"\n| time | items{' ' * y}|\n"
     table += "-" * x
     for key, value in my_dict.items():
-        table += f"\n| {key} | {value} |\n"
+        c = len(key + value) + 7
+        table += f"\n| {key} | {value}{' ' * (x - c)} |\n"
     table += "-" * x
     return table
 
