@@ -7,8 +7,9 @@ def read_file_contents(filename: str) -> str:
     :return: File contents as string.
     """
     with open(filename) as f:
-        read_file = f.read()
-        return read_file
+        data = f.read()
+        f.close()
+        return data
 
 
 def read_file_contents_to_list(filename: str) -> list:
@@ -25,8 +26,8 @@ def read_file_contents_to_list(filename: str) -> list:
     """
     my_list = []
     with open(filename) as f:
-        read_file = f.readline().strip()
-        my_list.append(read_file)
+        for line in f:
+            my_list.append(line.strip())
     return my_list
 
 
