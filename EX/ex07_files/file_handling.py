@@ -29,8 +29,8 @@ def read_file_contents_to_list(filename: str) -> list:
     """
     my_list = []
     with open(filename) as f:
-        for line in f:
-            my_list.append(line.strip())
+        for row in f:
+            my_list.append(row.strip())
     return my_list
 
 
@@ -93,8 +93,8 @@ def write_lines_to_file(filename: str, lines: list) -> None:
     :return: None
     """
     with open(filename, "w") as f:
-        data = f.writelines(lines)
-
+        for row in f:
+            z = lines.append(row)
 
 def write_csv_file(filename: str, data: list) -> None:
     """
