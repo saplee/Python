@@ -1,3 +1,6 @@
+import csv
+
+
 def read_file_contents(filename: str) -> str:
     """
     Read file contents into string.
@@ -54,7 +57,12 @@ def read_csv_file(filename: str) -> list:
     :param filename: File to read.
     :return: List of lists.
     """
-    pass
+    my_list = []
+    with open(filename) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        for row in csv_reader:
+            my_list.append(row)
+        return my_list
 
 
 def write_contents_to_file(filename: str, contents: str) -> None:
@@ -67,7 +75,9 @@ def write_contents_to_file(filename: str, contents: str) -> None:
     :param contents: Content to write to.
     :return: None
     """
-    pass
+    with open(filename, "w") as f:
+        data = f.write(contents)
+    return data
 
 
 def write_lines_to_file(filename: str, lines: list) -> None:
