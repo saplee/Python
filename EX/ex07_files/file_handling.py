@@ -25,8 +25,9 @@ def read_file_contents_to_list(filename: str) -> list:
     """
     my_list = []
     with open(filename) as f:
-        read_file = f.readline()
-        my_list.append(read_file)
+        read_file = f.readline().strip()
+        for word in read_file:
+            my_list.append(word)
         return my_list
 
 
