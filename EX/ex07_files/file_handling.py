@@ -26,9 +26,8 @@ def read_file_contents_to_list(filename: str) -> list:
     my_list = []
     with open(filename) as f:
         read_file = f.readline().strip()
-        for word in read_file:
-            my_list.append(word)
-        return my_list
+        my_list.append(read_file)
+    return my_list
 
 
 def read_csv_file(filename: str) -> list:
