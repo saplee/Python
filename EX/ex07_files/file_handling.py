@@ -117,10 +117,11 @@ def write_csv_file(filename: str, data: list) -> None:
     :param data: List of lists to write to the file.
     :return: None
     """
-    with open(filename, 'w', newline=' ') as csv_file:
+    with open(filename, 'w') as csv_file:
         csv_writer = csv.writer(csv_file, delimiter=",")
         for row in data:
-            csv_writer.writerow(row)
+            x = csv_writer.writerow(row)
+        return x
 
 
 def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output: str) -> None:
