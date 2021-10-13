@@ -34,6 +34,7 @@ def read_file_contents_to_list(filename: str) -> list:
     return my_list
 
 
+
 def read_csv_file(filename: str) -> list:
     """
     Read CSV file into list of rows.
@@ -59,7 +60,7 @@ def read_csv_file(filename: str) -> list:
     """
     my_list = []
     with open(filename) as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
+        csv_reader = csv.reader(csv_file)
         for row in csv_reader:
             my_list.append(row)
         return my_list
@@ -94,7 +95,9 @@ def write_lines_to_file(filename: str, lines: list) -> None:
     """
 
     with open(filename, "w") as f:
-            data = f.writelines(lines)
+        data = f.writelines(lines)
+    return data
+
 
 def write_csv_file(filename: str, data: list) -> None:
     """
@@ -118,12 +121,11 @@ def write_csv_file(filename: str, data: list) -> None:
     :return: None
     """
     with open(filename, 'w') as csv_file:
-        csv_writer = csv.writer(csv_file, delimiter=",")
+        csv_writer = csv.writer(csv_file)
         for row in data:
             x = csv_writer.writerow(row)
 
-
-def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output: str) -> None:
+def merge_dates_and_towns_into_csv(dates_file: str) -> None:
     """
     Merge information from two files into one CSV file.
 
@@ -167,4 +169,9 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
     :param csv_output: Output CSV-file with names, towns and dates.
     :return: None
     """
-    pass
+    my_list = []
+    with open(dates_file) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=':')
+        for row in csv_reader:
+            my_list.append(row)
+
