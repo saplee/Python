@@ -6,7 +6,9 @@ def read_file_contents(filename: str) -> str:
     :param filename: File to read.
     :return: File contents as string.
     """
-    pass
+    with open(filename) as f:
+        read_file = f.read()
+        return read_file
 
 
 def read_file_contents_to_list(filename: str) -> list:
