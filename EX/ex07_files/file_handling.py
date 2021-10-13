@@ -92,9 +92,9 @@ def write_lines_to_file(filename: str, lines: list) -> None:
     :param lines: List of string to write to the file.
     :return: None
     """
+
     with open(filename, "w") as f:
-        for row in f:
-            z = lines.append(row)
+            data = f.writelines(lines)
 
 def write_csv_file(filename: str, data: list) -> None:
     """
