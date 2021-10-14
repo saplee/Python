@@ -94,8 +94,7 @@ def write_lines_to_file(filename: str, lines: list) -> None:
     """
 
     with open(filename, "w") as f:
-        data = f.writelines(lines + ["\n"])
-    return data
+        data = f.write("\n".join(lines))
 
 
 def write_csv_file(filename: str, data: list) -> None:
@@ -200,4 +199,3 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
         new_list.append(value[1])
         other_list.append(new_list)
     write_csv_file(csv_output, other_list)
-
