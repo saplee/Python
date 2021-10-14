@@ -34,7 +34,6 @@ def read_file_contents_to_list(filename: str) -> list:
     return my_list
 
 
-
 def read_csv_file(filename: str) -> list:
     """
     Read CSV file into list of rows.
@@ -95,7 +94,7 @@ def write_lines_to_file(filename: str, lines: list) -> None:
     """
 
     with open(filename, "w") as f:
-        data = f.writelines(lines)
+        data = f.writelines(lines + ["\n"])
     return data
 
 
@@ -125,7 +124,8 @@ def write_csv_file(filename: str, data: list) -> None:
         for row in data:
             x = csv_writer.writerow(row)
 
-def merge_dates_and_towns_into_csv(dates_file: str) -> None:
+
+def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output: str) -> None:
     """
     Merge information from two files into one CSV file.
 
@@ -170,8 +170,34 @@ def merge_dates_and_towns_into_csv(dates_file: str) -> None:
     :return: None
     """
     my_list = []
-    with open(dates_file) as csv_file:
+    my_dict = {}
+    other_list = [["name", "town", "date"]]
+    with open(towns_file) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=':')
         for row in csv_reader:
             my_list.append(row)
+        for word in my_list:
+            key = word[0]
+            value = word[1]
+            my_dict[key] = [value]
+    with open(dates_file) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=':')
+        for row in csv_reader:
+            key = row[0]
+            value = row[1]
+            if key in my_dict:
+                my_dict[key].append(value)
+            else:
+                my_dict[key] = ["-", value]
+    for key, value in my_dict.items():
+        new_list = []
+        if value[0] == "":
+            value[0] = "-"
+        if value[1] == "":
+            value[1] = "-"
+        new_list.append(key)
+        new_list.append(value[0])
+        new_list.append(value[1])
+        other_list.append(new_list)
+    write_csv_file(csv_output, other_list)
 
