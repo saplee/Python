@@ -231,8 +231,8 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list:
     :param filename: CSV-file to read.
     :return: List of dictionaries where keys are taken from the header.
     """
-    if read_csv_file(filename)==None:
-        return None
+    if read_csv_file(filename) == []:
+        return []
     else:
         result = []
         read_file = read_csv_file(filename)
