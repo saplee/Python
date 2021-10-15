@@ -122,8 +122,6 @@ def write_csv_file(filename: str, data: list) -> None:
         csv_writer = csv.writer(csv_file)
         for row in data:
             x = csv_writer.writerow(row)
-    return x
-
 
 def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output: str) -> None:
     """
