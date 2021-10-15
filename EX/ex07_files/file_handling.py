@@ -188,7 +188,7 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
             key = row[0]
             value = row[1]
             if key in my_dict:
-                my_dict[key].insert(0, value)
+                my_dict[key].append(value)
             else:
                 my_dict[key] = [value, "-"]
     for key, value in my_dict.items():
@@ -198,8 +198,8 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
         if value[1] == "":
             value[1] = "-"
         new_list.append(key)
-        new_list.append(value[0])
         new_list.append(value[1])
+        new_list.append(value[0])
         other_list.append(new_list)
     write_csv_file(csv_output, other_list)
 
