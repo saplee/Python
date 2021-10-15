@@ -235,8 +235,6 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list:
     return read_csv_file(filename)
 
 
-print(read_csv_file_into_list_of_dicts("filename.txt"))
-
 
 def write_list_of_dicts_to_csv_file(filename: str, data: list) -> None:
     """
