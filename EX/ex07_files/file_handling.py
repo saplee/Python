@@ -123,6 +123,7 @@ def write_csv_file(filename: str, data: list) -> None:
         for row in data:
             x = csv_writer.writerow(row)
 
+
 def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output: str) -> None:
     """
     Merge information from two files into one CSV file.
@@ -177,7 +178,10 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
         for word in my_list:
             key = word[0]
             value = word[1]
+        if key in my_dict:
             my_dict[key] = [value]
+        else:
+            my_dict[key] = [value, "-"]
     with open(towns_file) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=':')
         for row in csv_reader:
@@ -230,8 +234,7 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list:
     :param filename: CSV-file to read.
     :return: List of dictionaries where keys are taken from the header.
     """
-    return read_csv_file(filename)
-
+    read_csv_file(filename)
 
 
 def write_list_of_dicts_to_csv_file(filename: str, data: list) -> None:
