@@ -181,7 +181,7 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
         if key in my_dict:
             my_dict[key] = [value]
         else:
-            my_dict[key] = [value, "-"]
+            my_dict[key] = [value]
     with open(towns_file) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=':')
         for row in csv_reader:
