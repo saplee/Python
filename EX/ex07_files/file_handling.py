@@ -177,14 +177,14 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
         for word in my_list:
             key = word[0]
             value = word[1]
-            my_dict[key] = [value]
+            my_dict[key] = ["-",value]
     with open(towns_file) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=':')
         for row in csv_reader:
             key = row[0]
             value = row[1]
             if key in my_dict:
-                my_dict[key].insert(0, value)
+                my_dict[key][0] = value
             else:
                 my_dict[key] = [value, "-"]
     for key, value in my_dict.items():
@@ -197,7 +197,7 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
         new_list.append(value[0])
         new_list.append(value[1])
         other_list.append(new_list)
-    write_csv_file(csv_output, other_list)
+    return write_csv_file(csv_output, other_list)
 
 
 def read_csv_file_into_list_of_dicts(filename: str) -> list:
