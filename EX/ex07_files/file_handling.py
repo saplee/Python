@@ -231,14 +231,17 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list:
     :param filename: CSV-file to read.
     :return: List of dictionaries where keys are taken from the header.
     """
-    result = []
-    read_file = read_csv_file(filename)
-    keys = read_file.pop(0)
-    for row in read_file:
-        row_dict = {}
-        for key, column_number in zip(keys, range(len(keys))):
-            row_dict[key] = row[column_number]
-        result.append(row_dict)
+    if read_csv_file(filename)==[]:
+        return None
+    else:
+        result = []
+        read_file = read_csv_file(filename)
+        keys = read_file.pop(0)
+        for row in read_file:
+            row_dict = {}
+            for key, column_number in zip(keys, range(len(keys))):
+                row_dict[key] = row[column_number]
+            result.append(row_dict)
     return result
 
 
