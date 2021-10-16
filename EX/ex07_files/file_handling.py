@@ -122,6 +122,7 @@ def write_csv_file(filename: str, data: list) -> None:
         csv_writer = csv.writer(csv_file)
         for row in data:
             x = csv_writer.writerow(row)
+    return x
 
 
 def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output: str) -> None:
@@ -231,7 +232,7 @@ def read_csv_file_into_list_of_dicts(filename: str) -> list:
     :param filename: CSV-file to read.
     :return: List of dictionaries where keys are taken from the header.
     """
-    if read_csv_file(filename) == []:
+    if read_csv_file(filename) is []:
         return []
     else:
         result = []
@@ -284,3 +285,11 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list) -> None:
     :param data: List of dictionaries to write to the file.
     :return: None
     """
+    if data==[]:
+        return None
+    else:
+        fields = ['name', 'age', 'town']
+        with open(filename, "w") as csvfile:
+            writer = csv.DictWriter(csvfile, fields)
+            writer.writeheader()
+            writer.writerows(data)
