@@ -284,11 +284,12 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list) -> None:
     :param data: List of dictionaries to write to the file.
     :return: None
     """
-    if data==[]:
-        return None
-    else:
-        fields = ['name', 'age', 'town']
-        with open(filename, "w") as csvfile:
-            writer = csv.DictWriter(csvfile, fields)
-            writer.writeheader()
-            writer.writerows(data)
+    fields = []
+    for word in data:
+        for key in word.keys():
+            if key not in fields:
+                fields.append(key)
+    with open(filename, "w") as csvfile:
+        writer = csv.DictWriter(csvfile, fields)
+        writer.writeheader()
+        writer.writerows(data)
