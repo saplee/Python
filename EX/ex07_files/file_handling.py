@@ -3,8 +3,7 @@ import csv
 
 
 def read_file_contents(filename: str) -> str:
-    """Read file contents into string.
-    In this exercise, we can assume the file exists.
+    """Read file contents into string.In this exercise, we can assume the file exists.
 
     :param filename: File to read.
     :return: File contents as string.
@@ -295,7 +294,6 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list) -> None:
 
 
 def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
-
     """Read data from file and cast values into different datatypes.
     If a field contains only numbers, turn this into int.
     If a field contains only dates (in format dd.mm.yyyy), turn this into date.
