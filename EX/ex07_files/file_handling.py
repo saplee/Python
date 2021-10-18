@@ -21,7 +21,7 @@ def read_file_contents_to_list(filename: str) -> list:
     In this exercise, we can assume the file exists.
     Each line from the file should be a separate element.
 
-    List elements should not contain new line (\n).
+    List elements should not contain new line.
 
     :param filename: File to read.
     :return: List of lines.
