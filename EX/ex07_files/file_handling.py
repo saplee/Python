@@ -81,8 +81,7 @@ def write_contents_to_file(filename: str, contents: str) -> None:
 
 
 def write_lines_to_file(filename: str, lines: list) -> None:
-    """
-    Write lines to file.
+    """Write lines to file.
 
     Lines is a list of strings, each represents a separate line in the file.
 
@@ -93,7 +92,6 @@ def write_lines_to_file(filename: str, lines: list) -> None:
     :param lines: List of string to write to the file.
     :return: None
     """
-
     with open(filename, "w") as f:
         f.write("\n".join(lines))
 
@@ -122,7 +120,7 @@ def write_csv_file(filename: str, data: list) -> None:
     with open(filename, 'w') as csv_file:
         csv_writer = csv.writer(csv_file)
         for row in data:
-            write_file = csv_writer.writerow(row)
+            csv_writer.writerow(row)
 
 
 def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output: str) -> None:
@@ -203,8 +201,7 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
 
 
 def read_csv_file_into_list_of_dicts(filename: str) -> list:
-    """
-    Read csv file into list of dictionaries.
+    """Read csv file into list of dictionaries.
     Header line will be used for dict keys.
 
     Each line after header line will result in a dict inside the result list.
@@ -301,8 +298,7 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list) -> None:
 
 
 def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
-    """
-    Read data from file and cast values into different datatypes.
+    """Read data from file and cast values into different datatypes.
     If a field contains only numbers, turn this into int.
     If a field contains only dates (in format dd.mm.yyyy), turn this into date.
     Otherwise the datatype is string (default by csv reader).
