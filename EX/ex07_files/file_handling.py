@@ -3,8 +3,7 @@ import csv
 
 
 def read_file_contents(filename: str) -> str:
-    """
-    Read file contents into string.
+    """Read file contents into string.
     In this exercise, we can assume the file exists.
 
     :param filename: File to read.
@@ -17,8 +16,7 @@ def read_file_contents(filename: str) -> str:
 
 
 def read_file_contents_to_list(filename: str) -> list:
-    """
-    Read file contents into list of lines.
+    """Read file contents into list of lines.
 
     In this exercise, we can assume the file exists.
     Each line from the file should be a separate element.
