@@ -372,4 +372,11 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
     For date, strptime can be used:
     https://docs.python.org/3/library/datetime.html#examples-of-usage-date
     """
-    return read_csv_file_into_list_of_dicts(filename)
+    new_dict = []
+    my_dict = read_csv_file_into_list_of_dicts(filename)
+    for dicts in my_dict:
+        for key, value in dicts.items():
+            if value == "-":
+                dicts[key] = None
+                new_dict.append(dicts)
+    return new_dict
