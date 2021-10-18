@@ -1,3 +1,4 @@
+""""File."""
 import csv
 
 
@@ -12,7 +13,7 @@ def read_file_contents(filename: str) -> str:
     with open(filename) as f:
         data = f.read()
         f.close()
-        return data
+    return data
 
 
 def read_file_contents_to_list(filename: str) -> list:
@@ -76,7 +77,7 @@ def write_contents_to_file(filename: str, contents: str) -> None:
     :return: None
     """
     with open(filename, "w") as f:
-        data = f.write(contents)
+        f.write(contents)
 
 
 def write_lines_to_file(filename: str, lines: list) -> None:
@@ -94,7 +95,7 @@ def write_lines_to_file(filename: str, lines: list) -> None:
     """
 
     with open(filename, "w") as f:
-        data = f.write("\n".join(lines))
+        f.write("\n".join(lines))
 
 
 def write_csv_file(filename: str, data: list) -> None:
@@ -121,7 +122,7 @@ def write_csv_file(filename: str, data: list) -> None:
     with open(filename, 'w') as csv_file:
         csv_writer = csv.writer(csv_file)
         for row in data:
-            x = csv_writer.writerow(row)
+            write_file = csv_writer.writerow(row)
 
 
 def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output: str) -> None:
