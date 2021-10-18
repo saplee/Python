@@ -378,5 +378,7 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
         for key, value in dicts.items():
             if value == "-":
                 dicts[key] = None
+            if value.isdigit():
+                dicts[key] = int(value)
         new_dict.append(dicts)
     return new_dict
