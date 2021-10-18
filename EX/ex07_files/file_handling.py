@@ -374,3 +374,4 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
     For date, strptime can be used:
     https://docs.python.org/3/library/datetime.html#examples-of-usage-date
     """
+    read_csv_file_into_list_of_dicts(filename)
