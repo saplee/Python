@@ -199,8 +199,7 @@ def merge_dates_and_towns_into_csv(dates_file: str, towns_file: str, csv_output:
 
 
 def read_csv_file_into_list_of_dicts(filename: str) -> list:
-    """Read csv file into list of dictionaries.
-    Header line will be used for dict keys.
+    """Read csv file into list of dictionaries.Header line will be used for dict keys.
 
     Each line after header line will result in a dict inside the result list.
     Every line contains the same number of fields.
@@ -296,8 +295,8 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list) -> None:
 
 
 def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
-    """
-    Read data from file and cast values into different datatypes.
+
+    """Read data from file and cast values into different datatypes.
     If a field contains only numbers, turn this into int.
     If a field contains only dates (in format dd.mm.yyyy), turn this into date.
     Otherwise the datatype is string (default by csv reader).
