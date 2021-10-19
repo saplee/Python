@@ -381,7 +381,7 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
                 dicts[key] = None
             if value.isdigit():
                 dicts[key] = int(value)
-            if key == "age" and isinstance(value, str):
+            if key == "age" and isinstance(value, str) and not value.isdigit() and value != "-":
                 age_count += 1
             match = re.search(pattern, value)
             if match is not None:
@@ -391,6 +391,9 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
         for key, value in my_dict.items():
             if age_count > 0:
                 if key == "age":
-                   my_dict[key] = str(value)
+                    my_dict[key] = str(value)
         result.append(my_dict)
     return result
+
+
+print(read_csv_file_into_list_of_dicts_using_datatypes("filename.txt"))
