@@ -370,7 +370,9 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
     For date, strptime can be used:
     https://docs.python.org/3/library/datetime.html#examples-of-usage-date
     """
+    age_count = 0
     new_dict = []
+    result = []
     pattern = r'\d{1,2}[.]\d+[.]\d{4}'
     my_dict = read_csv_file_into_list_of_dicts(filename)
     for dicts in my_dict:
@@ -379,10 +381,16 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
                 dicts[key] = None
             if value.isdigit():
                 dicts[key] = int(value)
+            if key == "age" and isinstance(value, str):
+                age_count += 1
             match = re.search(pattern, value)
             if match is not None:
                 dicts[key] = datetime.datetime.strptime(value, "%d.%m.%Y").date()
         new_dict.append(dicts)
-    return new_dict
-
-# print(read_csv_file_into_list_of_dicts_using_datatypes("filename.txt"))
+    for my_dict in new_dict:
+        for key, value in my_dict.items():
+            if age_count > 0:
+                if key == "age":
+                   my_dict[key] = str(value)
+        result.append(my_dict)
+    return result
