@@ -371,23 +371,12 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
     https://docs.python.org/3/library/datetime.html#examples-of-usage-date
     """
     age_count = 0
-    new_dict = []
     result = []
-    pattern = r'\d{1,2}[.]\d+[.]\d{4}'
-    my_dict = read_csv_file_into_list_of_dicts(filename)
-    for dicts in my_dict:
+    for dicts in new_list(filename):
         for key, value in dicts.items():
-            if value == "-":
-                dicts[key] = None
-            if value.isdigit():
-                dicts[key] = int(value)
             if key == "age" and isinstance(value, str) and not value.isdigit() and value != "-":
                 age_count += 1
-            match = re.search(pattern, value)
-            if match is not None:
-                dicts[key] = datetime.datetime.strptime(value, "%d.%m.%Y").date()
-        new_dict.append(dicts)
-    for my_dict in new_dict:
+    for my_dict in new_list(filename):
         for key, value in my_dict.items():
             if age_count > 0:
                 if key == "age":
@@ -395,4 +384,19 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
         result.append(my_dict)
     return result
 
-# print(read_csv_file_into_list_of_dicts_using_datatypes("filename.txt"))
+
+def new_list(filename):
+    new_dict = []
+    pattern = r'\d{1,2}[.]\d+[.]\d{4}'
+    read_list = read_csv_file_into_list_of_dicts(filename)
+    for dicts in read_list:
+        for key, value in dicts.items():
+            if value == "-":
+                dicts[key] = None
+            if value.isdigit():
+                dicts[key] = int(value)
+            match = re.search(pattern, value)
+            if match is not None:
+                dicts[key] = datetime.datetime.strptime(value, "%d.%m.%Y").date()
+        new_dict.append(dicts)
+    return new_dict
