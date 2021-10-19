@@ -386,6 +386,7 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
 
 
 def new_list(filename):
+    """"Making new list."""
     new_dict = []
     pattern = r'\d{1,2}[.]\d+[.]\d{4}'
     read_list = read_csv_file_into_list_of_dicts(filename)
