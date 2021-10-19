@@ -299,7 +299,7 @@ def new_list(filename):
     """"Making new list."""
     new_dict = []
     date_count = 0
-    pattern = r'\d{1,2}[.]\d+[.]\d{4}'
+    pattern = r'\d{2}[.]\d{2}[.]\d{4}'
     read_list = read_csv_file_into_list_of_dicts(filename)
     for dicts in read_list:
         for key, value in dicts.items():
