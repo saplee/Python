@@ -409,5 +409,3 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
         result.append(my_dict)
     return result
 
-
-print(read_csv_file_into_list_of_dicts_using_datatypes("filename.txt"))
