@@ -377,7 +377,7 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
                 dicts[key] = None
             if value.isdigit():
                 dicts[key] = int(value)
-            if key == "date":
+            if key == "date" and value is not None:
                 dicts[key] = datetime.datetime.strptime(value, "%d.%m.%Y").date()
         new_dict.append(dicts)
     return new_dict
