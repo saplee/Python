@@ -305,7 +305,7 @@ def new_list(filename):
         for key, value in dicts.items():
             match = re.search(pattern, value)
             match2 = re.search(r'date[0-9]?', key)
-            if match2 is not None and match is None:
+            if match2 is not None and match is None and value != "-":
                 date_count += 1
     for dicts in read_list:
         for key, value in dicts.items():
