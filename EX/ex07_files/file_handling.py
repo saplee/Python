@@ -371,7 +371,7 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
     https://docs.python.org/3/library/datetime.html#examples-of-usage-date
     """
     new_dict = []
-    pattern = r'\d+.\d+.\d{4}'
+    pattern = r'\d{1,2}[.]\d+[.]\d{4}'
     my_dict = read_csv_file_into_list_of_dicts(filename)
     for dicts in my_dict:
         for key, value in dicts.items():
