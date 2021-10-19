@@ -295,6 +295,31 @@ def write_list_of_dicts_to_csv_file(filename: str, data: list) -> None:
             writer.writerows(data)
 
 
+def new_list(filename):
+    """"Making new list."""
+    new_dict = []
+    date_count = 0
+    pattern = r'\d{1,2}[.]\d+[.]\d{4}'
+    read_list = read_csv_file_into_list_of_dicts(filename)
+    for dicts in read_list:
+        for key, value in dicts.items():
+            match = re.search(pattern, value)
+            match2 = re.search(r'date[0-9]?', key)
+            if match2 is not None and match == None:
+                date_count += 1
+    for dicts in read_list:
+        for key, value in dicts.items():
+            if value == "-":
+                dicts[key] = None
+            if value.isdigit():
+                dicts[key] = int(value)
+            match = re.search(pattern, value)
+            if match is not None and date_count == 0:
+                dicts[key] = datetime.datetime.strptime(value, "%d.%m.%Y").date()
+        new_dict.append(dicts)
+    return new_dict
+
+
 def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
     """Read data from file and cast values into different datatypes.
 
@@ -385,19 +410,4 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
     return result
 
 
-def new_list(filename):
-    """"Making new list."""
-    new_dict = []
-    pattern = r'\d{1,2}[.]\d+[.]\d{4}'
-    read_list = read_csv_file_into_list_of_dicts(filename)
-    for dicts in read_list:
-        for key, value in dicts.items():
-            if value == "-":
-                dicts[key] = None
-            if value.isdigit():
-                dicts[key] = int(value)
-            match = re.search(pattern, value)
-            if match is not None:
-                dicts[key] = datetime.datetime.strptime(value, "%d.%m.%Y").date()
-        new_dict.append(dicts)
-    return new_dict
+print(read_csv_file_into_list_of_dicts_using_datatypes("filename.txt"))
