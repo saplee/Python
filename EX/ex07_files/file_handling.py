@@ -1,6 +1,7 @@
 """"File."""
 import csv
 import datetime
+import re
 
 
 def read_file_contents(filename: str) -> str:
@@ -370,6 +371,7 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
     https://docs.python.org/3/library/datetime.html#examples-of-usage-date
     """
     new_dict = []
+    pattern = r'\d+.\d+.\d{4}'
     my_dict = read_csv_file_into_list_of_dicts(filename)
     for dicts in my_dict:
         for key, value in dicts.items():
@@ -377,7 +379,10 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
                 dicts[key] = None
             if value.isdigit():
                 dicts[key] = int(value)
-            if key == "date" and value is not None:
+            match = re.search(pattern, value)
+            if match is not None:
                 dicts[key] = datetime.datetime.strptime(value, "%d.%m.%Y").date()
         new_dict.append(dicts)
     return new_dict
+
+# print(read_csv_file_into_list_of_dicts_using_datatypes("filename.txt"))
