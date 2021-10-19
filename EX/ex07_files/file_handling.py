@@ -305,7 +305,7 @@ def new_list(filename):
         for key, value in dicts.items():
             match = re.search(pattern, value)
             match2 = re.search(r'date[0-9]?', key)
-            if match2 is not None and match == None:
+            if match2 is not None and match is None:
                 date_count += 1
     for dicts in read_list:
         for key, value in dicts.items():
@@ -408,4 +408,3 @@ def read_csv_file_into_list_of_dicts_using_datatypes(filename: str) -> list:
                     my_dict[key] = str(value)
         result.append(my_dict)
     return result
-
