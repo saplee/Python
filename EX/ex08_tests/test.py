@@ -59,42 +59,30 @@ def test_part2_second():
 
 def test_part3_second():
     res = solution.generate_combined_list([(1, "int")])
-    result = 1
-    assert len(res) == result
     assert type(res[0]) == int
 
 
 def test_part4_second():
     res = solution.generate_combined_list([(1, "float")])
-    result = 1
-    assert len(res) == result
     assert type(res[0]) == float
 
 
 def test_part5_second():
     res = solution.generate_combined_list([(1, "string")])
-    result = 1
-    assert len(res) == result
     assert type(res[0]) == str
 
 
 def test_part6_second():
     res = solution.generate_combined_list([(1, "list")])
-    result = 1
-    assert len(res) == result
     assert type(res[0]) == list
 
 
 def test_part7_second():
     res = solution.generate_combined_list([(1, "dict")])
-    result = 1
-    assert len(res) == result
     assert type(res[0]) == dict
 
 
 def test_part8_second():
     res = solution.generate_combined_list([(1, "set")])
-    result = 1
-    assert len(res) == result
     assert type(res[0]) == set
 
