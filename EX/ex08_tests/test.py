@@ -37,16 +37,41 @@ def test_part5():
     assert len(res) == expected_len
 
 
-def test_part7_second():
+def test_part6():
     res = solution.generate_list(1, "dict")
     assert type(res[0]) == dict
 
 
-def test_part6():
+def test_part7():
     input_amount = 1
     res = solution.generate_list(input_amount, "list")
     expected_len = 1
     assert len(res) == expected_len
+
+
+def test_part8():
+    res = solution.generate_list(1, "set")
+    assert type(res[0]) == set
+
+
+def test_part9():
+    res = solution.generate_list(1, "int")
+    assert type(res[0]) == int
+
+
+def test_part10():
+    res = solution.generate_list(1, "list")
+    assert type(res[0]) == list
+
+
+def test_part11():
+    res = solution.generate_list(1, "string")
+    assert type(res[0]) == str
+
+
+def test_part12():
+    res = solution.generate_list(1, "float")
+    assert type(res[0]) == float
 
 
 def test_part1_second():
