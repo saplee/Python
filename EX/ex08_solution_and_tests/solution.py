@@ -25,7 +25,7 @@ def fruit_order(small_baskets: int, big_baskets: int, ordered_amount: int) -> in
     small_sum = small_baskets
     big_sum = big_baskets * 5
     result = big_sum + small_sum
-    if result == ordered_amount:
+    if result >= ordered_amount:
         return small_sum
     else:
         return -1
