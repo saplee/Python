@@ -126,3 +126,18 @@ def test_part1_third():
     res = solution.generate_combined_list_unique([(1, "int"), (1, "float"), (1, "string")])
     result = 3
     assert len(res) == result
+
+
+def test_part2_third():
+    res = solution.generate_combined_list_unique([(2, "int")])
+    assert res[0] != res[1]
+
+
+def test_part3_third():
+    res = solution.generate_combined_list_unique([(2, "float")])
+    assert res[0] != res[1]
+
+
+def test_part4_third():
+    res = solution.generate_combined_list_unique([(2, "string")])
+    assert res[0] != res[1]
