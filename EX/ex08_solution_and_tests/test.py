@@ -26,3 +26,33 @@ def test_part1():
         res = solution.students_study(number4, False)
         result = False
         assert res == result
+
+
+def test_part2():
+    res = solution.lottery(5, 5, 5)
+    result = 10
+    assert res == result
+
+
+def test_part3():
+    res = solution.lottery(1, 1, 1)
+    result = 5
+    assert res == result
+
+
+def test_part4():
+    res = solution.lottery(1, 2, 3)
+    result = 1
+    assert res == result
+
+
+def test_part5():
+    res = solution.lottery(1, 1, 2)
+    result = 0
+    assert res == result
+
+
+def test_part6():
+    res = solution.lottery(1, 2, 1)
+    result = 0
+    assert res == result
