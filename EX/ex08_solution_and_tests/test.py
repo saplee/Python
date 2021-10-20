@@ -22,3 +22,7 @@ def test_part1():
         res = solution.students_study(number4, True)
         result = True
         assert res == result
+    for number4 in range(5, 18):
+        res = solution.students_study(number4, False)
+        result = False
+        assert res == result
