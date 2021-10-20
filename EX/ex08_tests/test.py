@@ -57,7 +57,7 @@ def test_part2_second():
 
 
 def test_part3_second():
-    res = solution.generate_combined_list([(3, "int"), (5, "int"), (4, "int")])
-    result = 5
+    res = solution.generate_combined_list([(3, "float"), (5, "list"), (4, "string"), (2, "dict"), (2, "set")])
+    result = 16
     assert len(res) == result
 
