@@ -122,6 +122,12 @@ def test_part8_second():
     assert type(res[0]) == set
 
 
+def test_part9_second():
+    res = solution.generate_combined_list([(1, "int"), (1, "float")])
+    result = 2
+    assert len(res) == result
+
+
 def test_part1_third():
     res = solution.generate_combined_list_unique([(1, "int"), (1, "float"), (1, "string")])
     result = 3
@@ -162,4 +168,3 @@ def test_part7_third():
 def test_part8_third():
     res = solution.generate_combined_list_unique([(1, "string")])
     assert type(res[0]) == str
-
