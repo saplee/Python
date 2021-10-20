@@ -57,7 +57,13 @@ def test_part2_second():
 
 
 def test_part3_second():
-    res = solution.generate_combined_list([(3, "float"), (5, "list"), (4, "string"), (2, "dict"), (2, "set")])
-    result = 16
+    res = solution.generate_combined_list([(50000, "float"), (5, "list"), (4, "string"), (2, "dict"), (2, "set")])
+    result = 50013
     assert len(res) == result
 
+
+def test_part4_second():
+    res = solution.generate_combined_list([(1, "int")])
+    result = 1
+    assert len(res) == result
+    assert type(res[0]) == int
