@@ -56,3 +56,21 @@ def test_part6():
     res = solution.lottery(1, 2, 1)
     result = 0
     assert res == result
+
+
+def test_part7():
+    res = solution.lottery(1, 2, 2)
+    result = 1
+    assert res == result
+
+
+def test_part8():
+    res = solution.lottery(0, 0, 0)
+    result = 5
+    assert res == result
+
+
+def test_part9():
+    res = solution.lottery(-5, -5, -5)
+    result = 5
+    assert res == result
