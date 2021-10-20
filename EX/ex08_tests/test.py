@@ -147,3 +147,19 @@ def test_part5_third():
     res = solution.generate_combined_list_unique([])
     result = 0
     assert len(res) == result
+
+
+def test_part6_third():
+    res = solution.generate_combined_list_unique([(1, "int")])
+    assert type(res[0]) == int
+
+
+def test_part7_third():
+    res = solution.generate_combined_list_unique([(1, "float")])
+    assert type(res[0]) == float
+
+
+def test_part8_third():
+    res = solution.generate_combined_list_unique([(1, "string")])
+    assert type(res[0]) == str
+
