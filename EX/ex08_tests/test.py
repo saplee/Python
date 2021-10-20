@@ -37,6 +37,11 @@ def test_part5():
     assert len(res) == expected_len
 
 
+def test_part7_second():
+    res = solution.generate_list(1, "dict")
+    assert type(res[0]) == dict
+
+
 def test_part6():
     input_amount = 1
     res = solution.generate_list(input_amount, "list")
@@ -85,3 +90,9 @@ def test_part7_second():
 def test_part8_second():
     res = solution.generate_combined_list([(1, "set")])
     assert type(res[0]) == set
+
+
+def test_part1_third():
+    res = solution.generate_combined_list_unique([(1, "int"), (1, "float"), (1, "string")])
+    result = 3
+    assert len(res) == result
