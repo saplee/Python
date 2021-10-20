@@ -74,6 +74,11 @@ def test_part12():
     assert type(res[0]) == float
 
 
+def test_par13():
+    res = solution.generate_list(1, "tuple")
+    assert type(res[0]) == tuple
+
+
 def test_part1_second():
     res = solution.generate_combined_list([])
     result = 0
