@@ -107,5 +107,36 @@ def test_part15():
 
 
 def test_part16():
+    """Test."""
     res = solution.fruit_order(45, 10, 95)
     assert res == 45
+
+
+def test_part17():
+    """Test."""
+    res = solution.fruit_order(1, 5, 25)
+    assert res == 0
+
+
+def test_part18():
+    """Test."""
+    res = solution.fruit_order(45, 10, 95)
+    assert res == 45
+
+
+def test_part19():
+    """Test."""
+    res = solution.fruit_order(100, 5, 7)
+    assert res == 2
+
+
+def test_part20():
+    """Test."""
+    res = solution.fruit_order(45, 0, 30)
+    assert res == 30
+
+
+def test_part21():
+    """Test."""
+    res = solution.fruit_order(0, 10, 5)
+    assert res == 0
