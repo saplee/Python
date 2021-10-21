@@ -158,7 +158,7 @@ def test_part3_third():
 
 def test_part4_third():
     res = solution.generate_combined_list_unique([(5, "string")])
-    assert len(res) == set(res)
+    assert len(res) == len(set(res))
 
 
 def test_part5_third():
@@ -191,6 +191,6 @@ def test_part9_third():
 
 
 def test_part10_third():
-    res = solution.generate_combined_list_unique([(100, "int"), (3, "float"), (1, "string")])
-    result = 104
-    assert len(res) == result
+    res = solution.generate_combined_list_unique([(100, "int"), (50, "float"), (50, "string")])
+    result = 200
+    assert len(set(res)) == result
