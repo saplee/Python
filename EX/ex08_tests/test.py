@@ -189,5 +189,10 @@ def test_part9_third():
     result = 0
     assert len(res) == result
 
+def test_part10_third():
+    res = solution.generate_combined_list_unique([(20, "string"), (10, "float"), (40, "int")])
+    result = 70
+    assert len(res) == result
+
 
 
