@@ -180,8 +180,8 @@ def test_part27():
 
 def test_part28():
     """Test."""
-    res = solution.fruit_order(100, 100, 600)
-    assert res == 100
+    res = solution.fruit_order(2000, 1000, 6100)
+    assert res == 1000
 
 
 def test_part29():
