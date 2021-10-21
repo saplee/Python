@@ -92,15 +92,20 @@ def test_part12():
 
 
 def test_part13():
-    res = solution.fruit_order(0, 2, 0)
-    assert res == 0
+    res = solution.fruit_order(0, 40, 70)
+    assert res == -1
 
 
-def test_part10():
+def test_part14():
     res = solution.fruit_order(900, 0, 900)
     assert res == 900
 
 
-def test_part10():
-    res = solution.fruit_order(1, 2, 0)
-    assert res == 0
+def test_part15():
+    res = solution.fruit_order(45, 0, 50)
+    assert res == -1
+
+
+def test_part16():
+    res = solution.fruit_order(45, 10, 95)
+    assert res == 45
