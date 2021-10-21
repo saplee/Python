@@ -1,3 +1,4 @@
+"""Tests."""
 import solution
 
 
@@ -29,79 +30,93 @@ def test_part1():
 
 
 def test_part2():
+    """Test."""
     res = solution.lottery(5, 5, 5)
     result = 10
     assert res == result
 
 
 def test_part3():
+    """Test."""
     res = solution.lottery(1, 1, 1)
     result = 5
     assert res == result
 
 
 def test_part4():
+    """Test."""
     res = solution.lottery(1, 2, 3)
     result = 1
     assert res == result
 
 
 def test_part5():
+    """Test."""
     res = solution.lottery(1, 1, 2)
     result = 0
     assert res == result
 
 
 def test_part6():
+    """Test."""
     res = solution.lottery(1, 2, 1)
     result = 0
     assert res == result
 
 
 def test_part7():
+    """Test."""
     res = solution.lottery(1, 2, 2)
     result = 1
     assert res == result
 
 
 def test_part8():
+    """Test."""
     res = solution.lottery(0, 0, 0)
     result = 5
     assert res == result
 
 
 def test_part9():
+    """Test."""
     res = solution.lottery(-5, -5, -5)
     result = 5
     assert res == result
 
 
 def test_part10():
+    """Test."""
     res = solution.fruit_order(1, 2, 3)
     assert res == -1
 
 
 def test_part11():
+    """Test."""
     res = solution.fruit_order(3, 2, 3)
     assert res == 3
 
 
 def test_part12():
+    """Test."""
     res = solution.fruit_order(0, 0, 0)
     assert res == 0
 
 
 def test_part13():
+    """Test."""
     res = solution.fruit_order(0, 1, 70)
     assert res == -1
 
 
 def test_part14():
+    """Test."""
     res = solution.fruit_order(900, 0, 900)
     assert res == 900
 
 
 def test_part15():
+    """Test."""
     res = solution.fruit_order(45, 0, 50)
     assert res == -1
 
