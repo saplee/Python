@@ -1,4 +1,4 @@
-"""Test."""
+"""Ex08 test."""
 import solution
 
 
