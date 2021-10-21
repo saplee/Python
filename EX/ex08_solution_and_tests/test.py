@@ -1,5 +1,6 @@
 """Tests."""
 import solution
+"""Importing solution module."""
 
 
 def test_part1():
