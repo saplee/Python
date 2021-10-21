@@ -89,3 +89,18 @@ def test_part11():
 def test_part12():
     res = solution.fruit_order(0, 0, 0)
     assert res == 0
+
+
+def test_part13():
+    res = solution.fruit_order(0, 2, 0)
+    assert res == 0
+
+
+def test_part10():
+    res = solution.fruit_order(900, 0, 900)
+    assert res == 900
+
+
+def test_part10():
+    res = solution.fruit_order(1, 2, 0)
+    assert res == 0
