@@ -23,15 +23,17 @@ def lottery(a: int, b: int, c: int) -> int:
 def fruit_order(small_baskets: int, big_baskets: int, ordered_amount: int) -> int:
     """Return number of small fruit baskets if it's possible to finish the order, otherwise return -1."""
     amount = ordered_amount
-    if big_baskets > 0:
-        amount -= big_baskets * 5
-        if amount == 0:
-            return 0
-    if small_baskets > 0 and small_baskets >= amount:
-        result = amount % small_baskets
-        if result == 0:
-            return small_baskets
-        else:
-            return result
+    result = 0
+    for number in range(0, big_baskets):
+        if amount >= 5:
+            amount -= 5
+            if amount == 0:
+                return 0
+    for number in range(0, small_baskets):
+        if amount >= 1:
+            amount -= 1
+            result += 1
+    if amount == 0:
+        return result
     else:
         return -1
