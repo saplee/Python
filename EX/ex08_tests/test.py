@@ -168,3 +168,8 @@ def test_part7_third():
 def test_part8_third():
     res = solution.generate_combined_list_unique([(1, "string"), (1, "float"), (1, "int")])
     assert (type(res[2]), type(res[1]), type(res[0])) == (str, float, int)
+
+def test_part9_third():
+    res = solution.generate_combined_list_unique([(0, "string"), (0, "float"), (0, "int")])
+    result = 0
+    assert len(res) == result
