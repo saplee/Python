@@ -1,4 +1,4 @@
-"""Ex08 solution"""
+"""Ex08 solution."""
 
 
 def students_study(time: int, coffee_needed: bool) -> bool:
