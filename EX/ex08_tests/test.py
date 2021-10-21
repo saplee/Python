@@ -123,8 +123,8 @@ def test_part8_second():
 
 
 def test_part9_second():
-    res = solution.generate_combined_list([(1, "int")])
-    result = 1
+    res = solution.generate_combined_list([(8, "int")])
+    result = 8
     assert len(res) == result
 
 

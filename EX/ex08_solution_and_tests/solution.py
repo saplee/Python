@@ -35,4 +35,3 @@ def fruit_order(small_baskets: int, big_baskets: int, ordered_amount: int) -> in
             return result
     else:
         return -1
-    
