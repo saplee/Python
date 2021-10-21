@@ -74,3 +74,18 @@ def test_part9():
     res = solution.lottery(-5, -5, -5)
     result = 5
     assert res == result
+
+
+def test_part10():
+    res = solution.fruit_order(1, 2, 3)
+    assert res == -1
+
+
+def test_part11():
+    res = solution.fruit_order(3, 2, 3)
+    assert res == 3
+
+
+def test_part12():
+    res = solution.fruit_order(0, 0, 0)
+    assert res == 0
