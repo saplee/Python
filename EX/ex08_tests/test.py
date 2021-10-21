@@ -169,11 +169,13 @@ def test_part5_third():
 
 def test_part6_third():
     res = solution.generate_combined_list_unique([(1, "int")])
+    assert len(res) == 2
     assert type(res[0]) == int
 
 
 def test_part7_third():
-    res = solution.generate_combined_list_unique([(1, "float")])
+    res = solution.generate_combined_list_unique([(2, "float")])
+    assert len(res) == 2
     assert type(res[0]) == float
 
 
