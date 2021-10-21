@@ -152,3 +152,15 @@ def test_part23():
     """Test."""
     res = solution.fruit_order(0, 10, 0)
     assert res == 0
+
+
+def test_part24():
+    """Test."""
+    res = solution.fruit_order(8, 0, 0)
+    assert res == 0
+
+
+def test_part25():
+    """Test."""
+    res = solution.fruit_order(50, 50, 5665656565)
+    assert res == -1
