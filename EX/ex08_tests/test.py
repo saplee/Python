@@ -38,7 +38,9 @@ def test_part5():
 
 
 def test_part6():
-    res = solution.generate_list(1, "dict")
+    res = solution.generate_list(2, "dict")
+    result = 2
+    assert len(res) == result
     assert type(res[0]) == dict
 
 
