@@ -3,6 +3,7 @@ import solution
 
 
 def test_part1():
+    """Test."""
     for number in range(18, 25):
         first_result = solution.students_study(number, False)
         result = True
