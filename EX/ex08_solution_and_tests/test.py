@@ -92,7 +92,7 @@ def test_part12():
 
 
 def test_part13():
-    res = solution.fruit_order(0, 40, 70)
+    res = solution.fruit_order(0, 1, 70)
     assert res == -1
 
 
