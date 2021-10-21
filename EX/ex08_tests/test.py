@@ -3,9 +3,9 @@ import solution
 
 
 def test_part1():
-    input_amount = 5
+    input_amount = 1000
     res = solution.generate_list(input_amount, "string")
-    expected_len = 5
+    expected_len = 1000
     assert len(res) == expected_len
 
 
