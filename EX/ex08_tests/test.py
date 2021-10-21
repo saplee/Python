@@ -168,9 +168,8 @@ def test_part5_third():
 
 
 def test_part6_third():
-    res = solution.generate_combined_list_unique([(2, "int")])
-    assert len(res) == 2
-    assert type(res[0]) == int
+    res = solution.generate_combined_list_unique([(5, "int")])
+    assert len(set(res)) == len(res)
 
 
 def test_part7_third():
