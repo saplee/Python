@@ -157,8 +157,8 @@ def test_part3_third():
 
 
 def test_part4_third():
-    res = solution.generate_combined_list_unique([(2, "string")])
-    assert res[0] != res[1]
+    res = solution.generate_combined_list_unique([(5, "string")])
+    assert len(res) == set(res)
 
 
 def test_part5_third():
