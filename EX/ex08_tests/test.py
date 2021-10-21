@@ -52,17 +52,23 @@ def test_part7():
 
 
 def test_part8():
-    res = solution.generate_list(1, "set")
+    res = solution.generate_list(2, "set")
+    result = 2
+    assert len(res) == result
     assert type(res[0]) == set
 
 
 def test_part9():
-    res = solution.generate_list(1, "int")
+    res = solution.generate_list(2, "int")
+    result = 2
+    assert len(res) == result
     assert type(res[0]) == int
 
 
 def test_part10():
-    res = solution.generate_list(1, "list")
+    res = solution.generate_list(2, "list")
+    result = 2
+    assert len(res) == result
     assert type(res[0]) == list
 
 
@@ -72,12 +78,16 @@ def test_part11():
 
 
 def test_part12():
-    res = solution.generate_list(1, "float")
+    res = solution.generate_list(2, "float")
+    result = 2
+    assert len(res) == result
     assert type(res[0]) == float
 
 
 def test_par13():
-    res = solution.generate_list(1, "tuple")
+    res = solution.generate_list(2, "tuple")
+    result = 2
+    assert len(res) == result
     assert type(res[0]) == tuple
 
 
