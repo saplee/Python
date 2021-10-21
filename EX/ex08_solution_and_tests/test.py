@@ -198,5 +198,5 @@ def test_part30():
 
 def test_part31():
     """Test."""
-    res = solution.fruit_order(0, 1000, 4002)
+    res = solution.fruit_order(2, 2000, 1008)
     assert res == -1
