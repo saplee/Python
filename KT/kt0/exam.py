@@ -14,7 +14,10 @@ def add_char_into_pos(char: str, pos: int, string: str) -> str:
     add_char_into_pos("k", 10, "kalla") -> "kalla"
 
     """
-    return string[:pos-1] + char + string[pos-1:]
+    if (len(string) + 1) < pos:
+        return string
+    else:
+        return string[:pos - 1] + char + string[pos - 1:]
 
 
 def nr_of_common_characters(string1: str, string2: str) -> int:
