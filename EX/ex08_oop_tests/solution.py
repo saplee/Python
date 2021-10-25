@@ -6,14 +6,13 @@ class Factory:
         self.amount = 0
 
     def bake_cake(self, toppings: int, base: int) -> int:
-        amount = 0
         if toppings == base:
             self.large = base // 5
             self.medium = (base % 5) // 2
             self.basic = ((base % 5) % 2) // 1
             amount = (base // 5) + ((base % 5) // 2) + (((base % 5) % 2) // 1)
             self.amount = amount
-        return amount
+        return self.amount
 
     def get_last_cakes(self, n: int) -> list:
         pass
