@@ -1,9 +1,12 @@
 class Factory:
     def __init__(self):
-        pass
+        self.basic = 0
+        self.medium = 0
+        self.large = 0
 
     def bake_cake(self, toppings: int, base: int) -> int:
-        pass
+        amount=0
+
 
     def get_last_cakes(self, n: int) -> list:
         pass

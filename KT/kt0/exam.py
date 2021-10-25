@@ -14,7 +14,7 @@ def add_char_into_pos(char: str, pos: int, string: str) -> str:
     add_char_into_pos("k", 10, "kalla") -> "kalla"
 
     """
-    return string[:pos] + char + string[pos:]
+    return string[:pos-1] + char + string[pos-1:]
 
 
 def nr_of_common_characters(string1: str, string2: str) -> int:
@@ -50,7 +50,6 @@ def nr_into_num_list(nr: int, num_list: list) -> list:
     nr_into_num_list(0, [1,2,3,4,5]) -> [0,1,2,3,4,5,]
 
     """
-    pass
 
 
 def symbol_average_position_in_words(words):
