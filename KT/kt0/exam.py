@@ -52,21 +52,16 @@ def nr_into_num_list(nr: int, num_list: list) -> list:
     nr_into_num_list(5, [1,2,3,4,5,6]) -> [1,2,3,4,5,5,6]
     nr_into_num_list(0, [1,2,3,4,5]) -> [0,1,2,3,4,5,]
     """
-    if not num_list:
-        num_list.append(nr)
-        return num_list
-    if nr <= num_list[0]:
-        num_list.insert(0, nr)
-        return num_list
-    if nr > num_list[-1]:
-        num_list.append(nr)
-        return num_list
-    else:
-        for number in num_list:
-            index = num_list.index(number)
-            if number <= nr <= num_list[index + 1]:
-                num_list.insert(index + 1, nr)
-                return num_list
+    num_list.append(nr)
+    result = []
+    while num_list:
+        minimum = num_list[0]
+        for x in num_list:
+            if x < minimum:
+                minimum = x
+        result.append(minimum)
+        num_list.remove(minimum)
+    return result
 
 
 def symbol_average_position_in_words(words):
