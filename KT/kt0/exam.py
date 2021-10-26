@@ -105,4 +105,13 @@ def symbol_average_position_in_words(words):
     :param words: list of words
     :return: dictionary with symbol average positions
     """
-    pass
+    my_dict = {}
+    for word in words:
+        for letter_number in range(len(word)):
+            if word[letter_number] not in my_dict:
+                my_dict[word[letter_number]] = [letter_number]
+            else:
+                my_dict[word[letter_number]].append(letter_number)
+    for key, value in my_dict.items():
+        my_dict[key] = sum(value) / len(value)
+    return my_dict
