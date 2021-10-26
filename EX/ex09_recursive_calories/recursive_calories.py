@@ -44,6 +44,11 @@ def x_sum_loop(nums, x) -> int:
     result = 0
     if abs(x) > len(nums):
         return 0
+    if x < 0:
+        new_list = nums[::-1]
+        for index in range(1, len(new_list) + 1):
+            if index % abs(x) == 0:
+                result += new_list[index - 1]
     else:
         for index in range(1, len(nums) + 1):
             if index % abs(x) == 0:
