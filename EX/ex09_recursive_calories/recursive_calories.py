@@ -10,10 +10,13 @@ def recursive_reverse(s: str) -> str:
     :param s: string
     :return: reverse of s
     """
-    if s == "":
+    if len(s) == 0:
         return s
     else:
         return recursive_reverse(s[1:]) + s[0]
+
+
+print(recursive_reverse("abs"))
 
 
 def x_sum_loop(nums, x) -> int:
@@ -38,7 +41,14 @@ def x_sum_loop(nums, x) -> int:
     :param x: number indicating every which num to add to sum
     :return: sum of every x'th number in the list
     """
-    pass
+    result = 0
+    if abs(x) > len(nums):
+        return 0
+    else:
+        for index in range(1, len(nums) + 1):
+            if index % abs(x) == 0:
+                result += nums[index - 1]
+    return result
 
 
 def x_sum_recursion(nums, x) -> int:
