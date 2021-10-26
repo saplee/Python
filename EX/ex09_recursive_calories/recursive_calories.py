@@ -42,7 +42,7 @@ def x_sum_loop(nums, x) -> int:
     :return: sum of every x'th number in the list
     """
     result = 0
-    if abs(x) > len(nums):
+    if abs(x) > len(nums) or x == 0:
         return 0
     if x < 0:
         new_list = nums[::-1]
