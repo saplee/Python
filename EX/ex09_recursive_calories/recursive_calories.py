@@ -1,4 +1,4 @@
-"""Let's count calories!"""
+"""Let's count calories."""
 
 
 def recursive_reverse(s: str) -> str:
@@ -10,10 +10,10 @@ def recursive_reverse(s: str) -> str:
     :param s: string
     :return: reverse of s
     """
-    last_letter = s[-1]
-    return last_letter + s[-2::-1]
-
-
+    if s == "":
+        return s
+    else:
+        return recursive_reverse(s[1:]) + s[0]
 
 
 def x_sum_loop(nums, x) -> int:
