@@ -2,9 +2,10 @@
 
 
 class Factory:
-    """"init."""
+    """Factory class."""
 
     def __init__(self):
+        """Init."""
         self.basic = 0
         self.medium = 0
         self.large = 0
@@ -34,6 +35,7 @@ class Factory:
 
 
 class Cake:
+    """Cake class."""
 
     def __init__(self, base_amount, toppings_amount):
         """Cake size."""
