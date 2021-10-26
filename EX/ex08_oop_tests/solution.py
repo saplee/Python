@@ -11,7 +11,7 @@ class Factory:
         self.amount = 0
 
     def bake_cake(self, toppings: int, base: int) -> int:
-        """Calculating cake size."""
+        """Amount of cake."""
         if toppings == base:
             self.large = base // 5
             self.medium = (base % 5) // 2
@@ -20,18 +20,30 @@ class Factory:
             self.amount = amount
         return self.amount
 
+    def get_last_cakes(self, n: int) -> list:
+        """K."""
+        pass
+
+    def get_cakes_baked(self) -> list:
+        """K."""
+        pass
+
+    def __str__(self):
+        """K."""
+        pass
+
 
 class Cake:
 
     def __init__(self, base_amount, toppings_amount):
-        """Init."""
+        """Cake size."""
         self.base_amount = base_amount
         self.toppings_amount = toppings_amount
         self.cake_size = ""
 
     @property
     def type(self):
-        """Cake size."""
+        """Calculating cake size."""
         if self.base_amount == 1 and self.toppings_amount == 1:
             self.cake_size = "basic"
         if self.base_amount == 2 and self.toppings_amount == 2:
@@ -39,3 +51,16 @@ class Cake:
         if self.base_amount == 5 and self.toppings_amount == 5:
             self.cake_size = "large"
         return self.cake_size
+
+    def __repr__(self):
+        """K."""
+        return self.type
+
+    def __eq__(self, other):
+        """K."""
+        pass
+
+
+class WrongIngredientsAmountException(Exception):
+    """K."""
+    pass
