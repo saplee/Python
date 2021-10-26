@@ -65,4 +65,3 @@ class Cake:
 
 class WrongIngredientsAmountException(Exception):
     """K."""
-    pass
