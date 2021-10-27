@@ -109,7 +109,10 @@ def lets_count_calories(salad: float, chocolate_pieces: int, fridge_visits: int)
     :param chocolate_pieces: pieces of chocolate in the fridge.
     :return: calories eaten while visiting fridge.
     """
-    pass
+    if fridge_visits == 0:
+        return 0
+    if salad == 0 and chocolate_pieces == 0:
+        return 0
 
 
 def cycle(cyclists: list, distance: float, time: int = 0, index: int = 0) -> str:
