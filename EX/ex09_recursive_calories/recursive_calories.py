@@ -74,7 +74,7 @@ def x_sum_recursion(nums, x) -> int:
     :param x: number indicating every which num to add to sum
     :return: sum of every x'th number in the list
     """
-    if x > len(nums) or x == 0:
+    if abs(x) > len(nums) or x == 0:
         return 0
     if x < 0:
         nums = nums[::-1]
