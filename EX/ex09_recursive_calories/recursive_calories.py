@@ -141,7 +141,8 @@ def cycle(cyclists: list, distance: float, time: int = 0, index: int = 0) -> str
     :param index: index to know which cyclist's turn it is to be first
     :return: string indicating the last cyclist to carry the others
     """
-    pass
+    if cyclists == [] or distance <= 0:
+        return "Everyone fails."
 
 
 def count_strings(data: list, pos=None, result: dict = None) -> dict:
