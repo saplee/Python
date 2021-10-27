@@ -113,6 +113,14 @@ def lets_count_calories(salad: float, chocolate_pieces: int, fridge_visits: int)
         return 0
     if salad == 0 and chocolate_pieces == 0:
         return 0
+    if salad > 0 and chocolate_pieces == 0:
+        return 120 + lets_count_calories(round(salad, 1) - 0.1, chocolate_pieces, fridge_visits - 1)
+    if salad > 0 and chocolate_pieces > 0 and fridge_visits > 0:
+        return 154 + lets_count_calories(round(salad, 1) - 0.1, chocolate_pieces - 1, fridge_visits - 1)
+    if salad == 0 and chocolate_pieces >= 2 and fridge_visits > 0:
+        return 68 + lets_count_calories(salad, chocolate_pieces - 2, fridge_visits - 1)
+    if salad == 0 and chocolate_pieces == 1 and fridge_visits > 0:
+        return 34 + lets_count_calories(salad, chocolate_pieces - 1, fridge_visits - 1)
 
 
 def cycle(cyclists: list, distance: float, time: int = 0, index: int = 0) -> str:
