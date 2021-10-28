@@ -155,7 +155,6 @@ def cycle(cyclists: list, distance: float, time: int = 0, index: int = 0) -> str
         time += cyclists[index][2]
         return f"{cyclists[index][0]} is the last leader. Total time: {time // 60}h {time % 60}min."
     if len(cyclists) == index + 1:
-        index = 0
         return cycle(cyclists, round(distance - cyclists[index][1], 1), time + cyclists[index][2], 0)
     if cyclists[index][1] > 0:
         return cycle(cyclists, round(distance - cyclists[index][1], 1), time + cyclists[index][2], index + 1)
