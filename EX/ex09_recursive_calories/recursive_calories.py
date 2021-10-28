@@ -195,6 +195,3 @@ def count_strings(data: list, pos=0, result={}, index=0) -> dict:
         return count_strings(data, pos, result, index + 1)
     if len(data) == pos:
         return result
-
-
-print(count_strings([[], [], [], [], ["h", "h", "m"], [], ["m", "m", "M", "m"]]))  # {'h': 2, 'm': 4, 'M': 1}
