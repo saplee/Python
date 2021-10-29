@@ -189,9 +189,11 @@ def count_strings(data: list, pos=None, result=None, index=0) -> dict:
         return result
     if len(data[pos]) == 0:
         return count_strings(data, pos + 1, result, index)
-    if data[pos][index] not in result:
+    if type(data[pos][index]) == list:
+        count_strings(data[pos][index], 0, result, 0)
+    if type(data[pos][index]) == str and data[pos][index] not in result:
         result[data[pos][index]] = 1
-    else:
+    elif type(data[pos][index]) == str and data[pos][index] in result:
         result[data[pos][index]] += 1
     if len(data[pos]) == 1 or len(data[pos]) == index + 1:
         return count_strings(data, pos + 1, result, 0)
