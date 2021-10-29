@@ -160,7 +160,7 @@ def cycle(cyclists: list, distance: float, time: int = 0, index: int = 0) -> str
         return cycle(cyclists, round(distance - cyclists[index][1], 1), time + cyclists[index][2], index + 1)
 
 
-def count_strings(data: list, pos=0, result={}, index=0) -> dict:
+def count_strings(data: list, pos=None, result=None, index=0) -> dict:
     """
     Count strings in list.
 
@@ -181,10 +181,14 @@ def count_strings(data: list, pos=0, result={}, index=0) -> dict:
     """
     if not data:
         return {}
+    if result is None:
+        result = {}
+    if pos is None:
+        pos = 0
     if len(data) == pos:
         return result
     if len(data[pos]) == 0:
-        return count_strings(data, pos + 1)
+        return count_strings(data, pos + 1, result, index)
     if data[pos][index] not in result:
         result[data[pos][index]] = 1
     else:
