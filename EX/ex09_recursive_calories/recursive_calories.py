@@ -161,11 +161,12 @@ def cycle(cyclists: list, distance: float, time: int = 0, index: int = 0) -> str
 
 
 def none_type(pos, result):
+    """Lambi funktsioon."""
     if result is None:
         result = {}
     if pos is None:
         pos = 0
-    return result, pos
+    return pos, result
 
 
 def count_strings(data: list, pos=None, result=None, index=0) -> dict:
