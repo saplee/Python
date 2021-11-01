@@ -54,12 +54,17 @@ def read_from_file_into_list(filename: str) -> list:
     :param filename: name of file to get info from.
     :return: list of clients.
     """
-    my_list = []
+    result = []
     with open(filename) as f:
         for row in f:
-            my_list.append(row.split(",")[0])
-    translation = {39: None}
-    return str(my_list).translate(translation)
+            new_row = row.split(",")
+            name = new_row[0]
+            bank = new_row[1]
+            account_age = int(new_row[2])
+            starting_amount = int(new_row[3])
+            current_amount = int(new_row[4])
+            result.append(Client(name, bank, account_age, starting_amount, current_amount))
+    return result
 
 
 def filter_by_bank(filename: str, bank: str) -> list:
