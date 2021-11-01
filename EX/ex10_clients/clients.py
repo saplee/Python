@@ -95,10 +95,18 @@ def largest_earnings_per_day(filename: str) -> Optional[Client]:
         for row in f:
             new_row = row.split(",")
             per_day = int(new_row[4]) / int(new_row[2])
-            result.append(per_day)
-            if max(result) == per_day:
-                client = Client(new_row[0], new_row[1], int(new_row[2]), int(new_row[3]), int(new_row[4]))
-        return client
+            if per_day > 0:
+                result.append(per_day)
+    f.close()
+    with open(filename) as f:
+        for line in f:
+            new_line = line.split(",")
+            per_days = int(new_line[4]) / int(new_line[2])
+            if len(result) == 0:
+                return None
+            if max(result) == per_days:
+                client = Client(new_line[0], new_line[1], int(new_line[2]), int(new_line[3]), int(new_line[4]))
+                return client
 
 
 def largest_loss_per_day(filename: str) -> Optional[Client]:
@@ -115,10 +123,18 @@ def largest_loss_per_day(filename: str) -> Optional[Client]:
         for row in f:
             new_row = row.split(",")
             per_day = int(new_row[4]) / int(new_row[2])
-            result.append(per_day)
-            if min(result) == per_day:
-                client = Client(new_row[0], new_row[1], int(new_row[2]), int(new_row[3]), int(new_row[4]))
-        return client
+            if per_day > 0:
+                result.append(per_day)
+    f.close()
+    with open(filename) as f:
+        for line in f:
+            new_line = line.split(",")
+            per_days = int(new_line[4]) / int(new_line[2])
+            if len(result) == 0:
+                return None
+            if min(result) == per_days:
+                client = Client(new_line[0], new_line[1], int(new_line[2]), int(new_line[3]), int(new_line[4]))
+                return client
 
 
 if __name__ == '__main__':
