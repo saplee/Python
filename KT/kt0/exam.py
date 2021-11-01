@@ -115,5 +115,3 @@ def symbol_average_position_in_words(words):
     for key, value in my_dict.items():
         my_dict[key] = sum(value) / len(value)
     return my_dict
-
-print(symbol_average_position_in_words(["hello", "world"]))
