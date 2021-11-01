@@ -94,8 +94,9 @@ def largest_earnings_per_day(filename: str) -> Optional[Client]:
     with open(filename) as f:
         for row in f:
             new_row = row.split(",")
-            per_day = (int(new_row[4]) - int(new_row[3])) / int(new_row[2])
-            result.append(per_day)
+            if int(new_row[4]) > int(new_row[3]):
+                per_day = (int(new_row[4]) - int(new_row[3])) / int(new_row[2])
+                result.append(per_day)
     f.close()
     with open(filename) as f:
         for line in f:
@@ -121,8 +122,9 @@ def largest_loss_per_day(filename: str) -> Optional[Client]:
     with open(filename) as f:
         for row in f:
             new_row = row.split(",")
-            per_day = (int(new_row[4]) - int(new_row[3])) / int(new_row[2])
-            result.append(per_day)
+            if int(new_row[4]) < int(new_row[3]):
+                per_day = (int(new_row[4]) - int(new_row[3])) / int(new_row[2])
+                result.append(per_day)
     f.close()
     with open(filename) as f:
         for line in f:
