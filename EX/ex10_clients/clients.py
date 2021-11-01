@@ -39,7 +39,7 @@ class Client:
 
     def earnings_per_day(self):
         """
-        Clients earnings per day since the start.
+        Client earnings per day since the start.
 
         You can either calculate the value or
         save it into a new attribute and return the value.
@@ -58,12 +58,8 @@ def read_from_file_into_list(filename: str) -> list:
     with open(filename) as f:
         for row in f:
             new_row = row.split(",")
-            name = new_row[0]
-            bank = new_row[1]
-            account_age = int(new_row[2])
-            starting_amount = int(new_row[3])
-            current_amount = int(new_row[4])
-            result.append(Client(name, bank, account_age, starting_amount, current_amount))
+            client = Client(new_row[0], new_row[1], int(new_row[2]), int(new_row[3]), int(new_row[4]))
+            result.append(client)
     return result
 
 
@@ -75,10 +71,14 @@ def filter_by_bank(filename: str, bank: str) -> list:
     :param bank: to filter by.
     :return: filtered list of people.
     """
-    my_list = []
+    result = []
     with open(filename) as f:
         for row in f:
-            my_list.append(row.split(",")[0])
+            new_row = row.split(",")
+            if new_row[1] == bank:
+                client = Client(new_row[0], new_row[1], int(new_row[2]), int(new_row[3]), int(new_row[4]))
+                result.append(client)
+    return result
 
 
 def largest_earnings_per_day(filename: str) -> Optional[Client]:
@@ -90,10 +90,15 @@ def largest_earnings_per_day(filename: str) -> Optional[Client]:
     :param filename: name of file to get info from.
     :return: client with largest earnings.
     """
-    my_list = []
+    result = []
     with open(filename) as f:
         for row in f:
-            my_list.append(row.split(",")[0])
+            new_row = row.split(",")
+            per_day = int(new_row[4]) / int(new_row[2])
+            result.append(per_day)
+            if max(result) == per_day:
+                client = Client(new_row[0], new_row[1], int(new_row[2]), int(new_row[3]), int(new_row[4]))
+    return client
 
 
 def largest_loss_per_day(filename: str) -> Optional[Client]:
@@ -105,10 +110,6 @@ def largest_loss_per_day(filename: str) -> Optional[Client]:
     :param filename: name of file to get info from.
     :return: client with largest loss.
     """
-    my_list = []
-    with open(filename) as f:
-        for row in f:
-            my_list.append(row.split(",")[0])
 
 
 if __name__ == '__main__':
