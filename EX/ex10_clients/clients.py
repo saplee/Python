@@ -110,6 +110,15 @@ def largest_loss_per_day(filename: str) -> Optional[Client]:
     :param filename: name of file to get info from.
     :return: client with largest loss.
     """
+    result = []
+    with open(filename) as f:
+        for row in f:
+            new_row = row.split(",")
+            per_day = int(new_row[4]) / int(new_row[2])
+            result.append(per_day)
+            if min(result) == per_day:
+                client = Client(new_row[0], new_row[1], int(new_row[2]), int(new_row[3]), int(new_row[4]))
+    return client
 
 
 if __name__ == '__main__':
