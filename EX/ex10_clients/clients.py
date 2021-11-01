@@ -98,7 +98,7 @@ def largest_earnings_per_day(filename: str) -> Optional[Client]:
             result.append(per_day)
             if max(result) == per_day:
                 client = Client(new_row[0], new_row[1], int(new_row[2]), int(new_row[3]), int(new_row[4]))
-    return client
+        return client
 
 
 def largest_loss_per_day(filename: str) -> Optional[Client]:
@@ -118,7 +118,7 @@ def largest_loss_per_day(filename: str) -> Optional[Client]:
             result.append(per_day)
             if min(result) == per_day:
                 client = Client(new_row[0], new_row[1], int(new_row[2]), int(new_row[3]), int(new_row[4]))
-    return client
+        return client
 
 
 if __name__ == '__main__':
