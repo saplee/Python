@@ -60,7 +60,7 @@ class Cake:
 
     def __eq__(self, other):
         """K."""
-        pass
+        return self.base_amount == other.base_amount and self.toppings_amount == other.toppings_amount
 
 
 class WrongIngredientsAmountException(Exception):
