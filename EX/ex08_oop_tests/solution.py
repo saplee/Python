@@ -56,7 +56,7 @@ class Cake:
 
     def __repr__(self):
         """K."""
-        return self.type
+        return self.cake_size
 
     def __eq__(self, other):
         """K."""
