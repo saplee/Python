@@ -26,17 +26,19 @@ def has_seven(nums):
     has_seven([7, 1, 7, 1, 7]) => True
     has_seven([7, 1, 7, 1, 1, 7]) => False
     """
-    new_number = 0
+    new_number = []
     result = 0
     for number in nums:
         if number == 7:
             result += 1
-        if number == new_number:
+        if number in new_number:
             return False
-        if number != new_number:
-            new_number = number
+        if number not in new_number:
+            new_number = [number]
     if result == 3:
         return True
+    else:
+        return False
 
 
 def list_move(initial_list: list, amount: int, factor: int) -> list:
