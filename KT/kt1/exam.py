@@ -54,11 +54,8 @@ def list_move(initial_list: list, amount: int, factor: int) -> list:
     list_move([1, 2, 3], 4, 1) => [[1, 2, 3], [3, 1, 2], [2, 3, 1], [1, 2, 3]]
     list_move([], 3, 4) => [[], [], [], []]
     """
-    result = []
     if not initial_list:
         return [initial_list] * amount
-    result.append(initial_list)
-    return result
 
 
 def parse_call_log(call_log: str) -> dict:
