@@ -100,6 +100,7 @@ def largest_earnings_per_day(filename: str) -> Optional[Client]:
                 result.append(per_day)
     f.close()
     with open(filename) as f:
+        my_list = []
         for line in f:
             new_line = line.split(",")
             per_days = (int(new_line[4]) - int(new_line[3])) / int(new_line[2])
@@ -107,7 +108,11 @@ def largest_earnings_per_day(filename: str) -> Optional[Client]:
                 return None
             if max(result) == per_days:
                 client = Client(new_line[0], new_line[1], int(new_line[2]), int(new_line[3]), int(new_line[4]))
-                return client
+                my_list.append(client)
+        if len(my_list) == 1:
+            return my_list[0]
+        if len(my_list) > 1:
+            return my_list[1]
 
 
 def largest_loss_per_day(filename: str) -> Optional[Client]:
@@ -128,6 +133,7 @@ def largest_loss_per_day(filename: str) -> Optional[Client]:
                 result.append(per_day)
     f.close()
     with open(filename) as f:
+        new_list = []
         for line in f:
             new_line = line.split(",")
             per_days = (int(new_line[4]) - int(new_line[3])) / int(new_line[2])
@@ -135,7 +141,11 @@ def largest_loss_per_day(filename: str) -> Optional[Client]:
                 return None
             if min(result) == per_days:
                 client = Client(new_line[0], new_line[1], int(new_line[2]), int(new_line[3]), int(new_line[4]))
-                return client
+                new_list.append(client)
+        if len(new_list) == 1:
+            return new_list[0]
+        if len(new_list) > 1:
+            return new_list[2]
 
 
 if __name__ == '__main__':
