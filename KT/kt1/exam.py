@@ -26,15 +26,15 @@ def has_seven(nums):
     has_seven([7, 1, 7, 1, 7]) => True
     has_seven([7, 1, 7, 1, 1, 7]) => False
     """
-    new_number = []
+    new_number = 0
     result = 0
     for number in nums:
         if number == 7:
             result += 1
-        if number in new_number:
+        if number == new_number:
             return False
-        if number not in new_number:
-            new_number = [number]
+        if number != new_number:
+            new_number = number
     if result == 3:
         return True
 
