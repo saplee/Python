@@ -9,6 +9,8 @@ def capitalize_string(s: str) -> str:
     capitalize_string("ABc") => "ABc"
     capitalize_string("") => ""
     """
+    if len(s) == 0:
+        return ""
     first_letter = s[0].upper()
     new_word = first_letter + s[1:]
     return new_word
