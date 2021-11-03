@@ -18,6 +18,7 @@ class Tweet:
         self.content = content
         self.time = time
         self.retweets = retweets
+        self.hashtag = re.search(r'#\w+', content).group(0)
 
 
 def find_fastest_growing(tweets: list) -> Tweet:
@@ -94,12 +95,11 @@ def sort_hashtags_by_popularity(tweets: list) -> list:
     my_dict = {}
     result = []
     for tweet in tweets:
-        match = re.search(r'(#[A-Za-z]+)', tweet.content)
-        if match.group(0) is not None:
-            if match.group(0) not in my_dict:
-                my_dict[match.group(0)] = tweet.retweets
+        if tweet.hashtag in tweet.content:
+            if tweet.hashtag not in my_dict:
+                my_dict[tweet.hashtag] = tweet.retweets
             else:
-                my_dict[match.group(0)] = my_dict[match.group(0)] + tweet.retweets
+                my_dict[tweet.hashtag] = my_dict[tweet.hashtag] + tweet.retweets
     new_dict = dict(sorted(my_dict.items(), key=lambda item: item[1], reverse=True))
     for key in new_dict.keys():
         result.append(key)
