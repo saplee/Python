@@ -40,7 +40,7 @@ class Factory:
 
     def get_cakes_baked(self) -> list:
         """K."""
-        return self.
+        return self.cake_list
 
     def __str__(self):
         """K."""

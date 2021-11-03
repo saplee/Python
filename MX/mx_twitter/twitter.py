@@ -100,16 +100,14 @@ def sort_hashtags_by_popularity(tweets: list) -> list:
         elif len(match) != 0:
             my_dict[match[0]] = my_dict[match[0]] + tweet.retweets
     new_dicts = dict(sorted(my_dict.items(), key=lambda item: item[0]))
-    new_dict = dict(sorted(new_dicts.items(), key=lambda item: item[1], reverse=True))
-    for key in new_dict.keys():
-        result.append(key)
-    return result
+    new_list = sorted(new_dicts, key=lambda x: new_dicts[x], reverse=True)
+    return new_list
 
 
 if __name__ == '__main__':
     tweet1 = Tweet("@realDonaldTrump", "Despite the negative press covfefe #bigsmart", 1249, 54303)
-    tweet2 = Tweet("@elonmusk", "Technically, alcohol is a solution #bigsmart", 366.4, 166500)
-    tweet3 = Tweet("@CIA", "We can neither confirm nor deny that this is our first tweet. #heart", 2192, 284200)
+    tweet2 = Tweet("@elonmusk", "Technically, alcohol is a solution #bigsmart", 366.4, 1166500)
+    tweet3 = Tweet("@CIA", "We can neither confirm nor deny that this is our first tweet. #aeart", 2192, 284200)
     tweets = [tweet1, tweet2, tweet3]
 
     print(find_fastest_growing(tweets).user)  # -> "@elonmusk"
