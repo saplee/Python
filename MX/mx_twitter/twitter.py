@@ -92,7 +92,6 @@ def sort_hashtags_by_popularity(tweets: list) -> list:
     :return: List of hashtags by popularity.
     """
     my_dict = {}
-    result = []
     for tweet in tweets:
         match = re.findall(r'#\w+', tweet.content)
         if len(match) != 0 and match[0] not in my_dict:
