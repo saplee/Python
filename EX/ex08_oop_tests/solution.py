@@ -26,13 +26,13 @@ class Factory:
         cake_list = []
         while True:
             if n > 0 and self.large > 0:
-                cake_list.append("large")
+                cake_list.append(Cake(5, 5))
                 self.large -= 1
             if n > 0 and self.medium > 0:
-                cake_list.append("medium")
+                cake_list.append(Cake(2, 2))
                 self.medium -= 1
             if n > 0 and self.basic > 0:
-                cake_list.append("basic")
+                cake_list.append(Cake(1, 1))
                 self.basic -= 1
             if n == 0:
                 self.cake_list = cake_list
@@ -40,7 +40,7 @@ class Factory:
 
     def get_cakes_baked(self) -> list:
         """K."""
-        return self.cake_list
+        return self.
 
     def __str__(self):
         """K."""
@@ -78,3 +78,4 @@ class Cake:
 
 class WrongIngredientsAmountException(Exception):
     """K."""
+    pass
