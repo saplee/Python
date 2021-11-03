@@ -95,7 +95,7 @@ def sort_hashtags_by_popularity(tweets: list) -> list:
     result = []
     for tweet in tweets:
         match = re.search(r'(#[A-Za-z]+)', tweet.content)
-        if match.group(0) in tweet.content:
+        if match.group(0) is not None:
             if match.group(0) not in my_dict:
                 my_dict[match.group(0)] = tweet.retweets
             else:
