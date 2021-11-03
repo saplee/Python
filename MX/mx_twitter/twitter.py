@@ -69,7 +69,11 @@ def filter_by_hashtag(tweets: list, hashtag: str) -> list:
     :param hashtag: Hashtag to filter by.
     :return: Filtered list of tweets.
     """
-    pass
+    result = []
+    for tweet in tweets:
+        if hashtag in tweet.content:
+            result.append(tweet)
+    return result
 
 
 def sort_hashtags_by_popularity(tweets: list) -> list:
