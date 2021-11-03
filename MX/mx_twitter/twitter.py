@@ -98,7 +98,7 @@ def sort_hashtags_by_popularity(tweets: list) -> list:
         if len(match) != 0 and match[0] not in my_dict:
             my_dict[match[0]] = tweet.retweets
         elif len(match) != 0:
-            my_dict[match[0]] = my_dict[match[0]] + tweet.retweets
+            my_dict[match[0]] += tweet.retweets
     new_dicts = dict(sorted(my_dict.items(), key=lambda item: item[0]))
     new_dict = dict(sorted(new_dicts.items(), key=lambda item: item[1], reverse=True))
     for key in new_dict.keys():
