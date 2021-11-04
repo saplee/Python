@@ -56,14 +56,12 @@ def min_diff(nums):
     :param nums: list of ints, at least 2 elements.
     :return: min diff between 2 numbers.
     """
-    result = 10000000000000000
-    if len(nums) >= 2:
-        for number in nums:
-            index = nums.index(number)
-            if index + 1 == len(nums):
-                return result
-            if abs(number - nums[index + 1]) < result:
-                result = abs(number - nums[index + 1])
+    result = 100000000000
+    for first_index in range(len(nums) - 1):
+        for second_index in range(1, len(nums)):
+            if abs(nums[first_index] - nums[second_index]) < result:
+                result = abs(nums[first_index] - nums[second_index])
+    return result
 
 
 def get_symbols_by_occurrences(text: str) -> dict:
