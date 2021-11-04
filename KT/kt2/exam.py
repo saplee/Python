@@ -36,7 +36,10 @@ def take_partial(text: str, leave_count: int, take_count: int) -> str:
     take_partial("abcdef", 0, 1) => "abcdef"
     take_partial("abcdef", 1, 0) => ""
     """
-    pass
+    if take_count == 0:
+        return ""
+    if leave_count == 0 and take_count == 1:
+        return text
 
 
 def min_diff(nums):
@@ -53,7 +56,14 @@ def min_diff(nums):
     :param nums: list of ints, at least 2 elements.
     :return: min diff between 2 numbers.
     """
-    pass
+    result = 10000000000000000
+    if len(nums) >= 2:
+        for number in nums:
+            index = nums.index(number)
+            if index + 1 == len(nums):
+                return result
+            if abs(number - nums[index + 1]) < result:
+                result = abs(number - nums[index + 1])
 
 
 def get_symbols_by_occurrences(text: str) -> dict:
@@ -65,4 +75,14 @@ def get_symbols_by_occurrences(text: str) -> dict:
     get_symbols_by_occurrences("hello") => {1: ['e', 'o', 'h'], 2: ['l']}
     get_symbols_by_occurrences("abcaba") => {2: ['b'], 1: ['c'], 3: ['a']}
     """
-    pass
+    result = {}
+    new_dict = {}
+    for letter in text:
+        key = text.count(letter)
+        if key not in result:
+            result[key] = [letter]
+        else:
+            result[key].append(letter)
+    for key, value in result.items():
+        new_dict[key] = list(set(value))
+    return new_dict
