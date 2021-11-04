@@ -32,14 +32,14 @@ def take_partial(text: str, leave_count: int, take_count: int) -> str:
     take_count >= 0
     leave_count + take_count > 0
 
-    take_partial("abcdef", 2, 3) => "cde"
+    take_partial("abcdefghi", 2, 3) => "cde"
     take_partial("abcdef", 0, 1) => "abcdef"
     take_partial("abcdef", 1, 0) => ""
     """
-    if take_count <= 0:
-        return ""
-    if leave_count == 0 and take_count == 1:
-        return text
+    result = ""
+    for number in range(0, len(text), take_count + leave_count):
+        result += text[number + leave_count:number + leave_count + take_count]
+    return result
 
 
 def min_diff(nums):
