@@ -36,7 +36,7 @@ def take_partial(text: str, leave_count: int, take_count: int) -> str:
     take_partial("abcdef", 0, 1) => "abcdef"
     take_partial("abcdef", 1, 0) => ""
     """
-    if take_count == 0:
+    if take_count <= 0:
         return ""
     if leave_count == 0 and take_count == 1:
         return text
