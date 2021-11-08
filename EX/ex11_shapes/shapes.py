@@ -73,8 +73,7 @@ class Square(Shape):
         self.color = color
 
     def __repr__(self) -> str:
-        """
-        Return representation of the square.
+        """Return representation of the square.
 
         For this exercise, this should return a string:
         Square (a: {side}, color: {color})
