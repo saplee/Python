@@ -157,11 +157,25 @@ class Paint:
 
     def get_squares(self) -> list:
         """Return only squares."""
-        pass
+        result = []
+        pattern = r'Square\w? [(\w: ,]+[)]'
+        for word in self.my_list:
+            new_word = str(word)
+            match = re.search(pattern, new_word)
+            if match is not None:
+                result.append(word)
+        return result
 
     def get_rectangles(self) -> list:
         """Return only rectangles."""
-        pass
+        result = []
+        pattern = r'Rectangle\w? [(\w: ,]+[)]'
+        for word in self.my_list:
+            new_word = str(word)
+            match = re.search(pattern, new_word)
+            if match is not None:
+                result.append(word)
+        return result
 
 
 if __name__ == '__main__':
