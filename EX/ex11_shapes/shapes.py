@@ -78,7 +78,6 @@ class Square(Shape):
         For this exercise, this should return a string:
         Square (a: {side}, color: {color})
         """
-
         return f'Square (a: {self.side}, color: {self.color})'
 
     def get_area(self) -> float:
