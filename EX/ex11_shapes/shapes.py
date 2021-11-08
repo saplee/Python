@@ -145,7 +145,7 @@ class Paint:
     def get_circles(self) -> list:
         """Return only circles."""
         result = []
-        pattern = r'Circle\w? [(\w: ,]+[)]'
+        pattern = r'Circle[\w]?'
         for word in self.my_list:
             new_word = str(word)
             match = re.search(pattern, new_word)
@@ -156,7 +156,7 @@ class Paint:
     def get_squares(self) -> list:
         """Return only squares."""
         result = []
-        pattern = r'Square\w? [(\w: ,]+[)]'
+        pattern = r'Square[\w]?'
         for word in self.my_list:
             new_word = str(word)
             match = re.search(pattern, new_word)
@@ -167,7 +167,7 @@ class Paint:
     def get_rectangles(self) -> list:
         """Return only rectangles."""
         result = []
-        pattern = r'Rectangle\w? [(\w: ,]+[)]'
+        pattern = r'Rectangle[\w]?'
         for word in self.my_list:
             new_word = str(word)
             match = re.search(pattern, new_word)
