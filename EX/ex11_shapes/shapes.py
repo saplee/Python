@@ -12,7 +12,7 @@ class Shape(ABC):
 
     def set_color(self, color: str):
         """Set the color of the shape."""
-        pass
+        return self.color
 
     def get_color(self) -> str:
         """Get the color of the shape."""
@@ -79,6 +79,7 @@ class Square(Shape):
         For this exercise, this should return a string:
         Square (a: {side}, color: {color})
         """
+
         return f'Square (a: {self.side}, color: {self.color})'
 
     def get_area(self) -> float:
@@ -129,14 +130,15 @@ class Paint:
 
     def __init__(self):
         """Constructor should create a list to store all the shapes."""
+        self.my_list = []
 
     def add_shape(self, shape: Shape) -> None:
         """Add a shape to the program."""
-        pass
+        self.my_list.append(shape)
 
     def get_shapes(self) -> list:
         """Return all the shapes."""
-        pass
+        return self.my_list
 
     def calculate_total_area(self) -> float:
         """Calculate total area of the shapes."""
