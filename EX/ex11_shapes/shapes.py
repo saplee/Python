@@ -46,7 +46,7 @@ class Circle(Shape):
         For this exercise, this should return a string:
         Circle (r: {radius}, color: {color})
         """
-        return f"Circle(r: {self.radius}, color: {self.color})"
+        return f"Circle (r: {self.radius}, color: {self.color})"
 
     def get_area(self) -> float:
         """
@@ -79,7 +79,7 @@ class Square(Shape):
         For this exercise, this should return a string:
         Square (a: {side}, color: {color})
         """
-        return f'Square(a: {self.side}, color: {self.color})'
+        return f'Square (a: {self.side}, color: {self.color})'
 
     def get_area(self) -> float:
         """
