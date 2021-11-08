@@ -90,7 +90,38 @@ class Square(Shape):
         return self.side * self.side
 
 
-# class Rectangle(Shape):
+class Rectangle(Shape):
+    """Square is a subclass of Shape."""
+
+    def __init__(self, color: str, length: float, width: float):
+        """
+        Constructor of the square.
+
+        The color is stored using superclass constructor:
+        super().__init__(color)
+
+        The side value is stored here.
+        """
+        self.length = length
+        self.width = width
+        self.color = color
+
+    def __repr__(self) -> str:
+        """
+        Return representation of the square.
+
+        For this exercise, this should return a string:
+        Square (a: {side}, color: {color})
+        """
+        return f'Rectangle (l: {self.length}, w: {self.width}, color: {self.color})'
+
+    def get_area(self) -> float:
+        """
+        Calculate the area of the square.
+
+        Area of the square is side * side.
+        """
+        return self.length * self.width
 
 
 class Paint:
