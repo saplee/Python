@@ -16,7 +16,7 @@ class Shape(ABC):
 
     def get_color(self) -> str:
         """Get the color of the shape."""
-        pass
+        return self.color
 
     @abstractmethod
     def get_area(self) -> float:
