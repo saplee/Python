@@ -16,7 +16,7 @@ class Shape(ABC):
 
     def get_color(self) -> str:
         """Get the color of the shape."""
-        pass
+        return self.color
 
     @abstractmethod
     def get_area(self) -> float:
@@ -36,7 +36,7 @@ class Circle(Shape):
 
         The radius value is stored here.
         """
-        self.color = super().__init__(color)
+        self.color = color
         self.radius = radius
 
     def __repr__(self) -> str:
@@ -70,7 +70,7 @@ class Square(Shape):
         The side value is stored here.
         """
         self.side = side
-        self.color = super().__init__(color)
+        self.color = color
 
     def __repr__(self) -> str:
         """
