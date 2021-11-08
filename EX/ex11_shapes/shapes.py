@@ -36,7 +36,7 @@ class Circle(Shape):
 
         The radius value is stored here.
         """
-        self.color = color
+        self.color = super().__init__(color)
         self.radius = radius
 
     def __repr__(self) -> str:
@@ -70,7 +70,7 @@ class Square(Shape):
         The side value is stored here.
         """
         self.side = side
-        self.color = color
+        self.color = super().__init__(color)
 
     def __repr__(self) -> str:
         """
