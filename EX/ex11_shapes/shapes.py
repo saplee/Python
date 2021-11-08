@@ -12,7 +12,6 @@ class Shape(ABC):
 
     def set_color(self, color: str):
         """Set the color of the shape."""
-        return self.color
 
     def get_color(self) -> str:
         """Get the color of the shape."""
@@ -142,11 +141,10 @@ class Paint:
 
     def calculate_total_area(self) -> float:
         """Calculate total area of the shapes."""
-        pass
+        return Circle.get_area(circle) + Square.get_area(square)
 
     def get_circles(self) -> list:
         """Return only circles."""
-        pass
 
     def get_squares(self) -> list:
         """Return only squares."""
