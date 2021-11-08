@@ -1,6 +1,7 @@
 """Shapes."""
 from abc import ABC, abstractmethod
 import math
+import re
 
 
 class Shape(ABC):
@@ -145,6 +146,14 @@ class Paint:
 
     def get_circles(self) -> list:
         """Return only circles."""
+        result = []
+        pattern = r'Circle\w? [(\w: ,]+[)]'
+        for word in self.my_list:
+            new_word = str(word)
+            match = re.search(pattern, new_word)
+            if match is not None:
+                result.append(word)
+        return result
 
     def get_squares(self) -> list:
         """Return only squares."""
@@ -161,5 +170,5 @@ if __name__ == '__main__':
     square = Square("red", 11)
     paint.add_shape(circle)
     paint.add_shape(square)
-    print(paint.calculate_total_area())
+    print(paint.get_shapes())
     print(paint.get_circles())
