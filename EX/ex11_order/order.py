@@ -31,13 +31,14 @@ class OrderItem:
 class Order:
     """Combination of order items of one customer."""
 
-    def __init__(self, order_items: list, destination=None):
+    def __init__(self, order_items: list):
         """
         Constructor that creates an order.
 
         :param order_items: list of order items.
         """
         self.order_items = order_items
+        self.destination = None
 
     @property
     def total_quantity(self) -> int:
