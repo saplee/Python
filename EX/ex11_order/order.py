@@ -78,9 +78,7 @@ class OrderAggregator:
     """Algorithm of aggregating orders."""
 
     def __init__(self):
-        """
-        Initialize order aggregator.
-        """
+        """Initialize order aggregator."""
         self.order_items = []
 
     def add_item(self, item: OrderItem):
