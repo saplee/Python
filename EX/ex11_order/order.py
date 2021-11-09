@@ -48,7 +48,7 @@ class Order:
         """
         result = 0
         for item in self.order_items:
-            result += item
+            result += item.quantity
         return result
 
     @property
