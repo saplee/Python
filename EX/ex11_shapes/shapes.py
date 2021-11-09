@@ -140,7 +140,10 @@ class Paint:
 
     def calculate_total_area(self) -> float:
         """Calculate total area of the shapes."""
-        return Circle.get_area(circle) + Square.get_area(square)
+        result = 0
+        for shape in self.my_list:
+            result += shape.get_area()
+        return result
 
     def get_circles(self) -> list:
         """Return only circles."""
