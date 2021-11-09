@@ -37,7 +37,7 @@ class Order:
 
         :param order_items: list of order items.
         """
-        pass
+        self.order_items = order_items
 
     @property
     def total_quantity(self) -> int:
@@ -46,7 +46,10 @@ class Order:
 
         :return: Total quantity as int.
         """
-        return 0
+        result = 0
+        for item in self.order_items:
+            result += item
+        return result
 
     @property
     def total_volume(self) -> int:
@@ -55,7 +58,10 @@ class Order:
 
         :return: Total volume (cm^3) as int.
         """
-        return 0
+        total_volume = 0
+        for item in self.order_items:
+            total_volume += item.quantity * item.one_item_volume
+        return total_volume
 
 
 class Container:
@@ -135,7 +141,7 @@ if __name__ == '__main__':
     order_item5 = OrderItem("Mööbel 24", "Diivan", 20, 200)
     order_item6 = OrderItem("Mööbel 24", "Midagi väga suurt", 20, 400)
 
-    print(order_item3.total_volume)  # 60000
+    print(order_item1.total_volume)  # 60000
 
     print("Order Aggregator")
     oa = OrderAggregator()
@@ -170,4 +176,3 @@ if __name__ == '__main__':
         print(f'container to tallinn has {len(containers_to_tallinn[0].orders)}(2 is correct) orders')
     except KeyError:
         print('Container to Tallinn not found!')
-    print(f'{len(ca.not_used_orders)}(1 is correct) cannot be added to containers')
