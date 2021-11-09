@@ -31,7 +31,7 @@ class OrderItem:
 class Order:
     """Combination of order items of one customer."""
 
-    def __init__(self, order_items: list):
+    def __init__(self, order_items: list, destination=None):
         """
         Constructor that creates an order.
 
