@@ -159,6 +159,7 @@ class ContainerAggregator:
                 result[order.destination] = [Container(self.container_volume, my_list)]
                 new_container_volume -= order.total_volume
             elif order.destination in result and new_container_volume < order.total_volume <= self.container_volume:
+                my_list = [order]
                 result[order.destination] = result[order.destination] + [Container(self.container_volume, my_list)]
                 new_container_volume = self.container_volume
                 new_container_volume -= order.total_volume
