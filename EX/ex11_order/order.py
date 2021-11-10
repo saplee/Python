@@ -96,7 +96,8 @@ class OrderAggregator:
         :param item: Item to add.
         :return: None
         """
-        pass
+        self.order_items.append(item)
+        return self.order_items
 
     def aggregate_order(self, customer: str, max_items_quantity: int, max_volume: int):
         """
@@ -111,8 +112,13 @@ class OrderAggregator:
         :return: Order.
         """
         items = []
-        # collect items to the order here
-        return Order(items)
+        for item in self.order_items:
+            if item.customer == customer:
+                if max_items_quantity >= item.quantity and max_volume >= item.total_volume:
+                    max_items_quantity -= item.quantity
+                    max_volume -= item.total_volume
+                    items.append(item)
+        return items
 
 
 class ContainerAggregator:
@@ -124,7 +130,7 @@ class ContainerAggregator:
 
         :param container_volume: Volume of each container created by this aggregator.
         """
-        pass
+        self.container_volume = container_volume
 
     def prepare_containers(self, orders: tuple) -> dict:
         """
