@@ -118,7 +118,7 @@ class OrderAggregator:
                     max_items_quantity -= item.quantity
                     max_volume -= item.total_volume
                     items.append(item)
-        return items
+        return Order(items)
 
 
 class ContainerAggregator:
