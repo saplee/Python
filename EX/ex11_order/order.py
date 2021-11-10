@@ -118,6 +118,9 @@ class OrderAggregator:
                     max_items_quantity -= item.quantity
                     max_volume -= item.total_volume
                     items.append(item)
+        for i in items:
+            if i in self.order_items:
+                self.order_items.remove(i)
         return Order(items)
 
 
