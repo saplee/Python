@@ -147,10 +147,10 @@ class ContainerAggregator:
         """
         result = {}
         for order in orders:
-            my_list = [order]
             if order.total_volume > self.container_volume:
                 self.not_used_orders.append(order)
             if order.total_volume <= self.container_volume and order.destination not in result:
+                my_list = [order]
                 result[order.destination] = [Container(self.container_volume, my_list)]
                 new_container_volume = self.container_volume
                 new_container_volume -= order.total_volume
@@ -199,8 +199,8 @@ if __name__ == '__main__':
 
     print("Container Aggregator")
     ca = ContainerAggregator(70000)
-    too_big_order = Order([OrderItem("Apple", "Apple Car", 10000, 300)])
-    too_big_order.destination = "Somewhere"
+    too_big_order = Order([OrderItem("Apple", "Apple Car", 1, 3300)])
+    too_big_order.destination = "somewhere"
     containers = ca.prepare_containers((order1, order2, too_big_order))
     print(f'prepare_containers produced containers to {len(containers)}(1 is correct) different destination(s)')
 
