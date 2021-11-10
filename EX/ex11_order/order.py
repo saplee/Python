@@ -75,6 +75,7 @@ class Container:
 
     @property
     def volume_left(self) -> int:
+        """Volume left."""
         amount = self.volume
         for item in self.orders:
             amount -= item.quantity * item.one_item_volume
