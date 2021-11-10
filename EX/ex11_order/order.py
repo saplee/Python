@@ -78,7 +78,7 @@ class Container:
         """Volume left."""
         amount = self.volume
         for item in self.orders:
-            amount -= (item.quantity * item.one_item_volume)
+            amount -= item.total_volume
         return amount
 
 
