@@ -147,15 +147,17 @@ class ContainerAggregator:
         """
         result = {}
         for order in orders:
+            my_list = [order]
             new_container_volume = self.container_volume - order.total_volume
             if order.total_volume > self.container_volume:
                 self.not_used_orders.append(order)
             if order.total_volume <= self.container_volume and order.destination not in result:
-                result[order.destination] = [Container(self.container_volume, [order])]
+                result[order.destination] = [Container(self.container_volume, my_list)]
             elif order.destination in result and new_container_volume >= order.total_volume:
-                result[order.destination].append(order)
+                my_list.append(order)
+                result[order.destination] = [Container(self.container_volume, my_list)]
             if order.destination in result and new_container_volume < order.total_volume <= self.container_volume:
-                result[order.destination] = result[order.destination] + [Container(self.container_volume, [order])]
+                result[order.destination].append(Container(self.container_volume, [my_list]))
         return result
 
 
