@@ -133,6 +133,7 @@ class ContainerAggregator:
 
         :param container_volume: Volume of each container created by this aggregator.
         """
+        self.not_used_orders = []
         self.container_volume = container_volume
 
     def prepare_containers(self, orders: tuple) -> dict:
@@ -144,7 +145,18 @@ class ContainerAggregator:
         :param orders: tuple of orders.
         :return: dict where keys are destinations and values are containers to that destination with orders.
         """
-        return {}
+        result = {}
+        for order in orders:
+            new_container_volume = self.container_volume - order.total_volume
+            if order.total_volume > self.container_volume:
+                self.not_used_orders.append(order)
+            if order.total_volume <= self.container_volume and order.destination not in result:
+                result[order.destination] = [Container(self.container_volume, [order])]
+            elif order.destination in result and new_container_volume >= order.total_volume:
+                result[order.destination].append(order)
+            if order.destination in result and new_container_volume < order.total_volume <= self.container_volume:
+                result[order.destination] = result[order.destination] + [Container(self.container_volume, [order])]
+        return result
 
 
 if __name__ == '__main__':
