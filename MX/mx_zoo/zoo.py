@@ -93,7 +93,11 @@ def filter_animals_based_on_diet(animal_list: list, diet: str) -> list:
     :param diet: the type of diet we are looking for
     :return: list of animals who eat this type of food
     """
-    pass
+    result = []
+    for name in animal_list:
+        if name.diet == diet:
+            result.append(name)
+    return result
 
 
 def find_animal_with_longest_lifespan(animal_list: list) -> Animal:
