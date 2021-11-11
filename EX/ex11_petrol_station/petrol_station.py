@@ -161,9 +161,9 @@ class Order:
         : param order_date: date of purchase
         : param client_type: The type of client that made the purchase
         """
-        self.items = items
-        self.order_date = order_date
-        self.client_type = client_type
+        self.__items = items
+        self.__order_date = order_date
+        self.__client_type = client_type
 
     def get_date(self) -> date:
         """
@@ -171,7 +171,7 @@ class Order:
 
         :return: date
         """
-        return self.order_date
+        return self.__order_date
 
     def get_final_price(self) -> float:
         """
@@ -179,24 +179,25 @@ class Order:
 
         :return: float
         """
+        return 0.0
 
     def __hash__(self):
         """Hash for using with dictionaries."""
-        return hash((self.items, self.order_date, self.client_type))
+        return hash((self.__items, self.__order_date, self.__client_type))
 
     def __eq__(self, other):
         """Return True if Orders are equal, else - False."""
         if type(other) is not type(self):
             return False
-        if not (self.client_type == other.client_type) or not (self.order_date == other.order_date) \
-                or (len(self.items) != len(other.items)):
+        if not (self.__client_type == other.__client_type) or not (self.__order_date == other.__order_date) \
+                or (len(self.__items) != len(other.__items)):
             return False
 
-        return all(map(lambda x: x[0] == x[1], zip(self.items, other.items)))
+        return all(map(lambda x: x[0] == x[1], zip(self.__items, other.__items)))
 
     def __repr__(self):
         """String representation for Order."""
-        return f"{', '.join(map(lambda item: item.get_name(), self.items.keys()))}"
+        return f"{', '.join(map(lambda item: item.get_name(), self.__items.keys()))}"
 
 
 class Client:
@@ -210,15 +211,15 @@ class Client:
         :param balance: customer money
         :param client_type: client type
         """
-        self.name = name
-        self.balance = balance
-        self.client_type = client_type
+        self.__name = name
+        self.__balance = balance
+        self.__client_type = client_type
 
         self.__order_history: list['Order'] = []  # Kliendi ostu ajalugu
 
     def get_name(self):
         """Return client name."""
-        return self.name
+        return self.__name
 
     def get_client_type(self) -> ClientType:
         """
@@ -226,7 +227,7 @@ class Client:
 
         :return: ClientType
         """
-        return ClientType(self.name)
+        return self.__client_type
 
     def set_client_type(self, value: ClientType):
         """
@@ -242,7 +243,7 @@ class Client:
 
         :return: float
         """
-        return 0.0
+        return self.__balance
 
     def get_history(self) -> list['Order']:
         """
