@@ -1,5 +1,4 @@
 """A small exercise in zookeeping."""
-from functools import reduce
 from math import ceil
 
 
@@ -18,6 +17,7 @@ class Animal:
         self.habitat = habitat
         self.weight = self.weight_range[0]
         self.max_height = height_range[-1]
+        self.max_weight = weight_range[1]
         self.average_weight = (weight_range[0] + weight_range[1]) / 2
 
     def __repr__(self):
@@ -45,7 +45,10 @@ def list_species_and_scientific_names(animal_list: list) -> list:
     :param animal_list: input list of animals
     :return: list of tuples, where we have the species name and scientific name
     """
-    pass
+    result = []
+    for name in animal_list:
+        result.append((name.species, name.scientific_name))
+    return result
 
 
 def find_how_many_pumpkins_are_needed_to_feed_animals(animal_list: list) -> int:
@@ -134,7 +137,11 @@ def create_animal_descriptions(animal_list: list) -> list:
     :param animal_list: input list
     :return: list of animal description strings
     """
-    pass
+    result = []
+    for name in animal_list:
+        result.append(
+            f'{name.species} ({name.scientific_name}) lives in {name.habitat} and its diet is {name.diet}. These animals can live up to {name.age_up_to} years and they weigh between {name.weight} kg and {name.max_weight} kg as adults')
+    return result
 
 
 if __name__ == '__main__':
