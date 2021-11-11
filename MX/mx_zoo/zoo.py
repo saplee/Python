@@ -105,7 +105,7 @@ def find_animal_with_longest_lifespan(animal_list: list) -> Animal:
     :param animal_list: input list
     :return: Animal object
     """
-    return sorted(animal_list, key=lambda x: x.self.age_up_to, reverse=True)[0]
+    return sorted(animal_list, key=lambda x: x.age_up_to, reverse=True)[0]
 
 
 def create_animal_descriptions(animal_list: list) -> list:
