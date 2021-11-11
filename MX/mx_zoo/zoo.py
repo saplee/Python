@@ -16,6 +16,7 @@ class Animal:
         self.height_range = height_range
         self.diet = diet
         self.habitat = habitat
+        self.weight = self.weight_range[0]
 
     def __repr__(self):
         """Animal object representation."""
@@ -104,7 +105,7 @@ def find_animal_with_longest_lifespan(animal_list: list) -> Animal:
     :param animal_list: input list
     :return: Animal object
     """
-    pass
+    return sorted(animal_list, key=lambda x: x.self.age_up_to, reverse=True)[0]
 
 
 def create_animal_descriptions(animal_list: list) -> list:
