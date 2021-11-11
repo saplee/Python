@@ -139,8 +139,7 @@ def create_animal_descriptions(animal_list: list) -> list:
     """
     result = []
     for name in animal_list:
-        result.append(
-            f'{name.species} ({name.scientific_name}) lives in {name.habitat} and its diet is {name.diet}. These animals can live up to {name.age_up_to} years and they weigh between {name.weight} kg and {name.max_weight} kg as adults')
+        result.append(f'{name.species} ({name.scientific_name}) lives in {name.habitat} and its diet is {name.diet}. These animals can live up to {name.age_up_to} years and they weigh between {name.weight} kg and {name.max_weight} kg as adults.')
     return result
 
 
