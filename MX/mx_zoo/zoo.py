@@ -1,6 +1,6 @@
 """A small exercise in zookeeping."""
-import math
 from functools import reduce
+from math import ceil
 
 
 class Animal:
@@ -17,6 +17,8 @@ class Animal:
         self.diet = diet
         self.habitat = habitat
         self.weight = self.weight_range[0]
+        self.max_height = height_range[-1]
+        self.average_weight = (weight_range[0] + weight_range[1]) / 2
 
     def __repr__(self):
         """Animal object representation."""
@@ -58,7 +60,11 @@ def find_how_many_pumpkins_are_needed_to_feed_animals(animal_list: list) -> int:
     :param animal_list: input list
     :return: amount of pumpkins needed to sustain all the animals over the winter (rounded up).
     """
-    pass
+    result = 0
+    for name in animal_list:
+        if name.diet != "carnivorous":
+            result += (name.average_weight * 0.06 * 2 * 90)
+    return ceil(result / 3)
 
 
 def sort_alphabetically_by_scientific_name(animal_list: list) -> list:
@@ -82,7 +88,11 @@ def find_animals_whose_height_is_less_than(animal_list: list, height_limit: int)
     :param height_limit: upper limit for animal height
     :return: list of animals who do not grow taller than the height limit
     """
-    pass
+    result = []
+    for name in animal_list:
+        if name.max_height <= height_limit:
+            result.append(name)
+    return result
 
 
 def filter_animals_based_on_diet(animal_list: list, diet: str) -> list:
