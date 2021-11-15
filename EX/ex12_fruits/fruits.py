@@ -55,7 +55,7 @@ class App:
 
     def __init__(self):
         """App constructor, no arguments expected."""
-        self.order_list = []
+        self.order_list = self.import_products("pricelist.txt")
 
     def order_to_list(self, filename):
         with open(filename) as csv_file:
