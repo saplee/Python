@@ -77,11 +77,11 @@ class App:
         Filename is an argument here.
         """
         order_list = []
-        with open(filename) as csv_file:
-            csv_reader = csv.reader(csv_file, delimiter='-')
-            for row in csv_reader:
-                name = row[0]
-                price = float(row[1])
+        with open(filename) as f:
+            for row in f:
+                new_row = row.split("-")
+                name = new_row[0]
+                price = new_row[1]
                 order_list.append(Product(name, price))
             return order_list
 
@@ -131,5 +131,3 @@ class Customer:
     """Customer to implement."""
 
     pass
-
-
