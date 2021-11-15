@@ -57,16 +57,6 @@ class App:
         """App constructor, no arguments expected."""
         self.order_list = self.import_products("pricelist.txt")
 
-    def order_to_list(self, filename):
-        order_list = []
-        with open(filename) as csv_file:
-            csv_reader = csv.reader(csv_file, delimiter='-')
-            for row in csv_reader:
-                name = row[0]
-                price = row[1]
-                order_list.append(Product(name, price))
-            return order_list
-
     def find_product_by_name(self, name: str):
         for product in self.order_list:
             if product.name == name:
@@ -86,13 +76,14 @@ class App:
 
         Filename is an argument here.
         """
+        order_list = []
         with open(filename) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter='-')
             for row in csv_reader:
                 name = row[0]
                 price = row[1]
-                self.order_list.append(Product(name, price))
-            return self.order_list
+                order_list.append(Product(name, price))
+            return order_list
 
     def order_products(self):
         """Order products in general.
