@@ -55,9 +55,7 @@ class App:
 
     def __init__(self):
         """App constructor, no arguments expected."""
-        self.product_list = []
         self.order_list = []
-        self.result = []
 
     def order_to_list(self):
         with open("pricelist.txt") as csv_file:
@@ -92,8 +90,8 @@ class App:
             for row in csv_reader:
                 name = row[0]
                 price = row[1]
-                self.result.append(Product(name, price))
-            return self.result
+                self.order_list.append(Product(name, price))
+            return self.order_list
 
     def order_products(self):
         """Order products in general.
