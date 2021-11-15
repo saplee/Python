@@ -80,7 +80,7 @@ class App:
             for row in f:
                 new_row = row.split("-")
                 name = new_row[0].strip()
-                price = new_row[1].strip()
+                price = float(new_row[1].strip())
                 order_list.append(Product(name, price))
             return order_list
 
