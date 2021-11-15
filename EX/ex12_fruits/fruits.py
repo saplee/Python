@@ -55,6 +55,7 @@ class App:
 
     def __init__(self):
         """App constructor, no arguments expected."""
+        self.product_list = []
         self.order_list = []
         self.result = []
 
@@ -74,6 +75,9 @@ class App:
 
     def get_products(self) -> list:
         """Getter for products list."""
+        for product in self.order_list:
+            self.product_list.append(product.find_product_by_name)
+        return self.product_list
 
     def get_orders(self) -> list:
         """Getter for orders list."""
