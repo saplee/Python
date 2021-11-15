@@ -13,6 +13,9 @@ class Product:
         self.name = name
         self.price = price
 
+    def find_product_by_name(self):
+        return self.name
+
 
 class Order:
     """Order class."""
