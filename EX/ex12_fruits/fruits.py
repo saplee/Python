@@ -81,7 +81,7 @@ class App:
             csv_reader = csv.reader(csv_file, delimiter='-')
             for row in csv_reader:
                 name = row[0]
-                price = int(row[1])
+                price = float(row[1])
                 order_list.append(Product(name, price))
             return order_list
 
