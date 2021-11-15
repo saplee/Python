@@ -1,4 +1,6 @@
 """Fruits delivery application."""
+import csv
+
 
 class Product:
     """Product class."""
@@ -26,7 +28,7 @@ class Order:
         Expected default customer parameter starting from Part 3. Also, products dictionary
         is expected to be created and products names set as a helper.
         """
-        pass
+        product_dict = {}
 
     def get_products_string(self) -> str:
         """
@@ -37,11 +39,9 @@ class Order:
         of such long string there should be no comma, nor string. Example:
         'Avocado: 2 kg, Orange: 1 kg, Papaya: 3 kg, Cherry tomato: 2 kg'
         """
-        pass
 
     def add_product(self, product):
         """Method for adding a single product to the dictionary."""
-        pass
 
     def add_products(self, products):
         """Method for adding several products to the dictionary."""
@@ -58,11 +58,9 @@ class App:
 
     def __init__(self):
         """App constructor, no arguments expected."""
-        pass
 
     def get_products(self) -> list:
         """Getter for products list."""
-        pass
 
     def get_orders(self) -> list:
         """Getter for orders list."""
@@ -74,7 +72,14 @@ class App:
 
         Filename is an argument here.
         """
-        pass
+        my_list = []
+        with open("pricelist.txt") as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter='-')
+            for row in csv_reader:
+                name = row[0]
+                price = row[1]
+                my_list.append(Product(name, price))
+            return my_list
 
     def order_products(self):
         """Order products in general.
@@ -146,4 +151,3 @@ if __name__ == '__main__':
     print(app.show_all_orders(True))
     print("=======")
     app.calculate_summary()
-
