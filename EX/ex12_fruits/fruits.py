@@ -1,6 +1,5 @@
 """Fruits delivery application."""
 
-
 class Product:
     """Product class."""
 
@@ -61,15 +60,15 @@ class App:
         """App constructor, no arguments expected."""
         pass
 
-    def get_products(self) -> dict:
-        """Getter for products dictionary."""
+    def get_products(self) -> list:
+        """Getter for products list."""
         pass
 
     def get_orders(self) -> list:
         """Getter for orders list."""
         pass
 
-    def import_products(self) -> dict:
+    def import_products(self) -> list[Product]:
         """
         Import products from a file, return list of Product objects.
 
@@ -147,3 +146,4 @@ if __name__ == '__main__':
     print(app.show_all_orders(True))
     print("=======")
     app.calculate_summary()
+
