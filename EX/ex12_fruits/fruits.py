@@ -61,6 +61,13 @@ class App:
 
     def get_products(self) -> list:
         """Getter for products list."""
+        my_list = []
+        with open("pricelist.txt") as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter='-')
+            for row in csv_reader:
+                name = row[0]
+                my_list.append(name)
+            return my_list
 
     def get_orders(self) -> list:
         """Getter for orders list."""
@@ -127,27 +134,3 @@ class Customer:
     """Customer to implement."""
 
     pass
-
-
-if __name__ == '__main__':
-    app = App()
-    # Adding default customers to our app.
-    app.add_customers([Customer("Anton", "home"), Customer("Rubber Duck", "home-table"), Customer("Svetozar", "Dorm 1"),
-                       Customer("Toivo", "Dorm 2"), Customer("Muhhamad", "Muhha's lair"), Customer("test", "TEST")])
-    # Ordering some food for everyone.
-    app.order("Anton", [("Avocado", 2), ("Orange", 1), ("Papaya", 3), ("Cherry tomato", 2)])
-    app.order("Anton", [("Avocado", 4), ("Orange", 2), ("Papaya", 3), ("Cherry tomato", 2)])
-    app.order("Rubber Duck", [("Mango Irwin", 6)])
-    app.order("Svetozar", [("Lemon", 1)])
-    app.order("Svetozar", [("Grapefruit", 10)])
-    app.order("Muhhamad", [("Grenades", 13), ("Cannon", 1), ("Red pepper", 666)])
-    app.order("Toivo", [("Granadilla", 3), ("Chestnut", 3), ("Pitaya(Dragon Fruit)", 3)])
-    # Checking products dictionary format (we want numeric price, not string).
-    print(app.get_products())
-    print("=======")
-    # Checking how all orders and summary look like.
-    print(app.show_all_orders(False))
-    print("=======")
-    print(app.show_all_orders(True))
-    print("=======")
-    app.calculate_summary()
