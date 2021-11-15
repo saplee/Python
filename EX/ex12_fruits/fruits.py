@@ -75,9 +75,7 @@ class App:
 
     def get_products(self) -> list:
         """Getter for products list."""
-        for product in self.order_list:
-            self.product_list.append(product)
-        return self.product_list
+        return self.order_list
 
     def get_orders(self) -> list:
         """Getter for orders list."""
