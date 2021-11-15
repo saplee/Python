@@ -66,7 +66,7 @@ class App:
         with open("pricelist.txt") as csv_file:
             csv_reader = csv.reader(csv_file, delimiter='-')
             for row in csv_reader:
-                word = row[0], row[1]
+                word = f'{row[0]}, {row[1]}'
                 name = word.find_product_by_name
                 my_list.append(name)
             return my_list
