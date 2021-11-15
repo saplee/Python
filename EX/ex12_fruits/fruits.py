@@ -57,8 +57,8 @@ class App:
         """App constructor, no arguments expected."""
         self.order_list = []
 
-    def order_to_list(self):
-        with open("pricelist.txt") as csv_file:
+    def order_to_list(self, filename):
+        with open(filename) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter='-')
             for row in csv_reader:
                 name = row[0]
