@@ -14,9 +14,6 @@ class Product:
         self.name = name
         self.price = price
 
-    def find_product_by_name(self):
-        return self.name
-
 
 class Order:
     """Order class."""
@@ -58,37 +55,42 @@ class App:
 
     def __init__(self):
         """App constructor, no arguments expected."""
-        self.my_list = []
+        self.order_list = []
 
-    def get_products(self) -> list:
-        """Getter for products list."""
-        self.my_list = []
+    def order_to_list(self):
         with open("pricelist.txt") as csv_file:
             csv_reader = csv.reader(csv_file, delimiter='-')
             for row in csv_reader:
                 name = row[0]
                 price = row[1]
-                self.my_list.append(Product(name, price))
-            return self.my_list
+                self.order_list.append(Product(name, price))
+            return self.order_list
+
+    def find_product_by_name(self, name: str):
+        for product in self.order_list:
+            if product.name == name:
+                return product
+
+    def get_products(self) -> list:
+        """Getter for products list."""
 
     def get_orders(self) -> list:
         """Getter for orders list."""
         pass
 
-    def import_products(self) -> list[Product]:
+    def import_products(self, filename) -> list[Product]:
         """
         Import products from a file, return list of Product objects.
 
         Filename is an argument here.
         """
-        self.my_list = []
-        with open("pricelist.txt") as csv_file:
+        with open(filename) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter='-')
             for row in csv_reader:
                 name = row[0]
                 price = row[1]
-                self.my_list.append(Product(name, price))
-            return self.my_list
+                self.order_list.append(Product(name, price))
+            return self.order_list
 
     def order_products(self):
         """Order products in general.
