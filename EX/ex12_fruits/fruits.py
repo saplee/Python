@@ -66,9 +66,8 @@ class App:
         with open("pricelist.txt") as csv_file:
             csv_reader = csv.reader(csv_file, delimiter='-')
             for row in csv_reader:
-                word = f'{row[0]}, {row[1]}'
-                name = word.find_product_by_name
-                my_list.append(name)
+                name = row[0]
+                my_list.append(name.find_product_by_name())
             return my_list
 
     def get_orders(self) -> list:
