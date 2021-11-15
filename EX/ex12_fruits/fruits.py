@@ -62,13 +62,14 @@ class App:
 
     def get_products(self) -> list:
         """Getter for products list."""
-        my_list = []
+        self.my_list = []
         with open("pricelist.txt") as csv_file:
             csv_reader = csv.reader(csv_file, delimiter='-')
             for row in csv_reader:
                 name = row[0]
-                my_list.append(name.find_product_by_name())
-            return my_list
+                price = row[1]
+                self.my_list.append(Product(name, price))
+            return self.my_list
 
     def get_orders(self) -> list:
         """Getter for orders list."""
