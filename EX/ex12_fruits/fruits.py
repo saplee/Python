@@ -1,5 +1,4 @@
 """Fruits delivery application."""
-import csv
 
 
 class Product:
@@ -80,8 +79,8 @@ class App:
         with open(filename) as f:
             for row in f:
                 new_row = row.split("-")
-                name = new_row[0]
-                price = new_row[1]
+                name = new_row[0].strip()
+                price = new_row[1].strip()
                 order_list.append(Product(name, price))
             return order_list
 
@@ -131,3 +130,7 @@ class Customer:
     """Customer to implement."""
 
     pass
+
+
+app = App()
+print(app.find_product_by_name("Eggplant"))
