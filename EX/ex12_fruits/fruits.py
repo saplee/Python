@@ -24,7 +24,6 @@ class Order:
         Expected default customer parameter starting from Part 3. Also, products dictionary
         is expected to be created and products names set as a helper.
         """
-        product_dict = {}
 
     def get_products_string(self) -> str:
         """
@@ -57,6 +56,7 @@ class App:
         self.order_list = self.import_products("pricelist.txt")
 
     def find_product_by_name(self, name: str):
+        """Finds product by name."""
         for product in self.order_list:
             if product.name == name:
                 return product
