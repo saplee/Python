@@ -61,7 +61,8 @@ def join_pyramids(pyramid_a: list, pyramid_b: list) -> list:
     :param pyramid_b: list
     :return: list
     """
-    pass
+    result = pyramid_a + pyramid_b
+    return result
 
 
 def to_string(pyramid: list) -> str:
@@ -112,9 +113,4 @@ if __name__ == '__main__':
     """
 
     pyramid_string = to_string(joined)
-    print(pyramid_string)  # ->
-    """
-         aa  
-     A  aaaa 
-    AAAaaaaaa
-    """
+    print(pyramid_string)
