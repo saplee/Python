@@ -56,7 +56,7 @@ class App:
         self.order_list = self.import_products("pricelist.txt")
 
     def find_product_by_name(self, name: str):
-        """Finds product by name."""
+        """Find product by name."""
         for product in self.order_list:
             if product.name == name:
                 return product
@@ -84,13 +84,15 @@ class App:
                 order_list.append(Product(name, price))
             return order_list
 
-    def order_products(self):
+    def order_products(self, list_of_products: list):
         """Order products in general.
 
         The parameter is list of products. Create a new order, then add passed products to
         this order, then add this order to the orders list.
         """
-        pass
+        for product in list_of_products:
+            self.order_list.append(Product(product.name, product.price))
+        return self.order_list
 
     def order(self):
         """
