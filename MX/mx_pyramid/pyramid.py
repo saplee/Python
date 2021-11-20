@@ -81,7 +81,7 @@ def to_string(pyramid: list) -> str:
     for row in pyramid:
         for element in row:
             result += element
-        if list != pyramid[~0]:
+        if row != pyramid[~0]:
             result += "\n"
     return result
 
