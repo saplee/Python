@@ -55,7 +55,7 @@ class Order:
                     self.result[word[0]] += int(word[1])
 
     def get_products(self):
-        """"Method return dict"""
+        """"Method return dict."""
         return self.result
 
 
@@ -83,7 +83,7 @@ class App:
 
     def get_orders(self) -> list:
         """Getter for orders list."""
-        pass
+        return self.order_list
 
     def import_products(self, filename) -> list[Product]:
         """
