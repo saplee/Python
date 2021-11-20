@@ -54,7 +54,7 @@ class Order:
                 else:
                     self.result[word[0]] += int(word[1])
 
-    def get_dict(self):
+    def get_products(self):
         """"Method return dict"""
         return self.result
 
