@@ -38,25 +38,25 @@ class Order:
 
     def add_product(self, product):
         """Method for adding a single product to the dictionary."""
-        if type(product) is tuple:
-            for word in product:
-                if word[0] not in self.result:
-                    self.result[word[0]] = int(word[1])
-                else:
-                    self.result[word[0]] += int(word[1])
+        if product[0] not in self.result:
+            self.result[product[0]] = int(product[1])
+        else:
+            self.result[product[0]] += int(product[1])
 
-    def add_products(self, products):
-        """Method for adding several products to the dictionary."""
-        if type(products) is list:
-            for word in products:
-                if word[0] not in self.result:
-                    self.result[word[0]] = int(word[1])
-                else:
-                    self.result[word[0]] += int(word[1])
 
-    def get_products(self):
-        """"Method return dict."""
-        return self.result
+def add_products(self, products):
+    """Method for adding several products to the dictionary."""
+    if type(products) is list:
+        for word in products:
+            if word[0] not in self.result:
+                self.result[word[0]] = int(word[1])
+            else:
+                self.result[word[0]] += int(word[1])
+
+
+def get_products(self):
+    """"Method return dict."""
+    return self.result
 
 
 class App:
