@@ -43,20 +43,17 @@ class Order:
         else:
             self.result[product[0]] += int(product[1])
 
-
-def add_products(self, products):
-    """Method for adding several products to the dictionary."""
-    if type(products) is list:
+    def add_products(self, products):
+        """Method for adding several products to the dictionary."""
         for word in products:
             if word[0] not in self.result:
                 self.result[word[0]] = int(word[1])
             else:
                 self.result[word[0]] += int(word[1])
 
-
-def get_products(self):
-    """"Method return dict."""
-    return self.result
+    def get_products(self):
+        """"Method return dict."""
+        return self.result
 
 
 class App:
