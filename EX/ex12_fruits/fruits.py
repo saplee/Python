@@ -24,6 +24,7 @@ class Order:
         Expected default customer parameter starting from Part 3. Also, products dictionary
         is expected to be created and products names set as a helper.
         """
+        self.result = {}
 
     def get_products_string(self) -> str:
         """
@@ -37,10 +38,25 @@ class Order:
 
     def add_product(self, product):
         """Method for adding a single product to the dictionary."""
+        if type(product) is tuple:
+            for word in product:
+                if word[0] not in self.result:
+                    self.result[word[0]] = int(word[1])
+                else:
+                    self.result[word[0]] += int(word[1])
 
     def add_products(self, products):
         """Method for adding several products to the dictionary."""
-        pass
+        if type(products) is list:
+            for word in products:
+                if word[0] not in self.result:
+                    self.result[word[0]] = int(word[1])
+                else:
+                    self.result[word[0]] += int(word[1])
+
+    def get_dict(self):
+        """"Method return dict"""
+        return self.result
 
 
 class App:
