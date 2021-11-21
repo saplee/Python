@@ -143,4 +143,20 @@ class App:
 class Customer:
     """Customer to implement."""
 
-    pass
+    def __init__(self, name, address):
+        self.name = name
+        self.address = address
+
+    def get_name(self):
+        """Get name."""
+        return self.name
+
+    def get_address(self):
+        """Get address."""
+        return self.address
+
+    def get_order(self):
+        """Get order."""
+
+    def add_new_order(self):
+        """Add order to list."""
