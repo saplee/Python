@@ -86,10 +86,6 @@ class App:
         """Getter for products list."""
         return self.order_list
 
-    def get_orders(self) -> list:
-        """Getter for orders list."""
-        return self.order
-
     def import_products(self, filename) -> list[Product]:
         """
         Import products from a file, return list of Product objects.
@@ -113,7 +109,11 @@ class App:
         """
         for number in range(0, len(list_of_products), 2):
             self.order.append(Order(list_of_products[number]))
-        return self.orders.append(self.order)
+        return self.order
+
+    def get_orders(self) -> list:
+        """Getter for orders list."""
+        return self.order
 
     def order(self):
         """
