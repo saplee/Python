@@ -144,8 +144,10 @@ class Customer:
     """Customer to implement."""
 
     def __init__(self, name, address):
+        """Customer class."""
         self.name = name
         self.address = address
+        self.orders = []
 
     def get_name(self):
         """Get name."""
@@ -155,8 +157,10 @@ class Customer:
         """Get address."""
         return self.address
 
-    def get_order(self):
-        """Get order."""
+    def get_orders(self):
+        """Get orders."""
+        return self.orders
 
-    def add_new_order(self):
+    def add_new_order(self, order):
         """Add order to list."""
+        self.orders.append(order)
