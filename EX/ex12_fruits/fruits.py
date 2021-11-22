@@ -110,8 +110,8 @@ class App:
         The parameter is list of products. Create a new order, then add passed products to
         this order, then add this order to the orders list.
         """
-        for product in list_of_products:
-            self.order_list.append(Product(product[0], product.price))
+        for number in range(0, len(list_of_products), 2):
+            self.order_list.append(Product(list_of_products[number], list_of_products[number+1]))
         return self.order_list
 
     def order(self):
