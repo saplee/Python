@@ -73,6 +73,7 @@ class App:
         """App constructor, no arguments expected."""
         self.order_list = self.import_products("pricelist.txt")
         self.customers = []
+        self.orders = []
 
     def find_product_by_name(self, name: str):
         """Find product by name."""
@@ -86,7 +87,7 @@ class App:
 
     def get_orders(self) -> list:
         """Getter for orders list."""
-        return self.order_list
+        return self.orders
 
     def import_products(self, filename) -> list[Product]:
         """
@@ -110,7 +111,7 @@ class App:
         this order, then add this order to the orders list.
         """
         for number in range(0, len(list_of_products), 2):
-            self.order_list.append(Product(list_of_products[number], list_of_products[number + 1]))
+            self.orders.append(Product(list_of_products[number], list_of_products[number + 1]))
         return self.order_list
 
     def order(self):
