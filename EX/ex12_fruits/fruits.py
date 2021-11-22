@@ -117,13 +117,23 @@ class App:
         """Getter for orders list."""
         return self.orders
 
-    def order(self):
+    def order(self, name, products):
         """
         Method for ordering products for a customer.
 
         Products here is list of tuples.
         """
-        pass
+        order = Order()
+        if type(products) is list:
+            order.add_products(products)
+        else:
+            order.add_product(products)
+        self.orders.append(order)
+        customer_name = None
+        for customer in self.customers:
+            if name in customer.name:
+                customer_name = name
+                customer_name.add_new_order(order)
 
     def add_customer(self, customer):
         """Method for adding a customer to the list."""
@@ -180,8 +190,3 @@ class Customer:
     def add_new_order(self, order):
         """Add order to list."""
         self.orders.append(order)
-
-
-if __name__ == "__main__":
-    app = App()
-    app.order_products(["Mandarin", 5])
