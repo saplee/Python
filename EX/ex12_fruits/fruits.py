@@ -107,7 +107,7 @@ class App:
         this order, then add this order to the orders list.
         """
         for number in range(0, len(list_of_products), 2):
-            self.order.append(Order.add_product(list_of_products[number], list_of_products[number + 1]))
+            self.order.append(Order(list_of_products[number]))
         return self.order
 
     def get_orders(self) -> list:
@@ -177,3 +177,8 @@ class Customer:
     def add_new_order(self, order):
         """Add order to list."""
         self.orders.append(order)
+
+
+if __name__ == "__main__":
+    app = App()
+    app.order_products(["Mandarin", 5])
