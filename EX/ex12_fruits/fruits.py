@@ -112,7 +112,7 @@ class App:
         """
         for number in range(0, len(list_of_products), 2):
             self.orders.append(Order(list_of_products[number]))
-        return self.order_list
+        return self.orders
 
     def order(self):
         """
