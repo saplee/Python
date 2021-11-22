@@ -27,8 +27,8 @@ class Order:
         self.customer = customer
         self.result = {}
 
-    def get_customers(self):
-        """Return customer"""
+    def get_customer(self):
+        """Return customer."""
         return self.customer
 
     def get_products_string(self) -> str:
