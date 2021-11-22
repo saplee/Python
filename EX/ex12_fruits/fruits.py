@@ -111,7 +111,7 @@ class App:
         this order, then add this order to the orders list.
         """
         for product in list_of_products:
-            self.order_list.append(Product(product[0], product[1]))
+            self.order_list.append(Product(product[0], int(product[1])))
         return self.order_list
 
     def order(self):
