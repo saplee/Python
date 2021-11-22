@@ -73,7 +73,6 @@ class App:
         """App constructor, no arguments expected."""
         self.order_list = self.import_products("pricelist.txt")
         self.customers = []
-        self.orders = []
 
     def find_product_by_name(self, name: str):
         """Find product by name."""
