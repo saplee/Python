@@ -17,13 +17,14 @@ class Product:
 class Order:
     """Order class."""
 
-    def __init__(self):
+    def __init__(self, customer=None):
         """
         Order constructor.
 
         Expected default customer parameter starting from Part 3. Also, products dictionary
         is expected to be created and products names set as a helper.
         """
+        self.customer = customer
         self.result = {}
 
     def get_products_string(self) -> str:
