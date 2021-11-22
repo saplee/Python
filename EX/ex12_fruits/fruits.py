@@ -114,7 +114,7 @@ class App:
 
     def get_orders(self) -> list:
         """Getter for orders list."""
-        return self.order
+        return self.orders
 
     def order(self):
         """
