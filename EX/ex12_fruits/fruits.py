@@ -74,7 +74,6 @@ class App:
         self.order_list = self.import_products("pricelist.txt")
         self.customers = []
         self.order = []
-        self.orders = []
 
     def find_product_by_name(self, name: str):
         """Find product by name."""
@@ -108,13 +107,12 @@ class App:
         this order, then add this order to the orders list.
         """
         for number in range(0, len(list_of_products), 2):
-            self.order.append(Order(list_of_products[number]))
-        self.orders.append(self.order)
-        return self.orders
+            self.order.append(Order.add_product(list_of_products[number], list_of_products[number + 1]))
+        return self.order
 
     def get_orders(self) -> list:
         """Getter for orders list."""
-        return self.orders
+        return self.order
 
     def order(self):
         """
