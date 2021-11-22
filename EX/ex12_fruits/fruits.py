@@ -109,7 +109,7 @@ class App:
         """
         for number in range(0, len(list_of_products), 2):
             self.order.append(Order(list_of_products[number]))
-            self.orders.append(self.order)
+        self.orders.append(self.order)
         return self.orders
 
     def get_orders(self) -> list:
