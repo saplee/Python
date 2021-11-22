@@ -124,6 +124,10 @@ class App:
         for customer in customers:
             self.customers.append(customer)
 
+    def get_customers(self):
+        """Customer list."""
+        return self.customers
+
     def show_all_orders(self) -> str:
         """
         Method for returning all orders for all customers.
