@@ -87,7 +87,7 @@ class App:
 
     def get_orders(self) -> list:
         """Getter for orders list."""
-        return self.orders
+        return self.order_list
 
     def import_products(self, filename) -> list[Product]:
         """
@@ -111,7 +111,7 @@ class App:
         this order, then add this order to the orders list.
         """
         for number in range(0, len(list_of_products), 2):
-            self.order_list.append(Product(list_of_products[number], list_of_products[number+1]))
+            self.order_list.append(Product(list_of_products[number], list_of_products[number + 1]))
         return self.order_list
 
     def order(self):
