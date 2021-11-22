@@ -67,6 +67,7 @@ class App:
     def __init__(self):
         """App constructor, no arguments expected."""
         self.order_list = self.import_products("pricelist.txt")
+        self.customers = []
 
     def find_product_by_name(self, name: str):
         """Find product by name."""
@@ -114,13 +115,14 @@ class App:
         """
         pass
 
-    def add_customer(self):
+    def add_customer(self, customer):
         """Method for adding a customer to the list."""
-        pass
+        self.customers.append(customer)
 
-    def add_customers(self):
+    def add_customers(self, customers):
         """Method for adding several customers to the list."""
-        pass
+        for customer in customers:
+            self.customers.append(customer)
 
     def show_all_orders(self) -> str:
         """
