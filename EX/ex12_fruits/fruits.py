@@ -27,6 +27,10 @@ class Order:
         self.customer = customer
         self.result = {}
 
+    def get_customers(self):
+        """Return customer"""
+        return self.customer
+
     def get_products_string(self) -> str:
         """
         Method for converting products to a string.
@@ -83,8 +87,6 @@ class App:
 
     def get_orders(self) -> list:
         """Getter for orders list."""
-        if len(self.order_list) != 0:
-            self.orders.append(self.order_list)
         return self.orders
 
     def import_products(self, filename) -> list[Product]:
