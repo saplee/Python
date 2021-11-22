@@ -129,11 +129,9 @@ class App:
         else:
             order.add_product(products)
         self.orders.append(order)
-        customer_name = None
         for customer in self.customers:
             if name in customer.name:
-                customer_name = name
-                customer_name.add_new_order(order)
+                customer.add_new_order(order)
 
     def add_customer(self, customer):
         """Method for adding a customer to the list."""
