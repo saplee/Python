@@ -1,3 +1,4 @@
+"""API."""
 from __future__ import print_function
 import os.path
 from googleapiclient.discovery import build
@@ -10,10 +11,9 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 
 def get_links_from_spreadsheet(id: str, token: str) -> list:
-    """Shows basic usage of the Sheets API.
-    Prints values from a sample spreadsheet.
-    """
+    """Show basic usage of the Sheets API.Prints values from a sample spreadsheet."""
     SAMPLE_RANGE_NAME = 'A:A'
+    SAMPLE_SPREADSHEET_ID = id
     my_list = []
     creds = None
     # The file token.json stores the user's access and refresh tokens, and is
@@ -37,7 +37,7 @@ def get_links_from_spreadsheet(id: str, token: str) -> list:
 
     # Call the Sheets API
     sheet = service.spreadsheets()
-    result = sheet.values().get(spreadsheetId=id,
+    result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                                 range=SAMPLE_RANGE_NAME).execute()
     values = result.get('values', [])
     for value in values:
