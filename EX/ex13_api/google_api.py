@@ -29,13 +29,10 @@ def get_links_from_spreadsheet(id: str, token: str) -> list:
             flow = InstalledAppFlow.from_client_secrets_file(
                 'credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
         with open(token, 'w') as token:
             token.write(creds.to_json())
 
     service = build('sheets', 'v4', credentials=creds)
-
-    # Call the Sheets API
     sheet = service.spreadsheets()
     result = sheet.values().get(spreadsheetId=SAMPLE_SPREADSHEET_ID,
                                 range=SAMPLE_RANGE_NAME).execute()
@@ -43,4 +40,4 @@ def get_links_from_spreadsheet(id: str, token: str) -> list:
     for value in values:
         for item in value:
             my_list.append(item)
-    return result
+    return my_list
