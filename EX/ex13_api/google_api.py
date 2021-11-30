@@ -68,3 +68,4 @@ def get_links_from_playlist(link: str, developer_key: str) -> list:
                         for value in item[new_item]:
                             if value == 'videoId':
                                 my_list.append(f'https://youtube.com/watch?v={item[new_item][value]}')
+    return my_list
