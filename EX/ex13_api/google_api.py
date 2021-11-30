@@ -48,7 +48,6 @@ def get_links_from_spreadsheet(id: str, token: str) -> list:
 def get_links_from_playlist(link: str, developer_key: str) -> list:
     """Return a list of links to songs in the Youtube playlist with the given address."""
     my_list = []
-
     api_service_name = "youtube"
     api_version = "v3"
 
@@ -57,6 +56,7 @@ def get_links_from_playlist(link: str, developer_key: str) -> list:
 
     request = youtube.playlistItems().list(
         part="contentDetails",
+        maxResults=50,
         playlistId=re.search(r'=(\w+)', link).group(1)
     )
     response = request.execute()
@@ -68,4 +68,3 @@ def get_links_from_playlist(link: str, developer_key: str) -> list:
                         for value in item[new_item]:
                             if value == 'videoId':
                                 my_list.append(f'https://youtube.com/watch?v={item[new_item][value]}')
-    return my_list
