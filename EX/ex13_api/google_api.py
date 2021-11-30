@@ -57,7 +57,7 @@ def get_links_from_playlist(link: str, developer_key: str) -> list:
 
     request = youtube.playlistItems().list(
         part="contentDetails",
-        maxResults=25,
+        maxResults=50,
         playlistId=re.search(r'=(\w+)', link).group(1)
     )
     response = request.execute()
