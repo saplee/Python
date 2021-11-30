@@ -6,6 +6,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 import re
+import googleapiclient.discovery
+import googleapiclient.errors
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
@@ -53,8 +55,6 @@ def get_links_from_playlist(link: str, developer_key: str) -> list:
     Returns
         ['https://youtube.com/watch?v=r_It_X7v-1E', 'https://youtube.com/watch?v=U4ogK0MIzqk', ... and so on]
     """
-    import googleapiclient.discovery
-    import googleapiclient.errors
     result = []
     api_service_name = "youtube"
     api_version = "v3"
@@ -75,7 +75,7 @@ def get_links_from_playlist(link: str, developer_key: str) -> list:
             for item in response[key]:
                 for items in item:
                     if items == "contentDetails":
-                        for value in key[items]:
+                        for value in item[items]:
                             if value == "videoId":
                                 result.append(f'https://youtube.com/watch?v={key[items][value]}')
     return result
