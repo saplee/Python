@@ -28,6 +28,9 @@ def drive_to_line(robot: FollowerBot):
         if sensor_x <= 200 or sensor_y <= 200:
             robot.set_wheels_speed(0)
             break
+    robot.set_wheels_speed(30)
+    robot.sleep(1)
+    robot.set_wheels_speed(0)
     robot.done()
 
 
