@@ -21,8 +21,8 @@ def drive_to_line(robot: FollowerBot):
     :param FollowerBot robot: instance of the robot that you need to make move
     """
     while True:
-        robot.set_wheels_speed(30)
-        robot.sleep(2)
+        robot.set_wheels_speed(10)
+        robot.sleep(0.1)
         sensor_x = robot.get_left_line_sensor()
         sensor_y = robot.get_right_line_sensor()
         if sensor_x <= 200 or sensor_y <= 200:
