@@ -54,24 +54,24 @@ def follow_the_line(robot: FollowerBot):
         sensor_5 = robot.get_second_line_sensor_from_right()
         sensor_6 = robot.get_third_line_sensor_from_right()
         if sensor_2 >= 700:
-            robot.set_wheels_speed(0)
-            break
-    if sensor_2 >= 700:
-        while True:
-            robot.set_right_wheel_speed(10.25)
-            robot.set_left_wheel_speed(9)
-            robot.sleep(0.01)
-            sensor_2 = robot.get_second_line_sensor_from_left()
-            sensor_1 = robot.get_third_line_sensor_from_left()
-            sensor_3 = robot.get_left_line_sensor()
-            sensor_4 = robot.get_right_line_sensor()
-            sensor_5 = robot.get_second_line_sensor_from_right()
-            sensor_6 = robot.get_third_line_sensor_from_right()
-            if sensor_1 >= 700 and sensor_2 >= 700 and sensor_3 >= 700 and sensor_4 >= 700 and sensor_5 >= 700 and sensor_6 >= 700:
-                robot.set_wheels_speed(0)
-                break
-    robot.set_wheels_speed(0)
-    robot.done()
+            while True:
+                robot.set_right_wheel_speed(10.25)
+                robot.set_left_wheel_speed(9)
+                robot.sleep(0.01)
+                sensor_2 = robot.get_second_line_sensor_from_left()
+                sensor_1 = robot.get_third_line_sensor_from_left()
+                sensor_3 = robot.get_left_line_sensor()
+                sensor_4 = robot.get_right_line_sensor()
+                sensor_5 = robot.get_second_line_sensor_from_right()
+                sensor_6 = robot.get_third_line_sensor_from_right()
+                if sensor_5 >= 700:
+                    while True:
+                        robot.set_right_wheel_speed(9)
+                        robot.set_left_wheel_speed(10.25)
+                        robot.sleep(0.01)
+                        if sensor_1 >= 700 and sensor_2 >= 700 and sensor_3 >= 700 and sensor_4 >= 700 and sensor_5 >= 700 and sensor_6 >= 700:
+                            robot.set_wheels_speed(0)
+                            break
 
 
 def the_true_follower(robot: FollowerBot):
