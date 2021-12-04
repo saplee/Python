@@ -45,8 +45,6 @@ def follow_the_line(robot: FollowerBot):
     robot.set_wheels_speed(10)
     robot.sleep(1)
     while True:
-        robot.set_wheels_speed(20)
-        robot.sleep(0.01)
         sensor_2 = robot.get_second_line_sensor_from_left()
         sensor_1 = robot.get_third_line_sensor_from_left()
         sensor_3 = robot.get_left_line_sensor()
@@ -58,25 +56,19 @@ def follow_the_line(robot: FollowerBot):
                 robot.set_right_wheel_speed(10.25)
                 robot.set_left_wheel_speed(9)
                 robot.sleep(0.01)
-                sensor_2 = robot.get_second_line_sensor_from_left()
-                sensor_1 = robot.get_third_line_sensor_from_left()
-                sensor_3 = robot.get_left_line_sensor()
-                sensor_4 = robot.get_right_line_sensor()
-                sensor_5 = robot.get_second_line_sensor_from_right()
-                sensor_6 = robot.get_third_line_sensor_from_right()
                 if sensor_5 >= 700:
-                    while True:
-                        robot.set_right_wheel_speed(9)
-                        robot.set_left_wheel_speed(10.25)
-                        robot.sleep(0.01)
-                        if sensor_2 >= 800:
-                            while True:
-                                robot.set_right_wheel_speed(10.25)
-                                robot.set_left_wheel_speed(9)
-                                robot.sleep(0.01)
-                        if sensor_1 >= 700 and sensor_2 >= 700 and sensor_3 >= 700 and sensor_4 >= 700 and sensor_5 >= 700 and sensor_6 >= 700:
-                            robot.set_wheels_speed(0)
-                            break
+                    break
+        if sensor_5 >= 700:
+            while True:
+                robot.set_right_wheel_speed(9)
+                robot.set_left_wheel_speed(10.3)
+                robot.sleep(0.01)
+                if sensor_2 >= 700:
+                    break
+        if sensor_1 >= 700 and sensor_2 >= 700 and sensor_3 >= 700 and sensor_4 >= 700 and sensor_5 >= 700 and sensor_6 >= 700:
+            robot.set_wheels_speed(0)
+            break
+    robot.done()
 
 
 def the_true_follower(robot: FollowerBot):
