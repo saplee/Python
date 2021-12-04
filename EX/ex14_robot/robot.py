@@ -55,7 +55,7 @@ def follow_the_line(robot: FollowerBot):
         while True:
             robot.set_right_wheel_speed(23.5)
             robot.set_left_wheel_speed(20)
-            robot.sleep(0.07)
+            robot.sleep(0.01)
             sensor_2 = robot.get_second_line_sensor_from_left()
             sensor_1 = robot.get_third_line_sensor_from_left()
             sensor_3 = robot.get_left_line_sensor()
