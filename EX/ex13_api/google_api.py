@@ -60,12 +60,6 @@ def get_links_from_playlist(link: str, developer_key: str) -> list:
         playlistId=re.search(r'=(\w+)', link).group(1)
     )
     response = request.execute()
-    for key in response:
-        if key == 'items':
-            for item in response[key]:
-                for new_item in item:
-                    if new_item == 'contentDetails':
-                        for value in item[new_item]:
-                            if value == 'videoId':
-                                my_list.append(f'https://youtube.com/watch?v={item[new_item][value]}')
+    for key in response["items"]:
+        my_list.append(f'https://youtube.com/watch?v={key["contentDetails"]["videoId"]}')
     return my_list
