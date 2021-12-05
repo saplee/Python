@@ -42,8 +42,8 @@ def follow_the_line(robot: FollowerBot):
 
     :param FollowerBot robot: instance of the robot that you need to make move
     """
-    robot.set_wheels_speed(10)
-    robot.sleep(1)
+    robot.set_wheels_speed(100)
+    robot.sleep(0.1)
     while True:
         robot.set_wheels_speed(20)
         robot.sleep(0.1)
@@ -82,7 +82,7 @@ def follow_the_line(robot: FollowerBot):
             while True:
                 robot.set_right_wheel_speed(20)
                 robot.set_left_wheel_speed(21)
-                robot.sleep(0.07)
+                robot.sleep(0.01)
                 sensor_2 = robot.get_second_line_sensor_from_right()
                 if sensor_2 >= 700:
                     robot.set_wheels_speed(0)
