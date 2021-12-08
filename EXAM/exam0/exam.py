@@ -116,10 +116,11 @@ def rainbows(field: str) -> int:
     :param field: string to search rainbows from
     :return: number of rainbows in the string
     """
+    word = field.lower()
     if len(field) < 7:
         return 0
     if "rainbow" in field.lower() or "wobniar" in field.lower():
-        return 1 + rainbows(field[field.index("rainbow") + 7:])
+        return 1 + rainbows(field[word.index("rainbow") + 7:])
     if "rainbow" not in field.lower() or "wobniar" not in field.lower():
         return 0 + rainbows(field[7:])
 
