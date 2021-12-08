@@ -119,11 +119,11 @@ def rainbows(field: str) -> int:
     word = field.lower()
     if len(field) < 7:
         return 0
-    if "rainbow" in field.lower():
+    if "rainbow" in word:
         return 1 + rainbows(field[word.index("rainbow") + 7:])
-    if "wobniar" in field.lower():
+    if "wobniar" in word:
         return 1 + rainbows(field[word.index("wobniar") + 7:])
-    if "rainbow" not in field.lower() or "wobniar" not in field.lower():
+    if "rainbow" not in word or "wobniar" not in word:
         return 0 + rainbows(field[7:])
 
 
