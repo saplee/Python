@@ -93,12 +93,31 @@ def tic_tac_toe(game: list) -> int:
     :param game
     :return: winning player id
     """
+    result = 0
     if (game[0][0] == 1 and game[1][1] == 1 and game[2][2] == 1) or (
             game[0][2] == 1 and game[1][1] == 1 and game[2][0] == 1):
-        return 1
+        result += 1
     if (game[0][0] == 2 and game[1][1] == 2 and game[2][2] == 2) or (
             game[0][2] == 2 and game[1][1] == 2 and game[2][0] == 2):
-        return 2
+        result += 2
+    if (game[0][0] == 1 and game[1][0] == 1 and game[2][0] == 1) or (
+            game[0][1] == 1 and game[1][1] == 1 and game[2][1] == 1) or (
+            game[0][2] == 1 and game[1][2] == 1 and game[1][2] == 1):
+        result += 1
+    if (game[0][0] == 2 and game[1][0] == 2 and game[2][0] == 2) or (
+            game[0][1] == 2 and game[1][1] == 2 and game[2][1] == 2) or (
+            game[0][2] == 2 and game[1][2] == 2 and game[1][2] == 2):
+        if result < 1:
+            result += 2
+    for row in game:
+        if len(set(row)) == 1:
+            for item in set(row):
+                if result < 1:
+                    result += int(item)
+    return result
+
+
+print(tic_tac_toe([[1, 2, 1], [2, 2, 2], [2, 2, 1]]))
 
 
 def rainbows(field: str) -> int:
