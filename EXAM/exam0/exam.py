@@ -111,16 +111,16 @@ def rainbows(field: str) -> int:
 
     assert rainbows("rainbowThisIsJustSomeNoise") == 1  # Lisaks vikerkaarele on veel sümboleid
     assert rainbows("WoBniar") == 1  # Vikerkaar on tagurpidi ja sisaldab suuri tähti
-    assert rainbows("rainbowobniar") == 1  # Kaks vikerkaart jagavad tähte seega üks neist ei ole valiidne
+    assert rainbows("arainbowa") == 1  # Kaks vikerkaart jagavad tähte seega üks neist ei ole valiidne
 
     :param field: string to search rainbows from
     :return: number of rainbows in the string
     """
     if len(field) < 7:
         return 0
-    if field.lower()[0:7] == "rainbow" or field.lower()[0:7] == "wobniar":
-        return 1 + rainbows(field[7:])
-    if field.lower()[0:7] != "rainbow" or field.lower()[0:7] != "wobniar":
+    if "rainbow" in field.lower() or "wobniar" in field.lower():
+        return 1 + rainbows(field[field.index("rainbow") + 7:])
+    if "rainbow" not in field.lower() or "wobniar" not in field.lower():
         return 0 + rainbows(field[7:])
 
 
