@@ -17,7 +17,7 @@ def find_capital_letters(s: str) -> str:
     find_capital_letters("abc") => ""
     find_capital_letters("aAbBc") => "AB"
     """
-    my_string = "ABCDEFGHIJKLMNOPQRSTUVWZX"
+    my_string = "ABCDEFGHIJKLMNOPQRSTUVWZXY"
     result = ""
     for letter in s:
         if letter.isupper() and letter in my_string:
