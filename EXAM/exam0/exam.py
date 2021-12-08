@@ -22,7 +22,7 @@ def find_capital_letters(s: str) -> str:
     for letter in s:
         if letter.isupper() and letter in my_string:
             result += letter
-    pass
+    return result
 
 
 def close_far(a: int, b: int, c: int) -> bool:
@@ -65,10 +65,11 @@ def get_names_from_results(results_string: str, min_result: int) -> list:
     result = []
     for word in results_string.split(","):
         match = re.search(r'(.+) (\d+)', word)
-        name = match.group(1)
-        score = match.group(2)
-        if name is not None and score is not None and int(score) >= min_result:
-            result.append(name)
+        if match is not None:
+            name = match.group(1)
+            score = match.group(2)
+            if int(score) >= min_result:
+                result.append(name)
     return result
 
 
