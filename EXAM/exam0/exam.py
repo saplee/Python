@@ -93,7 +93,12 @@ def tic_tac_toe(game: list) -> int:
     :param game
     :return: winning player id
     """
-    pass
+    if (game[0][0] == 1 and game[1][1] == 1 and game[2][2] == 1) or (
+            game[0][2] == 1 and game[1][1] == 1 and game[2][0] == 1):
+        return 1
+    if (game[0][0] == 2 and game[1][1] == 2 and game[2][2] == 2) or (
+            game[0][2] == 2 and game[1][1] == 2 and game[2][0] == 2):
+        return 2
 
 
 def rainbows(field: str, lower=False) -> int:
@@ -111,7 +116,10 @@ def rainbows(field: str, lower=False) -> int:
     :param field: string to search rainbows from
     :return: number of rainbows in the string
     """
-    pass
+    if len(field) < 7:
+        return 0
+    if field[0:6].islower() == "rainbow" or field[0:6].islower() == "wobnniar":
+        return 1 + rainbows(field[7:])
 
 
 def longest_substring(text: str) -> str:
