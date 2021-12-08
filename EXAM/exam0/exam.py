@@ -100,10 +100,8 @@ def tic_tac_toe(game: list) -> int:
     if (game[0][0] == 2 and game[1][1] == 2 and game[2][2] == 2) or (
             game[0][2] == 2 and game[1][1] == 2 and game[2][0] == 2):
         result += 2
-    first_list = [game[0][0], game[1][0], game[2][0]]
-    second_list = [game[0][1], game[1][1], game[2][1]]
-    third_list = [game[0][2], game[1][2], game[2][2]]
-    my_list = [first_list, second_list, third_list]
+    my_list = [[game[0][0], game[1][0], game[2][0]], [game[0][1], game[1][1], game[2][1]],
+               [game[0][2], game[1][2], game[2][2]]]
     for row in my_list:
         if len(set(row)) == 1:
             for item in set(row):
