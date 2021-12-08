@@ -103,15 +103,13 @@ def tic_tac_toe(game: list) -> int:
     my_list = [[game[0][0], game[1][0], game[2][0]], [game[0][1], game[1][1], game[2][1]],
                [game[0][2], game[1][2], game[2][2]]]
     for row in my_list:
-        if len(set(row)) == 1:
+        if len(set(row)) == 1 and result == 0:
             for item in set(row):
-                if result < 1:
-                    result += int(item)
+                result += int(item)
     for row in game:
-        if len(set(row)) == 1:
+        if len(set(row)) == 1 and result == 0:
             for item in set(row):
-                if result < 1:
-                    result += int(item)
+                result += int(item)
     return result
 
 
