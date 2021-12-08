@@ -95,18 +95,18 @@ def tic_tac_toe(game: list) -> int:
     """
     result = 0
     if (game[0][0] == 1 and game[1][1] == 1 and game[2][2] == 1) or (
-            game[0][2] == 1 and game[1][1] == 1 and game[2][0] == 1) and result == 0:
+            game[0][2] == 1 and game[1][1] == 1 and game[2][0] == 1) and (result == 0):
         result += 1
     if (game[0][0] == 2 and game[1][1] == 2 and game[2][2] == 2) or (
-            game[0][2] == 2 and game[1][1] == 2 and game[2][0] == 2) and result == 0:
+            game[0][2] == 2 and game[1][1] == 2 and game[2][0] == 2) and (result == 0):
         result += 2
     if (game[0][0] == 1 and game[1][0] == 1 and game[2][0] == 1) or (
             game[0][1] == 1 and game[1][1] == 1 and game[2][1] == 1) or (
-            game[0][2] == 1 and game[1][2] == 1 and game[1][2] == 1) and result == 0:
+            game[0][2] == 1 and game[1][2] == 1 and game[1][2] == 1) and (result == 0):
         result += 1
     if (game[0][0] == 2 and game[1][0] == 2 and game[2][0] == 2) or (
             game[0][1] == 2 and game[1][1] == 2 and game[2][1] == 2) or (
-            game[0][2] == 2 and game[1][2] == 2 and game[1][2] == 2) and result == 0:
+            game[0][2] == 2 and game[1][2] == 2 and game[1][2] == 2) and (result == 0):
         result += 2
     for row in game:
         if len(set(row)) == 1:
