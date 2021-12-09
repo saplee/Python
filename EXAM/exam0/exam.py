@@ -198,7 +198,10 @@ def create_student(name: str, grades: list, credit_points: int) -> Student:
     sum = 0
     for grade in grades:
         sum += grade
-    average_grade = sum / len(grades)
+    if len(grades) == 0:
+        average_grade = 0
+    else:
+        average_grade = sum / len(grades)
     return Student(name, average_grade, credit_points)
 
 
