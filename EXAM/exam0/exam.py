@@ -113,9 +113,6 @@ def tic_tac_toe(game: list) -> int:
     return result
 
 
-print(tic_tac_toe([[1, 2, 1], [2, 2, 2], [2, 2, 1]]))
-
-
 def rainbows(field: str) -> int:
     """
     The function to count rainbows.
@@ -163,7 +160,24 @@ def longest_substring(text: str) -> str:
     abBcd => Bcd
     '' -> ''
     """
-    pass
+    word = ""
+    result = ""
+    for number in range(len(text) - 1):
+        if text[number].lower() != text[number + 1].lower():
+            word += text[number]
+            for number_2 in range(number + 1, len(text)):
+                if number_2 != len(text) - 1 and text[number_2].lower() in word.lower():
+                    break
+                if number_2 == len(text) - 1 and text[number_2].lower() not in word.lower():
+                    word += text[number_2]
+                if number_2 != len(text) - 1 and text[number_2].lower() not in word.lower():
+                    word += text[number_2]
+            if len(result) < len(word):
+                result = word
+                word = ""
+            else:
+                word = ""
+    return result
 
 
 class Student:
