@@ -85,7 +85,7 @@ def follow_the_line(robot: FollowerBot):
         elif sensor_3 < 200 and sensor_4 < 200 and sensor_2 < 200 and sensor_5 < 200:
             a(robot)
 
-        elif sensor_6 < 200 and sensor_2 > 600 and sensor_3 > 600 and sensor_4 > 600 and sensor_5 > 600:
+        elif sensor_6 < 200:
             while True:
                 robot.set_right_wheel_speed(50)
                 robot.set_left_wheel_speed(0)
