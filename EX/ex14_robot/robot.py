@@ -68,7 +68,7 @@ def follow_the_line(robot: FollowerBot):
         if sensor_6 < 200 and sensor_3 > 200 and sensor_4 > 200 and sensor_2 > 200 and sensor_5 > 200:
             while True:
                 print("tere")
-                robot.set_right_wheel_speed(50)
+                robot.set_right_wheel_speed(20)
                 robot.set_left_wheel_speed(0)
                 new_sensor_3 = robot.get_left_line_sensor()
                 new_sensor_4 = robot.get_right_line_sensor()
