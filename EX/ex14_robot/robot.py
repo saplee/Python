@@ -41,8 +41,10 @@ def a(robot):
         robot.set_left_wheel_speed(25)
         new_sensor_5 = robot.get_second_line_sensor_from_right()
         new_sensor_2 = robot.get_second_line_sensor_from_left()
+        new_sensor_3 = robot.get_left_line_sensor()
+        new_sensor_4 = robot.get_right_line_sensor()
         robot.sleep(0.01)
-        if new_sensor_5 >= 700 or new_sensor_2 >= 700:
+        if new_sensor_5 >= 700 or new_sensor_2 >= 700 or new_sensor_3 >= 700 or new_sensor_4 >= 700:
             robot.set_wheels_speed(0)
             break
 
@@ -65,18 +67,7 @@ def follow_the_line(robot: FollowerBot):
         sensor_5 = robot.get_second_line_sensor_from_right()
         sensor_6 = robot.get_third_line_sensor_from_right()
         print(robot.get_line_sensors())
-        if sensor_6 < 200 and sensor_3 > 200 and sensor_4 > 200 and sensor_2 > 200 and sensor_5 > 200:
-            while True:
-                print("tere")
-                robot.set_right_wheel_speed(10)
-                robot.set_left_wheel_speed(0)
-                new_sensor_3 = robot.get_left_line_sensor()
-                new_sensor_4 = robot.get_right_line_sensor()
-                robot.sleep(0.01)
-                if new_sensor_3 < 200 and new_sensor_4 < 200:
-                    robot.set_wheels_speed(0)
-                    break
-        elif sensor_2 >= 700 and (sensor_4 < 200 or sensor_5 < 200 or sensor_6 < 200):
+        if sensor_2 >= 700 and (sensor_4 < 200 or sensor_5 < 200 or sensor_6 < 200):
             while True:
                 print("world")
                 robot.set_right_wheel_speed(55)
