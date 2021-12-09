@@ -75,6 +75,7 @@ def follow_the_line(robot: FollowerBot):
                 new_sensor_2 = robot.get_second_line_sensor_from_left()
                 robot.sleep(0.05)
                 if new_sensor_2 >= 700:
+                    print("tere")
                     break
         if sensor_1 >= 700 and sensor_2 >= 700 and sensor_3 >= 700 and sensor_4 >= 700 and sensor_5 >= 700 and sensor_6 >= 700:
             robot.set_wheels_speed(100)
