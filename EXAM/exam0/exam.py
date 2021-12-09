@@ -201,7 +201,7 @@ def create_student(name: str, grades: list, credit_points: int) -> Student:
     if len(grades) == 0:
         average_grade = 0
     else:
-        average_grade = sum / len(grades)
+        average_grade = round(sum / len(grades), 3)
     return Student(name, average_grade, credit_points)
 
 
@@ -212,13 +212,18 @@ def get_top_student_with_credit_points(students: list, min_credit_points: int):
     If there are no students with enough credit points, return None.
     If several students have the same average score, return the first.
     """
+    averagne_grade = 0
     student = []
-    min_number = 0
+    count = 0
     for name in students:
-        if name.credit_points >= min_credit_points and name.credit_points > min_number:
-            min_number = name.credit_points
-            student.append(name)
-    return student
+        if name.credit_points >= min_credit_points and name.average_grade > averagne_grade:
+            averagne_grade = name.average_grade
+            student = name
+            count += 1
+    if count == 0:
+        return None
+    else:
+        return student
 
 
 def add_result_to_student(student: Student, grades_count: int, new_grade: int, credit_points) -> Student:
