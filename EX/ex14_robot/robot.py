@@ -64,6 +64,7 @@ def follow_the_line(robot: FollowerBot):
         sensor_4 = robot.get_right_line_sensor()
         sensor_5 = robot.get_second_line_sensor_from_right()
         sensor_6 = robot.get_third_line_sensor_from_right()
+        print(robot.get_line_sensors())
         if sensor_2 >= 700 and (sensor_4 < 200 or sensor_5 < 200 or sensor_6 < 200):
             while True:
                 robot.set_right_wheel_speed(55)
