@@ -21,7 +21,6 @@ def drive_to_line(robot: FollowerBot):
     :param FollowerBot robot: instance of the robot that you need to make move
     """
     while True:
-        print("otse")
         robot.set_wheels_speed(10)
         robot.sleep(0.1)
         sensor_x = robot.get_left_line_sensor()
@@ -38,6 +37,7 @@ def drive_to_line(robot: FollowerBot):
 def a(robot):
     """K."""
     while True:
+        print("otse")
         robot.set_right_wheel_speed(25)
         robot.set_left_wheel_speed(25)
         new_sensor_5 = robot.get_second_line_sensor_from_right()
