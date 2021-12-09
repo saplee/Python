@@ -212,12 +212,12 @@ def get_top_student_with_credit_points(students: list, min_credit_points: int):
     If there are no students with enough credit points, return None.
     If several students have the same average score, return the first.
     """
-    averagne_grade = 0
+    average_grade = 0
     student = []
     count = 0
     for name in students:
-        if name.credit_points >= min_credit_points and name.average_grade > averagne_grade:
-            averagne_grade = name.average_grade
+        if name.credit_points >= min_credit_points and name.average_grade > average_grade:
+            average_grade = name.average_grade
             student = name
             count += 1
     if count == 0:
