@@ -50,6 +50,18 @@ def a(robot):
             break
 
 
+def turn_left(robot):
+    """Turn left."""
+    while True:
+        robot.set_right_wheel_speed(35)
+        robot.set_left_wheel_speed(55)
+        new_sensor_2 = robot.get_second_line_sensor_from_left()
+        robot.sleep(0.01)
+        if new_sensor_2 >= 700:
+            robot.set_wheels_speed(0)
+            break
+
+
 def follow_the_line(robot: FollowerBot):
     """
     Create a FollowerBot that will follow a black line until the end of that line.
@@ -76,7 +88,6 @@ def follow_the_line(robot: FollowerBot):
         sensor_4 = robot.get_right_line_sensor()
         sensor_5 = robot.get_second_line_sensor_from_right()
         sensor_6 = robot.get_third_line_sensor_from_right()
-        print(robot.get_line_sensors())
         if sensor_2 >= 700 and (sensor_4 < 200 or sensor_5 < 200 or sensor_6 < 200):
             while True:
                 robot.set_right_wheel_speed(55)
@@ -87,14 +98,7 @@ def follow_the_line(robot: FollowerBot):
                     robot.set_wheels_speed(0)
                     break
         elif sensor_5 >= 700 and (sensor_3 < 200 or sensor_2 < 200 or sensor_1 < 200):
-            while True:
-                robot.set_right_wheel_speed(35)
-                robot.set_left_wheel_speed(55)
-                new_sensor_2 = robot.get_second_line_sensor_from_left()
-                robot.sleep(0.01)
-                if new_sensor_2 >= 700:
-                    robot.set_wheels_speed(0)
-                    break
+            turn_left(robot)
         elif sensor_3 < 200 and sensor_4 < 200 and sensor_2 < 200 and sensor_5 < 200:
             a(robot)
         elif sensor_1 >= 700 and sensor_2 >= 700 and sensor_3 >= 700 and sensor_4 >= 700 and sensor_5 >= 700 and sensor_6 >= 700:
