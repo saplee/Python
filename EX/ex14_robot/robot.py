@@ -111,6 +111,7 @@ def follow_the_line(robot: FollowerBot):
                     robot.set_wheels_speed(0)
                     break
         elif sensor_1 >= 700 and sensor_2 >= 700 and sensor_3 >= 700 and sensor_4 >= 700 and sensor_5 >= 700 and sensor_6 >= 700:
+            print("pidu läbi")
             robot.set_wheels_speed(100)
             robot.sleep(0.1)
             break
