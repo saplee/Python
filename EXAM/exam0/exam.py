@@ -166,11 +166,9 @@ def longest_substring(text: str) -> str:
         if text[number].lower() != text[number + 1].lower():
             word += text[number]
             for number_2 in range(number + 1, len(text)):
-                if number_2 != len(text) - 1 and text[number_2].lower() in word.lower():
+                if text[number_2].lower() in word.lower():
                     break
-                if number_2 == len(text) - 1 and text[number_2].lower() not in word.lower():
-                    word += text[number_2]
-                if number_2 != len(text) - 1 and text[number_2].lower() not in word.lower():
+                if text[number_2].lower() not in word.lower():
                     word += text[number_2]
             if len(result) < len(word):
                 result = word
