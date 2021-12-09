@@ -62,7 +62,7 @@ def follow_the_line(robot: FollowerBot):
                     break
         elif sensor_5 >= 700 and (sensor_3 < 200 or sensor_2 < 200 or sensor_1 < 200):
             while True:
-                robot.set_right_wheel_speed(50)
+                robot.set_right_wheel_speed(45)
                 robot.set_left_wheel_speed(70)
                 new_sensor_2 = robot.get_second_line_sensor_from_left()
                 robot.sleep(0.01)
