@@ -262,7 +262,9 @@ def add_result_to_student(student: Student, grades_count: int, new_grade: int, c
     calculated_sum = student.average_grade * grades_count
     new_average = round((calculated_sum + new_grade) / (grades_count + 1), 3)
     new_credit_points = student.credit_points + credit_points
-    return Student(student.name, new_average, new_credit_points)
+    student.average_grade = new_average
+    student.credit_points = new_credit_points
+    return student
 
 
 def get_ordered_students(students: list) -> list:
