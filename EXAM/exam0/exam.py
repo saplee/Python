@@ -259,7 +259,9 @@ def add_result_to_student(student: Student, grades_count: int, new_grade: int, c
 
     Return the modified student object.
     """
-    pass
+    new_average = round((student.average_grade * grades_count + new_grade) / grades_count + 1, 3)
+    new_credit_points = student.credit_points + credit_points
+    return Student(student.name, new_average, new_credit_points)
 
 
 def get_ordered_students(students: list) -> list:
@@ -268,7 +270,10 @@ def get_ordered_students(students: list) -> list:
 
     credit points (higher first), average_grade (higher first), name (a to z).
     """
-    pass
+    new_list = sorted(students, key=lambda x: x.name)
+    my_list = sorted(new_list, key=lambda x: x.average_grade, reverse=True)
+    result = sorted(my_list, key=lambda x: x.credit_points, reverse=True)
+    return result
 
 
 class Room:
@@ -276,7 +281,8 @@ class Room:
 
     def __init__(self, number: int, price: int):
         """Constructor."""
-        pass
+        self.number = number
+        self.price = price
 
     def add_feature(self, feature: str) -> bool:
         """
