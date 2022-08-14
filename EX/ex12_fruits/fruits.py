@@ -188,3 +188,4 @@ class Customer:
     def add_new_order(self, order):
         """Add order to list."""
         self.orders.append(order)
+
