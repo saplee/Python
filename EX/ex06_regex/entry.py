@@ -52,7 +52,7 @@ def parse(row: str) -> Entry:
     :param row: String representation of the data.
     :return: Entry object with filled values
     """
-    new_row = ""
+    new_row = ''
     date = re.search(r'(\d\d)[-](\d\d)-(\d\d\d\d)', row)
     if date is None:
         format_date = None
@@ -76,7 +76,7 @@ def parse(row: str) -> Entry:
     else:
         first_name = word.group(1)
         last_name = word.group(2)
-    phone = re.search(r'(\+\d\d\d)?[\s]?[0-9]{7,8}', row)
+    phone = re.search(r'(\+\d\d\d)?[\s]?[0-9]{7,8}', new_row)
     if phone is None:
         phone_number = None
     else:
