@@ -76,7 +76,7 @@ def parse(row: str) -> Entry:
     else:
         first_name = word.group(1)
         last_name = word.group(2)
-    phone = re.search(r'(\+\d\d\d)?[\s]?[0-9]{7,8}', new_row)
+    phone = re.search(r'(\+\d\d\d)?[\s]?[0-9]{7,8}', row)
     if phone is None:
         phone_number = None
     else:
